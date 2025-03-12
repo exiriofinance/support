@@ -1,0 +1,7 @@
+# Connect to Fidelity
+
+**Article ID**: 80000893942
+**Folder**: Connecting external Institutions (ID: 80000646387)
+**Category**: Connections
+
+<h3 dir="ltr" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-weight: 400; line-height: 30.63px; color: rgb(0, 0, 0); margin-bottom: 0px; margin-left: 0px; font-size: 1.17em; text-align: justify; text-indent: 0px;"><span dir="ltr" style="font-size: 16px;"><span style="color: rgb(0, 0, 0); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;  text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">Fidelity connectivity is restricted during daily windows.</span> </span><br><span dir="ltr" style="font-size: 16px;">To maintain system stability, Fidelity currently limits access during high-volume windows. As a result, please expect unavailability between 9-10:30am and 3-4:30pm ET. We recommend end users link Fidelity accounts between 5pm - 9am ET.</span></h3>

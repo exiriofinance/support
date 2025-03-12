@@ -1,0 +1,7 @@
+# Realized Gain
+
+**Article ID**: 80000605393
+**Folder**: Return Metrics (ID: 80000267984)
+**Category**: Glossary
+
+<p dir="ltr"><span dir="ltr" style="font-size: 16px;"><a href="https://support.exirio.com/en/support/solutions/articles/80000369084"></a></span></p><p dir="ltr" style="margin-left: 0in; font-size: 15px; font-family:  margin-bottom: 8pt; line-height: 200%; text-align: justify;"><span style="font-size: 18px; line-height: 200%;"><strong>Realized Gain </strong>is the cash value of the gain (or loss) from an <a href="https://support.exirio.com/en/support/solutions/articles/80000253643">Investment</a>, already materialized (through a sale).</span><span style="font-size: 18px;"> <span dir="ltr" style="line-height: 200%;"> We do not display it as It is simply the difference between <a href="https://support.exirio.com/en/support/solutions/articles/80000369084"><span style="color: rgb(19, 28, 60);"></span></a><a href="https://support.exirio.com/en/support/solutions/articles/80000369084">Total Gain</a></span> and <a href="https://support.exirio.com/en/support/solutions/articles/80000605392">Unrealized Gain</a>.</span>  </p>

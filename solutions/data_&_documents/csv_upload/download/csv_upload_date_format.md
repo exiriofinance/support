@@ -1,0 +1,7 @@
+# CSV upload: date format
+
+**Article ID**: 80000831206
+**Folder**: CSV Upload/Download (ID: 80000187170)
+**Category**: Data & Documents
+
+<p style="margin-left: 0in; font-size: 15px; font-family: margin-bottom: 8pt; line-height: 200%; text-align: justify;"><span dir="ltr" style="font-size: 16px; line-height: 200%; font-family: ; color: rgb(19, 28, 60);">When you are uploading data on Exirio with a CSV file (<a href="https://support.exirio.com/en/support/solutions/articles/80000253648">Holdings</a>, <a href="https://support.exirio.com/en/support/solutions/articles/80000375776">Transactions</a>, <a href="https://support.exirio.com/en/support/solutions/articles/80000831235">Valuations </a>or <a href="https://support.exirio.com/en/support/solutions/articles/80000464987">Balances</a>) please use <span style="color: rgb(19, 28, 60); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;  text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;"> dd/mm/yyyy</span> as date format.</span></p>

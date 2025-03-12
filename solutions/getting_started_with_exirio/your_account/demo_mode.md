@@ -1,0 +1,7 @@
+# Demo mode
+
+**Article ID**: 80000711206
+**Folder**: Your account (ID: 80000187167)
+**Category**: Getting started with Exirio
+
+<p style="box-sizing: border-box; margin-bottom: 0px; margin-left: 0in; font-size: 16px; line-height: 32px; word-break: normal; overflow-wrap: break-word; text-align: justify;"><span dir="ltr" style="box-sizing: border-box; font-size: 16px; line-height: 32px;">You don't have to create an account to give Exirio a try. </span></p><p style="box-sizing: border-box; margin-bottom: 0px; margin-left: 0in; font-size: 16px; line-height: 32px; word-break: normal; overflow-wrap: break-word; text-align: justify;"><span dir="ltr" style="box-sizing: border-box; font-size: 16px; line-height: 32px;">On <a href="https://www.exirio.com/get-started/">https://www.exirio.com/get-started/</a>, you can choose to view and edit a set of sample assets. Or you can add more, and save them later if you decide to create an account. </span></p><p style="box-sizing: border-box; margin-bottom: 0px; margin-left: 0px; font-size: 13px; line-height: 18px; word-break: normal; overflow-wrap: break-word;"><br style="box-sizing: border-box;"></p><div class="attachment-thumb ember-view" style="box-sizing: border-box; word-break: normal; overflow-wrap: break-word; font-size: 13px; line-height: 18px; color: rgb(24, 50, 71); font-family: -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-weight: 400; text-align: start; text-indent: 0px;"><br class="Apple-interchange-newline"></div>

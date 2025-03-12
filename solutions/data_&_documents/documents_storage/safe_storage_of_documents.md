@@ -1,0 +1,7 @@
+# Safe storage of documents
+
+**Article ID**: 80000821027
+**Folder**: Documents storage (ID: 80000596735)
+**Category**: Data & Documents
+
+<p style="box-sizing: border-box; margin-bottom: 0px; margin-left: 0in; font-size: 15px; line-height: 30px; word-break: normal; overflow-wrap: break-word; text-align: justify;"><span dir="ltr" style="box-sizing: border-box; font-size: 16px; line-height: 32px;">You can store on Exirio all documents associated with each of your Holdings (mortgage contract, account opening documents, etc.), in a general or Holding-specific vault, so that all your personal financial information can be safely stored in one place. </span></p><p style="box-sizing: border-box; margin-bottom: 0px; margin-left: 0in; font-size: 15px; line-height: 30px; word-break: normal; overflow-wrap: break-word; text-align: justify;"><span dir="ltr" style="box-sizing: border-box; font-size: 16px; line-height: 32px;">All documents uploaded are encrypted in transit and at rest with bank-grade security. </span></p><p style="box-sizing: border-box; margin-bottom: 0px; margin-left: 0in; font-size: 15px; line-height: 30px; word-break: normal; overflow-wrap: break-word; text-align: justify;"><span dir="ltr" style="box-sizing: border-box; font-size: 16px; line-height: 32px;">Each account has 1GB of free storage space, with each file not exceeding 100MB size.</span></p>
