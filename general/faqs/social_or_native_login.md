@@ -1,0 +1,11 @@
+# Social or native login?
+
+**Article ID**: 80000529183
+**Folder**: FAQs (ID: 80000187108)
+**Category**: General
+
+You can choose whether to register/login using one of the social options (Facebook, Google, LinkedIn, Apple), or with an email and password of your choice.
+
+When you opt for a social login we do NOT get any data, other than your first name, last name, email address and picture. And if you choose this option, you can avail the extra security of [2FA](https://support.exirio.com/en/support/solutions/articles/80000529109).
+
+If you opt for one of the social options, you can still access your account by setting a password for the email associated with the social account you have used (by clicking on "Forgot password" on the login page). One exception is for Apple, since Apple gives the users the ability to mask their email address when using their credentials for registration or login: if you want to use your Apple account and still be able to access your Exirio account with your own password, you need to select the "Share My Email" option in the settings of your iOS device.
