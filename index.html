@@ -41,7 +41,7 @@
 
         .sidebar {
             width: var(--sidebar-width);
-            background-color: white;
+            background-color: var(--primary-color);
             padding: 2rem;
             position: fixed;
             height: 100vh;
@@ -50,12 +50,17 @@
             box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
         }
 
+        .sidebar .logo {
+            width: 150px;
+            margin-bottom: 2rem;
+        }
+
         .sidebar h2 {
-            color: var(--primary-color);
+            color: white;
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--border-color);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
         }
 
         .sidebar ul {
@@ -67,21 +72,25 @@
         }
 
         .sidebar a {
-            color: var(--text-color);
+            color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
             display: block;
             padding: 0.5rem 0;
             font-size: 0.9rem;
-            transition: color 0.2s ease;
+            transition: all 0.2s ease;
         }
 
         .sidebar a:hover {
-            color: var(--accent-color);
+            color: white;
+            padding-left: 0.5rem;
         }
 
         .sidebar .active {
-            color: var(--accent-color);
+            color: white;
             font-weight: 600;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            padding: 0.5rem;
         }
 
         main {
@@ -191,6 +200,7 @@
 </head>
 <body>
     <nav class="sidebar">
+        <img src="https://www.exirio.com/wp-content/uploads/2022/03/ExirioLogo.svg" alt="Exirio Logo" class="logo">
         <h2>Navigation</h2>
         <ul>
             <li><a href="#general">1. General</a></li>
