@@ -1,0 +1,9 @@
+# Total Gain
+
+<p style="margin-left: 0in; font-size: 15px; font-family: margin-bottom: 8pt; line-height: 200%; text-align: justify;"><span dir="ltr" style="font-size: 16px; line-height: 200%;"><strong>Total Gain</strong>. Along with MWR, this is what we think you really want to be able to see clearly.</span></p>
+
+<p style="margin-left: 0in; font-size: 15px; font-family: margin-bottom: 8pt; line-height: 200%; text-align: justify;"><span style="font-size: 16px;"><span dir="ltr" style="line-height: 200%;">Have you made any money from your Investment? Total Gain is the absolute gain (or loss) in monetary terms associated with the Investment, either already partially or fully materialized or still <a href="https://support.exirio.com/en/support/solutions/articles/80000388165">unrealized</a>. &nbsp;</span></span></p>
+
+<p style="margin-left: 0in; font-size: 15px; font-family: margin-bottom: 8pt; line-height: 200%; text-align: justify;"><span style="font-size: 16px;"><span style="line-height: 200%;">As an example, if you bought a house for 100,000 USD a year ago, rented it for 10,000 USD and it’s now worth 120,000 USD, the Total Gai</span><span style="line-height: 200%;">n is equal to 30,000 USD.&nbsp;</span></span></p>
+
+<p style="margin-left: 0in; font-size: 15px; font-family: margin-bottom: 8pt; line-height: 200%; text-align: justify;"><span dir="ltr" style="font-size: 16px; line-height: 200%;">On your <a href="https://support.exirio.com/en/support/solutions/articles/80000375834">Home&nbsp;</a>page, the Total Gain metric is the sum of the gains of all your Investments - it excludes variations in Cash and Loans.</span></p>
