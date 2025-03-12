@@ -1,0 +1,13 @@
+# Liquid vs illiquid investments
+
+<p style="margin-left: 0in; font-size: 15px; font-family: margin-bottom: 8pt; line-height: 200%; text-align: justify;"><span dir="ltr" style="font-size: 16px; line-height: 200%;"><strong>Liq</strong><strong dir="ltr">uid investments</strong> are assets that can be converted into cash:</span></p>
+
+<ol style="list-style-type: lower-roman;"><li style="font-size: 15px; font-family: margin-bottom: 8pt; line-height: 200%; text-align: justify;"><span style="font-size: 16px;"><span dir="ltr" style="line-height: 200%;">easily,&nbsp;</span></span></li><li style="font-size: 15px; font-family: margin-bottom: 8pt; line-height: 200%; text-align: justify;"><span style="font-size: 16px;"><span dir="ltr" style="line-height: 200%;">rapidly,&nbsp;</span></span></li><li style="font-size: 15px; font-family: margin-bottom: 8pt; line-height: 200%; text-align: justify;"><span style="font-size: 16px;"><span dir="ltr" style="line-height: 200%; color: rgb(19, 28, 60);">and without losing a substantial amount of their value.&nbsp;</span></span></li></ol>
+
+<p style="margin-left: 0in; font-size: 15px; font-family: margin-bottom: 8pt; line-height: 200%; text-align: justify;"><span style="font-size: 16px;"><span dir="ltr" style="line-height: 200%;"><span style="color: rgb(19, 28, 60); font-family: font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;  text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">As a consequence, their valuations are generally known with a high degree of certainty.</span>&nbsp;</span></span></p>
+
+<p style="margin-left: 0in; font-size: 15px; font-family: margin-bottom: 8pt; line-height: 200%; text-align: justify;"><span style="font-size: 16px;"><span dir="ltr" style="line-height: 200%; color: rgb(19, 28, 60);">Conversely, <strong>i</strong><strong dir="ltr">lliquid investments</strong> are assets for which at least one of the three conditions above is not satisfied.&nbsp;</span></span></p>
+
+<p style="margin-left: 0in; font-size: 15px; font-family: margin-bottom: 8pt; line-height: 200%; text-align: justify;"><span style="font-size: 16px;"><br/></span></p>
+
+<p style="margin-left: 0in; font-size: 15px; font-family: margin-bottom: 8pt; line-height: 200%; text-align: justify;"><br/></p>

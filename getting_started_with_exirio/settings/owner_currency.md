@@ -1,0 +1,11 @@
+# Owner Currency
+
+<p style="margin-left: 0in; font-size: 16px; font-family: margin-bottom: 8pt; line-height: 200%; text-align: justify;"><span dir="ltr" style="font-size: 16px; line-height: 200%; font-family: color: rgb(19, 28, 60);">Once you have created an account, by default you are the owner of the account and the <a href="https://support.exirio.com/en/support/solutions/articles/80000388166">Holdings&nbsp;</a>in it.</span></p>
+
+<p style="margin-left: 0in; font-size: 15px; font-family: margin-bottom: 8pt; line-height: 200%; text-align: justify;"><span style="font-size: 16px;"><span dir="ltr" style="line-height: 200%; font-family: color: rgb(19, 28, 60);">You can define your Owner Currency (the currency you want your wealth to be displayed in) by selecting Settings and then Owner Settings on your <a href="https://support.exirio.com/en/support/solutions/articles/80000375834">Home</a> page.&nbsp;</span></span></p>
+
+<p style="margin-left: 0in; font-size: 15px; font-family: margin-bottom: 8pt; line-height: 200%; text-align: justify;"><span style="font-size: 16px;"><span dir="ltr" style="line-height: 200%; font-family: color: rgb(19, 28, 60);">If you have multiple Holdings denominated in multiple currencies, they will be aggregated on the Home page in the currency you have chosen as the Owner Currency.&nbsp;</span></span></p>
+
+<p style="margin-left: 0in; font-size: 15px; font-family: margin-bottom: 8pt; line-height: 200%; text-align: justify;"><span style="font-size: 16px;"><span style="line-height: 200%; font-family: color: rgb(19, 28, 60);">The FX rates used to convert your Holdings into Owner Currency are the closing rates for the dates the conversion occurs. This means that if for example you look at your wealth on 14 April 2018, the conversion will have been done at the closing FX rates on 13 April 2018.</span></span></p>
+
+  

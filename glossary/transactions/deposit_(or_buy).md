@@ -1,0 +1,9 @@
+# Deposit (or Buy)
+
+<p style="margin-bottom: 11pt; margin-left: 0in; line-height: 200%; font-size: 15px; text-align: justify;"><span dir="ltr" style="font-size: 16px; line-height: 200%; font-family:color: rgb(19, 28, 60);">A <strong>Deposit</strong> Transaction occurs when you make a new Investment, or when you put more money into an existing Investment.</span></p>
+
+<p style="margin-bottom: 11pt; margin-left: 0in; line-height: 200%; font-size: 15px; text-align: justify;"><span dir="ltr" style="font-size: 16px; line-height: 200%; font-family:color: rgb(19, 28, 60);">If you buy a house for 200,000 USD, on Exirio you add it as a new Investment and a Deposit for that amount is automatically created. If you add $50,000 to an existing Broker Account, you have deposited that amount in the Broker Account Investment. The important thing to recognise with a Deposit is that the value of your Investment increases (the value of your Broker Account will be $50,000 larger after you have made the Deposit).</span></p>
+
+<p style="margin-bottom: 11pt; margin-left: 0in; line-height: 200%; font-size: 15px; text-align: justify;"><span dir="ltr" style="font-size: 16px; line-height: 200%; font-family:color: rgb(19, 28, 60);">On Exirio, we use the term <strong>Buy&nbsp;</strong>instead of Deposit every time you are working on Security Portfolios, Crypto or Precious Metals: but the meaning is exactly the same.</span></p>
+
+<p style="margin-bottom: 11pt; margin-left: 0in; line-height: 200%; font-size: 15px; text-align: justify;"><span dir="ltr" style="font-size: 16px; line-height: 200%; font-family:color: rgb(19, 28, 60);">On the graphs, changes in value caused by a Deposit (or Buy) are marked with a D (or B).</span></p>

@@ -1,0 +1,9 @@
+# Recurrent transactions
+
+<span "helvetica="" 0px;="" 13px;="" 400;="" arial,="" auto;"="" block;="" class="fr-view collab-annotatable" cursor:="" data-test-id="article-description" display:="" font-size:="" font-weight:="" neue",="" roboto,="" sans-serif;="" segoe="" start;="" style="box-sizing: border-box; overflow-wrap: break-word; color: rgb(24, 50, 71); font-family: -apple-system, BlinkMacSystemFont, " text-align:="" text-indent:="" ui",=""></span>
+
+<p style="box-sizing: border-box; margin-bottom: 8pt; margin-left: 0in; font-size: 15px; line-height: 30px; word-break: normal; overflow-wrap: break-word; text-align: justify;"><span dir="ltr" style="box-sizing: border-box; font-size: 16px; line-height: 32px;">A <strong>Recurrent&nbsp;</strong><strong style="box-sizing: border-box; font-weight: 700;">Transaction</strong> is a Transaction that occurs with a predetermined frequency.&nbsp;</span></p>
+
+<p style="box-sizing: border-box; margin-bottom: 8pt; margin-left: 0in; font-size: 15px; line-height: 30px; word-break: normal; overflow-wrap: break-word; text-align: justify;"><span style="box-sizing: border-box; font-size: 16px;"><span dir="ltr" style="box-sizing: border-box; line-height: 32px;">On the Transaction tab of any Investment you can access them Recurrent Transaction table, where you can set, modify or delete them.&nbsp;</span></span></p>
+
+<div "helvetica="" 0px;"="" 400;="" arial,="" class="attachment-thumb ember-view" font-weight:="" neue",="" roboto,="" sans-serif;="" segoe="" start;="" style="box-sizing: border-box; word-break: normal; overflow-wrap: break-word; font-size: 13px; line-height: 18px; color: rgb(24, 50, 71); font-family: -apple-system, BlinkMacSystemFont, " text-align:="" text-indent:="" ui",=""><br class="Apple-interchange-newline"/></div>
