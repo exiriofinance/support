@@ -1,5 +1,0 @@
-# Connect to Fidelity
-
-Fidelity connectivity is restricted during daily windows.
-
-To maintain system stability, Fidelity currently limits access during high-volume windows. As a result, please expect unavailability between 9-10:30am and 3-4:30pm ET. We recommend end users link Fidelity accounts between 5pm - 9am ET.

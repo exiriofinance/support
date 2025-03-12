@@ -1,5 +1,0 @@
-# Historical Performance
-
-<p style="margin-left: 0in; font-size: 15px; font-family: margin-bottom: 8pt; line-height: 200%; text-align: justify;"><span style="font-size: 16px; line-height: 200%;"><strong>Historical Performance</strong> means how your wealth has evolved over time.&nbsp;</span></p>
-
-<p style="margin-left: 0in; font-size: 15px; font-family: margin-bottom: 8pt; line-height: 200%; text-align: justify;"><span dir="ltr" style="font-size: 16px; line-height: 200%;">On your<a href="https://support.exirio.com/en/support/solutions/articles/80000375834">&nbsp;Home</a> page the most recent number is displayed in digits but on the graph, you can visually identify how your wealth has developed over time (the white line), and by selecting any point you can see the value and breakdown per Holding at a specific date in time.&nbsp;</span></p>

@@ -1,3 +1,0 @@
-# Two-factor authentication (2FA)
-
-Two-factor authentication (2FA) adds an extra layer of security to your Exirio access, and you can choose to enable it (strongly recommended) in your Settings page. Alternatively, it is also available if you use one of the [social login](https://support.exirio.com/en/support/solutions/articles/80000529183) options available (Facebook, Google, LinkedIn, and Apple), and have enabled 2FA with the social platform of your choice.
