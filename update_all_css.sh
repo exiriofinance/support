@@ -1,9 +1,46 @@
+#!/bin/bash
+
+# Directories containing the files to update
+DIRECTORIES=(
+    "general"
+    "graphs"
+    "connections"
+    "instructions"
+    "data_&_documents"
+    "currencies"
+    "getting_started_with_exirio"
+    "glossary"
+)
+
+# Function to process a file
+process_file() {
+    local file="$1"
+    
+    # Skip if not an HTML file
+    if [[ ! "$file" == *.html ]]; then
+        return
+    fi
+    
+    # Get the filename without path
+    filename=$(basename "$file")
+    
+    # Extract the title from the filename (replace underscores with spaces and remove extension)
+    title=$(echo "$filename" | sed 's/\.md\.html$//' | sed 's/\.html$//' | sed 's/_/ /g' | sed 's/-/ /g')
+    
+    # Capitalize the first letter of each word in the title
+    title=$(echo "$title" | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)} 1')
+    
+    # Get the content of the file (everything between <body> and </body> tags if they exist, otherwise the whole file)
+    content=$(grep -v "<!DOCTYPE html>" "$file" | grep -v "<html" | grep -v "</html>" | grep -v "<head>" | grep -v "</head>" | grep -v "<body>" | grep -v "</body>" | grep -v "<style>" | grep -v "</style>" | grep -v "<meta" | grep -v "<title>" | grep -v "<link")
+    
+    # Create the new file content with our template
+    cat > "$file.new" << EOF
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Holding Currency - Exirio Support</title>
+    <title>$title - Exirio Support</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -143,24 +180,38 @@
     </style>
 </head>
 <body>
-<h1 id="holding-currency">Holding Currency</h1>
-<p style="margin-bottom: 8pt; margin-left: 0in; line-height: 200%; font-size: 16px; text-align: justify;">
-<span
-style="font-size:16px;line-height:200%;font-family:color:#131C3C;">For
-each
-<a href="http://support.exirio.com/en/support/solutions/articles/80000388166">Holding</a>,
-the data displayed is by default in the currency of that specific
-Holding, but you can use the currency selector (Holding
-Currency/<a href="http://support.exirio.com/en/support/solutions/articles/80000369318">Owner
-Currency</a>) to switch to your own reference currency. </span>
-</p>
-<p style="margin-bottom: 8pt; margin-left: 0in; line-height: 200%; font-size: 15px; text-align: justify;">
-<span dir="ltr"
-style="font-size:16px;line-height:200%;font-family:;color:#131C3C;">Your
-MWR and Total Gain may change, showing how much of your return has been
-created by the actual performance of the Holding, or
-by<a href="http://support.exirio.com/en/support/solutions/articles/80000375775"> currency
-fluctuations</a>.</span>
-</p>
+$content
 </body>
 </html>
+EOF
+
+    # Replace the original file with the new one
+    mv "$file.new" "$file"
+    
+    echo "Updated: $file"
+}
+
+# Function to process a directory recursively
+process_directory() {
+    local dir="$1"
+    
+    # Check if directory exists
+    if [ ! -d "$dir" ]; then
+        echo "Directory not found: $dir"
+        return
+    fi
+    
+    echo "Processing directory: $dir"
+    
+    # Find all HTML files in the directory and its subdirectories
+    find "$dir" -type f -name "*.html" | while read -r file; do
+        process_file "$file"
+    done
+}
+
+# Process each directory
+for dir in "${DIRECTORIES[@]}"; do
+    process_directory "$dir"
+done
+
+echo "All files have been updated with the new CSS formatting." 
