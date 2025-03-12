@@ -1,3 +1,0 @@
-# Account Management
-
-<p style="margin-left: 0in; font-size: 15px; font-family: margin-bottom: 8pt; line-height: 200%; text-align: justify;"><span style="font-size: 16px; line-height: 200%; color: rgb(19, 28, 60);">In <strong dir="ltr">Account Management</strong>, you are provided instructions on how to change your password, create you password in case of social login, and close your account.&nbsp;</span></p>

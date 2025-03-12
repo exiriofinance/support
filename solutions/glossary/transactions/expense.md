@@ -1,9 +1,0 @@
-# Expense
-
-<p style="margin-left: 0in; font-size: 15px; font-family: margin-bottom: 8pt; line-height: 200%; text-align: justify;"><strong><span style="font-size: 16px; line-height: 200%; font-family: color: rgb(19, 28, 60);">Expense</span></strong><span style="font-size: 16px;"><span style="line-height: 200%; font-family: color: rgb(19, 28, 60);">&nbsp;is a Transaction that you record when an Investment costs you money, but without this cost having a negative impact on the value of the Investment.&nbsp;</span></span></p>
-
-<p style="margin-left: 0in; font-size: 15px; font-family: margin-bottom: 8pt; line-height: 200%; text-align: justify;"><span style="font-size: 16px; line-height: 200%; font-family: color: rgb(19, 28, 60);">For example, when you pay your bank or broker some fees for holding the bonds, funds or shares you bought through them: these costs do not change the value of your Investment. Or when you pay taxes on your property. Thankfully, your apartment will be worth the same before and after paying your taxes!</span></p>
-
-<p style="margin-left: 0in; font-size: 15px; font-family: margin-bottom: 8pt; line-height: 200%; text-align: justify;"><br/></p>
-
-<p style="margin-left: 0in; font-size: 15px; font-family: margin-bottom: 8pt; line-height: 200%; text-align: justify;"><span dir="ltr" style="font-size: 16px; line-height: 200%; font-family: color: rgb(19, 28, 60);">There is one exception to this rule: with Crypto and Savings Accounts &amp; Deposits, the value of the Holding decreases by the value of the Expense suffered. For example, when paying a $1 fee on a $100 savings account, the balance (i.e. the value) of the account will decrease to $99.</span></p>
