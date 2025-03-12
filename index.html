@@ -224,8 +224,7 @@
 </head>
 <body>
     <nav class="sidebar">
-        <img src="https://www.exirio.com/wp-content/uploads/2022/03/ExirioLogo.svg" alt="Exirio Logo" class="logo">
-        <h2>Navigation</h2>
+        <a href="#" onclick="showWelcomeMessage(); return false;"><img src="https://www.exirio.com/wp-content/uploads/2022/03/ExirioLogo.svg" alt="Exirio Logo" class="logo"></a>
         <ul>
             <li><a onclick="showContent('general')">1. General</a>
                 <ul>
@@ -384,6 +383,30 @@
             const contentList = document.createElement('div');
             contentList.innerHTML = sections[sectionId];
             document.getElementById('content-area').appendChild(contentList);
+        }
+
+        // Function to show the welcome message
+        function showWelcomeMessage() {
+            // Clear any section content
+            document.getElementById('content-area').innerHTML = '';
+            
+            // Recreate the welcome message
+            const welcomeMessage = document.createElement('div');
+            welcomeMessage.id = 'welcome-message';
+            welcomeMessage.innerHTML = `
+                <h1>Welcome to Exirio Support</h1>
+                <p>Please select a topic from the menu on the left or contact us in <a href="mailto:support@exirio.com">support@exirio.com</a>.</p>
+            `;
+            
+            // Add iframe back (hidden behind welcome message)
+            const iframe = document.createElement('iframe');
+            iframe.id = 'content-frame';
+            iframe.name = 'content-frame';
+            iframe.title = 'Content';
+            
+            // Append elements to content area
+            document.getElementById('content-area').appendChild(welcomeMessage);
+            document.getElementById('content-area').appendChild(iframe);
         }
 
         // Initialize sidebar links to target the iframe
