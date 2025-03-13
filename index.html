@@ -221,11 +221,95 @@
             margin-bottom: 1rem;
             color: var(--text-color);
         }
+
+        /* Search box styles */
+        .search-container {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        #search-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        #search-button {
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-results {
+            position: absolute;
+            width: 100%;
+            max-height: 300px;
+            overflow-y: auto;
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: none;
+        }
+
+        .search-results.show {
+            display: block;
+        }
+
+        .search-result-item {
+            padding: 0.75rem;
+            cursor: pointer;
+            border-bottom: 1px solid #eee;
+        }
+
+        .search-result-item:hover {
+            background-color: #f5f5f5;
+        }
+
+        .search-result-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            display: block;
+        }
+
+        .search-result-item-title {
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .search-result-item-path {
+            font-size: 0.8rem;
+            color: #666;
+        }
     </style>
 </head>
 <body>
     <nav class="sidebar">
         <a href="#" onclick="showWelcomeMessage(); return false;"><img src="https://www.exirio.com/wp-content/uploads/2022/03/ExirioLogo.svg" alt="Exirio Logo" class="logo"></a>
+        
+        <!-- Search Box -->
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search articles">
+            <button id="search-button" aria-label="Search"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+            <div id="search-results" class="search-results"></div>
+        </div>
+        
         <ul>
             <li><a onclick="showContent('general')">1. General</a>
                 <ul>
@@ -411,6 +495,104 @@
             document.getElementById('content-area').appendChild(iframe);
         }
 
+        // Search functionality
+        function initializeSearch() {
+            const searchInput = document.getElementById('search-input');
+            const searchButton = document.getElementById('search-button');
+            const searchResults = document.getElementById('search-results');
+            
+            // Build an array of all articles for searching
+            const allArticles = [];
+            const sidebarLinks = document.querySelectorAll('.sidebar a[href$=".html"], .sidebar a[href$=".md.html"]');
+            
+            sidebarLinks.forEach(link => {
+                if (link.href && (link.href.endsWith('.html') || link.href.endsWith('.md.html'))) {
+                    allArticles.push({
+                        title: link.textContent.trim(),
+                        url: link.getAttribute('href'),
+                        path: link.getAttribute('href').split('/').slice(0, -1).join('/'),
+                        element: link
+                    });
+                }
+            });
+            
+            // Function to perform search
+            function performSearch() {
+                const query = searchInput.value.toLowerCase().trim();
+                if (query.length < 2) {
+                    searchResults.innerHTML = '';
+                    searchResults.classList.remove('show');
+                    return;
+                }
+                
+                const matches = allArticles.filter(article => 
+                    article.title.toLowerCase().includes(query) || 
+                    article.path.toLowerCase().includes(query)
+                );
+                
+                if (matches.length > 0) {
+                    searchResults.innerHTML = '';
+                    matches.slice(0, 10).forEach(match => {
+                        const item = document.createElement('div');
+                        item.className = 'search-result-item';
+                        item.innerHTML = `
+                            <a href="${match.url}" target="content-frame">
+                                <div class="search-result-item-title">${match.title}</div>
+                                <div class="search-result-item-path">${match.path}</div>
+                            </a>
+                        `;
+                        item.addEventListener('click', function() {
+                            // Show the content in the iframe
+                            const iframe = document.getElementById('content-frame');
+                            iframe.src = match.url;
+                            
+                            // Remove welcome message if it's visible
+                            const welcomeMessage = document.getElementById('welcome-message');
+                            if (welcomeMessage) {
+                                welcomeMessage.style.display = 'none';
+                            }
+                            
+                            // Close search results
+                            searchResults.classList.remove('show');
+                            
+                            // Add the iframe if it's not there
+                            const contentArea = document.getElementById('content-area');
+                            if (!document.getElementById('content-frame')) {
+                                contentArea.innerHTML = '<iframe id="content-frame" name="content-frame" title="Content"></iframe>';
+                                document.getElementById('content-frame').src = match.url;
+                            }
+                        });
+                        searchResults.appendChild(item);
+                    });
+                    searchResults.classList.add('show');
+                } else {
+                    searchResults.innerHTML = '<div class="search-result-item">No results found</div>';
+                    searchResults.classList.add('show');
+                }
+            }
+            
+            // Event listeners
+            searchButton.addEventListener('click', performSearch);
+            searchInput.addEventListener('keyup', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                } else if (e.key === 'Escape') {
+                    searchResults.classList.remove('show');
+                } else if (searchInput.value.length >= 2) {
+                    performSearch();
+                } else {
+                    searchResults.classList.remove('show');
+                }
+            });
+            
+            // Close search results when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!searchInput.contains(e.target) && !searchButton.contains(e.target) && !searchResults.contains(e.target)) {
+                    searchResults.classList.remove('show');
+                }
+            });
+        }
+
         // Initialize sidebar links to target the iframe
         function initializeSidebarLinks() {
             const sidebarLinks = document.querySelectorAll('.sidebar a');
@@ -435,6 +617,7 @@
             // Don't show any section by default, just show the welcome message
             // The welcome message is already visible in the HTML
             initializeSidebarLinks();
+            initializeSearch(); // Initialize search functionality
         });
     </script>
 </body>
