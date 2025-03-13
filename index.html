@@ -355,6 +355,50 @@
         body.no-scroll {
             overflow: hidden;
         }
+
+        .collapsible {
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: rgba(255, 255, 255, 0.85); /* Lighter grey for section headers */
+        }
+
+        .collapsible::after {
+            content: '\25B6'; /* Right-pointing triangle */
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .collapsible.active::after {
+            transform: rotate(90deg); /* Down-pointing triangle */
+        }
+
+        .collapsible-content {
+            display: none;
+            overflow: hidden;
+        }
+
+        .collapsible-content.show {
+            display: block;
+        }
+
+        .collapsible-content a {
+            color: rgba(255, 255, 255, 0.85); /* Even lighter grey */
+        }
+
+        .collapsible-content a:hover {
+            color: white;
+        }
+
+        .collapsible:hover {
+            color: white;
+        }
+
+        .collapsible-content a.selected {
+            color: #06E3D0;
+        }
     </style>
 </head>
 <body>
@@ -381,8 +425,9 @@
         </div>
         
         <ul>
-            <li><a onclick="showContent('general')">1. General</a>
-                <ul>
+            <li>
+                <div class="collapsible">1. General</div>
+                <ul class="collapsible-content">
                     <li><a href="general/faqs/social_or_native_login.html">Social or native login?</a></li>
                     <li><a href="general/faqs/upcoming_features.html">Upcoming features</a></li>
                     <li><a href="general/faqs/two-factors_authentication_(2fa).html">Two-factor authentication (2FA)</a></li>
@@ -394,14 +439,16 @@
                     <li><a href="general/faqs/for_any_other_question.html">For any other question</a></li>
                 </ul>
             </li>
-            <li><a onclick="showContent('graphs')">2. Graphs</a>
-                <ul>
+            <li>
+                <div class="collapsible">2. Graphs</div>
+                <ul class="collapsible-content">
                     <li><a href="graphs/pie_charts/allocation.html">Allocation</a></li>
                     <li><a href="graphs/pie_charts/currency_exposure.html">Currency exposure</a></li>
                 </ul>
             </li>
-            <li><a onclick="showContent('connections')">3. Connections</a>
-                <ul>
+            <li>
+                <div class="collapsible">3. Connections</div>
+                <ul class="collapsible-content">
                     <li><a href="connections/connecting_external_institutions/invalid_credentials_error.html">Invalid credentials error</a></li>
                     <li><a href="connections/connecting_external_institutions/security_in_the_connections_to_external_institutions.html">Security in the connections to external institutions</a></li>
                     <li><a href="connections/connecting_external_institutions/connecting_crypto_platforms.html">Connecting crypto platforms</a></li>
@@ -413,8 +460,9 @@
                     <li><a href="connections/connecting_external_institutions/accounts_with_public_instruments.html">Accounts with public instruments</a></li>
                 </ul>
             </li>
-            <li><a onclick="showContent('instructions')">4. Instructions</a>
-                <ul>
+            <li>
+                <div class="collapsible">4. Instructions</div>
+                <ul class="collapsible-content">
                     <li><a href="instructions/add,_edit,_delete_&_close_loans/mortgage_early_repayment.html">Mortgage early repayment</a></li>
                     <li><a href="instructions/add,_edit,_delete_&_close_loans/closing_a_mortgage.html">Closing a mortgage</a></li>
                     <li><a href="instructions/add,_edit,_delete_&_close_loans/mortgages.html">Mortgages</a></li>
@@ -435,8 +483,9 @@
                     <li><a href="instructions/add,_edit,_delete_&_close_investments/closing_an_investment_(sale).html">Closing an investment (sale)</a></li>
                 </ul>
             </li>
-            <li><a onclick="showContent('data-documents')">5. Data & documents</a>
-                <ul>
+            <li>
+                <div class="collapsible">5. Data & documents</div>
+                <ul class="collapsible-content">
                     <li><a href="data_&_documents/documents_storage/safe_storage_of_documents.html">Safe storage of documents</a></li>
                     <li><a href="data_&_documents/csv_upload/download/csv_upload_date_format.html">CSV upload date format</a></li>
                     <li><a href="data_&_documents/csv_upload/download/uploading_you_data_manually_introduction.html">Uploading your data manually introduction</a></li>
@@ -449,14 +498,16 @@
                     <li><a href="data_&_documents/csv_upload/download/balances_upload.html">Balances upload</a></li>
                 </ul>
             </li>
-            <li><a onclick="showContent('currencies')">6. Currencies</a>
-                <ul>
+            <li>
+                <div class="collapsible">6. Currencies</div>
+                <ul class="collapsible-content">
                     <li><a href="currencies/understanding_currencies/currency_symbols.html">Currency symbols</a></li>
                     <li><a href="currencies/understanding_currencies/currency_vs._investment_performance.html">Currency vs. investment performance</a></li>
                 </ul>
             </li>
-            <li><a onclick="showContent('getting-started')">7. Getting started</a>
-                <ul>
+            <li>
+                <div class="collapsible">7. Getting started</div>
+                <ul class="collapsible-content">
                     <li><a href="getting_started_with_exirio/settings/account_management.html">Account management</a></li>
                     <li><a href="getting_started_with_exirio/settings/holding_currency.html">Holding currency</a></li>
                     <li><a href="getting_started_with_exirio/settings/third-party_access.html">Third-party access</a></li>
@@ -468,8 +519,9 @@
                     <li><a href="getting_started_with_exirio/your_account/understanding_your_home_page.html">Understanding your home page</a></li>
                 </ul>
             </li>
-            <li><a onclick="showContent('glossary')">8. Glossary</a>
-                <ul>
+            <li>
+                <div class="collapsible">8. Glossary</div>
+                <ul class="collapsible-content">
                     <li><a href="glossary/transactions/withdrawal_(or_sell).html">Withdrawal (or sell)</a></li>
                     <li><a href="glossary/transactions/recurrent_transactions.html">Recurrent transactions</a></li>
                     <li><a href="glossary/transactions/deposit_(or_buy).html">Deposit (or buy)</a></li>
@@ -731,7 +783,31 @@
             initializeSidebarLinks();
             initializeSearch(); // Initialize search functionality
             initializeMobileMenu(); // Initialize mobile menu functionality
+            initializeCollapsibleSections(); // Initialize collapsible sections
         });
+
+        function initializeCollapsibleSections() {
+            const collapsibleHeaders = document.querySelectorAll('.collapsible');
+            collapsibleHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const content = this.nextElementSibling;
+                    if (content.classList.contains('collapsible-content')) {
+                        content.classList.toggle('show');
+                    }
+                });
+            });
+
+            const links = document.querySelectorAll('.collapsible-content a');
+            links.forEach(link => {
+                link.addEventListener('click', function() {
+                    // Remove 'selected' class from all links
+                    links.forEach(l => l.classList.remove('selected'));
+                    // Add 'selected' class to the clicked link
+                    this.classList.add('selected');
+                });
+            });
+        }
     </script>
 </body>
 </html>
