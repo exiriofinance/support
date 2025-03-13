@@ -415,17 +415,24 @@
     <div class="overlay" id="overlay"></div>
     
     <nav class="sidebar" id="sidebar">
-        <a href="#" onclick="showWelcomeMessage(); return false;"><img src="https://www.exirio.com/wp-content/uploads/2022/03/ExirioLogo.svg" alt="Exirio Logo" class="logo"></a>
+        <a href="#" onclick="showWelcomeMessage(); return false;">
+            <img src="https://www.exirio.com/wp-content/uploads/2022/03/ExirioLogo.svg" alt="Exirio Logo" class="logo">
+        </a>
         
         <!-- Search Box -->
         <div class="search-container">
             <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search articles">
-            <button id="search-button" aria-label="Search"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+            <button id="search-button" aria-label="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
             <div id="search-results" class="search-results"></div>
         </div>
         
-            <ul>
-                <li>
+        <ul>
+            <li>
                 <div class="collapsible">1. Getting started</div>
                 <ul class="collapsible-content">
                     <li><a href="getting_started_with_exirio/settings/account_management.html">Account management</a></li>
@@ -437,25 +444,29 @@
                     <li><a href="getting_started_with_exirio/your_account/subscription_downgrade.html">Subscription downgrade</a></li>
                     <li><a href="getting_started_with_exirio/your_account/creating_your_account.html">Creating your account</a></li>
                     <li><a href="getting_started_with_exirio/your_account/understanding_your_home_page.html">Understanding your home page</a></li>
-                    </ul>
-                </li>
-                <li>
+                </ul>
+            </li>
+            <li>
                 <div class="collapsible">2. Data model</div>
                 <ul class="collapsible-content">
                     <li><a href="data-model/holdings.html">Holdings</a></li>
                     <li><a href="data-model/investments.html">Investments</a></li>
                     <li><a href="data-model/other_assets.html">Other Assets</a></li>
                     <li><a href="data-model/debt.html">Debt</a></li>
-                    <li><a href="data-model/transactions/withdrawal_(or_sell).html">Withdrawal (or sell)</a></li>
-                    <li><a href="data-model/transactions/recurrent_transactions.html">Recurrent transactions</a></li>
-                    <li><a href="data-model/transactions/deposit_(or_buy).html">Deposit (or buy)</a></li>
-                    <li><a href="data-model/transactions/transactions_what_they_are.html">Transactions what they are</a></li>
-                    <li><a href="data-model/transactions/balancing_transactions.html">Balancing transactions</a></li>
-                    <li><a href="data-model/transactions/income.html">Income</a></li>
-                    <li><a href="data-model/transactions/expense.html">Expense</a></li>
- </ul>
-                </li>
-                <li>
+                    <div class="collapsible">
+                        <a href="data-model/transaction/transaction.html">Transaction</a>
+                    </div>
+                    <ul class="collapsible-content">
+                        <li><a href="data-model/transaction/withdrawal_(or_sell).html">Withdrawal (or sell)</a></li>
+                        <li><a href="data-model/transaction/recurrent_transactions.html">Recurrent transactions</a></li>
+                        <li><a href="data-model/transaction/deposit_(or_buy).html">Deposit (or buy)</a></li>
+                        <li><a href="data-model/transaction/balancing_transactions.html">Balancing transactions</a></li>
+                        <li><a href="data-model/transaction/income.html">Income</a></li>
+                        <li><a href="data-model/transaction/expense.html">Expense</a></li>
+                    </ul>
+                </ul>
+            </li>
+            <li>
                 <div class="collapsible">3. General</div>
                 <ul class="collapsible-content">
                     <li><a href="general/faqs/social_or_native_login.html">Social or native login?</a></li>
@@ -467,16 +478,16 @@
                     <li><a href="general/faqs/can_you_provide_new_functionalities.html">Can you provide new functionalities?</a></li>
                     <li><a href="general/faqs/decimal_precision_in_units_and_prices.html">Decimal precision in units and prices</a></li>
                     <li><a href="general/faqs/for_any_other_question.html">For any other question</a></li>
-                    </ul>
-                </li>
-                <li>
+                </ul>
+            </li>
+            <li>
                 <div class="collapsible">4. Graphs</div>
                 <ul class="collapsible-content">
                     <li><a href="graphs/pie_charts/allocation.html">Allocation</a></li>
                     <li><a href="graphs/pie_charts/currency_exposure.html">Currency exposure</a></li>
-                    </ul>
-                </li>
-                <li>
+                </ul>
+            </li>
+            <li>
                 <div class="collapsible">5. Connections</div>
                 <ul class="collapsible-content">
                     <li><a href="connections/connecting_external_institutions/invalid_credentials_error.html">Invalid credentials error</a></li>
@@ -488,9 +499,9 @@
                     <li><a href="connections/connecting_external_institutions/connecting_third-party_institutions_(bank-brokerage_accounts,_crypto_exchange-wallets).html">Connecting third-party institutions (bank-brokerage accounts, crypto exchange-wallets)</a></li>
                     <li><a href="connections/connecting_external_institutions/current_accounts.html">Current accounts</a></li>
                     <li><a href="connections/connecting_external_institutions/accounts_with_public_instruments.html">Accounts with public instruments</a></li>
-                    </ul>
-                </li>
-                <li>
+                </ul>
+            </li>
+            <li>
                 <div class="collapsible">6. Instructions</div>
                 <ul class="collapsible-content">
                     <li>
@@ -499,8 +510,8 @@
                             <li><a href="instructions/add,_edit,_delete_&_close_loans/mortgage/mortgage_early_repayment.html">Mortgage early repayment</a></li>
                             <li><a href="instructions/add,_edit,_delete_&_close_loans/mortgage/closing_a_mortgage.html">Closing a mortgage</a></li>
                             <li><a href="instructions/add,_edit,_delete_&_close_loans/mortgage/mortgages.html">Mortgages</a></li>
-                    </ul>
-                </li>
+                        </ul>
+                    </li>
                     <li><a href="instructions/add,_edit,_delete_&_close_investments/alternative_ways_to_add_securities.html">Alternative ways to add securities</a></li>
                     <li><a href="instructions/add,_edit,_delete_&_close_investments/adding_securities_(securities_portfolios).html">Adding securities (securities portfolios)</a></li>
                     <li><a href="instructions/add,_edit,_delete_&_close_investments/deleting_an_investment.html">Deleting an investment</a></li>
@@ -516,9 +527,9 @@
                     <li><a href="instructions/add,_edit,_delete_&_close_investments/updating_an_investment.html">Updating an investment</a></li>
                     <li><a href="instructions/add,_edit,_delete_&_close_investments/adding_crypto_(connecting_exchange-custodial_wallets).html">Adding crypto (connecting exchange-custodial wallets)</a></li>
                     <li><a href="instructions/add,_edit,_delete_&_close_investments/closing_an_investment_(sale).html">Closing an investment (sale)</a></li>
-                    </ul>
-                </li>
-                <li>
+                </ul>
+            </li>
+            <li>
                 <div class="collapsible">7. Data & documents</div>
                 <ul class="collapsible-content">
                     <li><a href="data_&_documents/documents_storage/safe_storage_of_documents.html">Safe storage of documents</a></li>
@@ -531,16 +542,16 @@
                     <li><a href="data_&_documents/csv_upload/download/valuations_upload.html">Valuations upload</a></li>
                     <li><a href="data_&_documents/csv_upload/download/csv_standards_and_common_issues.html">CSV standards and common issues</a></li>
                     <li><a href="data_&_documents/csv_upload/download/balances_upload.html">Balances upload</a></li>
-                    </ul>
-                </li>
-                <li>
+                </ul>
+            </li>
+            <li>
                 <div class="collapsible">8. Currencies</div>
                 <ul class="collapsible-content">
                     <li><a href="currencies/understanding_currencies/currency_symbols.html">Currency symbols</a></li>
                     <li><a href="currencies/understanding_currencies/currency_vs._investment_performance.html">Currency vs. investment performance</a></li>
-                    </ul>
-                </li>
-                <li>
+                </ul>
+            </li>
+            <li>
                 <div class="collapsible">9. Glossary</div>
                 <ul class="collapsible-content">
                     <li><a href="glossary/transactions/withdrawal_(or_sell).html">Withdrawal (or sell)</a></li>
@@ -579,9 +590,9 @@
                     <li><a href="glossary/custody_accounts/returns_in_custody_accounts.html">Returns in custody accounts</a></li>
                     <li><a href="glossary/custody_accounts/transactions_and_valuations_in_custody_accounts_(crypto).html">Transactions and valuations in custody accounts (crypto)</a></li>
                     <li><a href="glossary/custody_accounts/transactions_&_valuations_in_custody_accounts_(securities).html">Transactions & valuations in custody accounts (securities)</a></li>
-                    </ul>
-                </li>
-            </ul>
+                </ul>
+            </li>
+        </ul>
     </nav>
 
     <main>
@@ -600,7 +611,7 @@
                 'general': `<section id="general"><h2>1. General</h2><ul><li><h3>1.1 FAQs</h3><ul><li><a href="general/faqs/social_or_native_login.html" target="content-frame">Social or native login?</a></li><li><a href="general/faqs/upcoming_features.html" target="content-frame">Upcoming features</a></li><li><a href="general/faqs/two-factors_authentication_(2fa).html" target="content-frame">Two-factor authentication (2FA)</a></li><li><a href="general/faqs/how_much_does_this_cost.html" target="content-frame">How much does this cost?</a></li><li><a href="general/faqs/is_my_data_secure.html" target="content-frame">Is my data secure?</a></li><li><a href="general/faqs/why_are_you_doing_this.html" target="content-frame">Why are you doing this?</a></li><li><a href="general/faqs/can_you_provide_new_functionalities.html" target="content-frame">Can you provide new functionalities?</a></li><li><a href="general/faqs/decimal_precision_in_units_and_prices.html" target="content-frame">Decimal precision in units and prices</a></li><li><a href="general/faqs/for_any_other_question.html" target="content-frame">For any other question</a></li></ul></li></ul></section>`,
                 'graphs': `<section id="graphs"><h2>2. Graphs</h2><ul><li><h3>2.1 Pie charts</h3><ul><li><a href="graphs/pie_charts/allocation.html" target="content-frame">Allocation</a></li><li><a href="graphs/pie_charts/currency_exposure.html" target="content-frame">Currency exposure</a></li></ul></li></ul></section>`,
                 'connections': `<section id="connections"><h2>3. Connections</h2><ul><li><h3>3.1 Connecting external institutions</h3><ul><li><a href="connections/connecting_external_institutions/invalid_credentials_error.html" target="content-frame">Invalid credentials error</a></li><li><a href="connections/connecting_external_institutions/security_in_the_connections_to_external_institutions.html" target="content-frame">Security in the connections to external institutions</a></li><li><a href="connections/connecting_external_institutions/connecting_crypto_platforms.html" target="content-frame">Connecting crypto platforms</a></li><li><a href="connections/connecting_external_institutions/connect_to_fidelity.html" target="content-frame">Connect to Fidelity</a></li><li><a href="connections/connecting_external_institutions/re-authorization_and_re-connection.html" target="content-frame">Re-authorization and re-connection</a></li><li><a href="connections/connecting_external_institutions/connect_to_interactive_brokers_(ib).html" target="content-frame">Connect to Interactive Brokers (IB)</a></li><li><a href="connections/connecting_external_institutions/connecting_third-party_institutions_(bank-brokerage_accounts,_crypto_exchange-wallets).html" target="content-frame">Connecting third-party institutions (bank-brokerage accounts, crypto exchange-wallets)</a></li><li><a href="connections/connecting_external_institutions/current_accounts.html" target="content-frame">Current accounts</a></li><li><a href="connections/connecting_external_institutions/accounts_with_public_instruments.html" target="content-frame">Accounts with public instruments</a></li></ul></li></ul></section>`,
-                'instructions': `<section id="instructions"><h2>4. Instructions</h2><ul><li><h3>4.1 Add, edit, delete &amp; close loans</h3><ul></ul></li><li><h3>4.1.1 Mortgage</h3><ul><li><a href="instructions/add,_edit,_delete_&_close_loans/mortgage_early_repayment.html" target="content-frame">Mortgage early repayment</a></li><li><a href="instructions/add,_edit,_delete_&_close_loans/closing_a_mortgage.html" target="content-frame">Closing a mortgage</a></li><li><a href="instructions/add,_edit,_delete_&_close_loans/mortgages.html" target="content-frame">Mortgages</a></li></ul></li><li><h3>4.2 Add, edit, delete &amp; close investments</h3><ul><li><a href="instructions/add,_edit,_delete_&_close_investments/alternative_ways_to_add_securities.html" target="content-frame">Alternative ways to add securities</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_securities_(securities_portfolios).html" target="content-frame">Adding securities (securities portfolios)</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/deleting_an_investment.html" target="content-frame">Deleting an investment</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_crypto_(exchange-wallet).html" target="content-frame">Adding crypto (exchange-wallet)</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_an_investment.html" target="content-frame">Adding an investment</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/closing_an_investment_(write-off).html" target="content-frame">Closing an investment (write-off)</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/alternative_ways_to_add_crypto.html" target="content-frame">Alternative ways to add crypto</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_precious_metals.html" target="content-frame">Adding precious metals</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/reopening_an_investment.html" target="content-frame">Reopening an investment</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_a_real_estate_holding.html" target="content-frame">Adding a real estate holding</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_a_retirement-pension_plan_manually.html" target="content-frame">Adding a retirement-pension plan manually</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_a_bond.html" target="content-frame">Adding a bond</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/updating_an_investment.html" target="content-frame">Updating an investment</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_crypto_(connecting_exchange-custodial_wallets).html" target="content-frame">Adding crypto (connecting exchange-custodial wallets)</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/closing_an_investment_(sale).html" target="content-frame">Closing an investment (sale)</a></li></ul></li></ul></section>`,
+                'instructions': `<section id="instructions"><h2>4. Instructions</h2><ul><li><h3>4.1 Add, edit, delete &amp; close loans</h3><ul></ul></li><li><h3>4.1.1 Mortgage</h3><ul><li><a href="instructions/add,_edit,_delete_&_close_loans/mortgage_early_repayment.html" target="content-frame">Mortgage early repayment</a></li><li><a href="instructions/add,_edit,_delete_&_close_loans/closing_a_mortgage.html" target="content-frame">Closing a mortgage</a></li><li><a href="instructions/add,_edit,_delete_&_close_loans/mortgage/mortgages.html" target="content-frame">Mortgages</a></li></ul></li><li><h3>4.2 Add, edit, delete &amp; close investments</h3><ul><li><a href="instructions/add,_edit,_delete_&_close_investments/alternative_ways_to_add_securities.html" target="content-frame">Alternative ways to add securities</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_securities_(securities_portfolios).html" target="content-frame">Adding securities (securities portfolios)</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/deleting_an_investment.html" target="content-frame">Deleting an investment</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_crypto_(exchange-wallet).html" target="content-frame">Adding crypto (exchange-wallet)</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_an_investment.html" target="content-frame">Adding an investment</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/closing_an_investment_(write-off).html" target="content-frame">Closing an investment (write-off)</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/alternative_ways_to_add_crypto.html" target="content-frame">Alternative ways to add crypto</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_precious_metals.html" target="content-frame">Adding precious metals</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/reopening_an_investment.html" target="content-frame">Reopening an investment</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_a_real_estate_holding.html" target="content-frame">Adding a real estate holding</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_a_retirement-pension_plan_manually.html" target="content-frame">Adding a retirement-pension plan manually</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_a_bond.html" target="content-frame">Adding a bond</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/updating_an_investment.html" target="content-frame">Updating an investment</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_crypto_(connecting_exchange-custodial_wallets).html" target="content-frame">Adding crypto (connecting exchange-custodial wallets)</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/closing_an_investment_(sale).html" target="content-frame">Closing an investment (sale)</a></li></ul></li></ul></section>`,
                 'data-documents': `<section id="data-documents"><h2>5. Data &amp; documents</h2><ul><li><h3>5.1 Documents storage</h3><ul><li><a href="data_&_documents/documents_storage/safe_storage_of_documents.html" target="content-frame">Safe storage of documents</a></li></ul></li><li><h3>5.2 CSV upload - download</h3><ul><li><a href="data_&_documents/csv_upload/download/csv_upload_date_format.html" target="content-frame">CSV upload date format</a></li><li><a href="data_&_documents/csv_upload/download/uploading_you_data_manually_introduction.html" target="content-frame">Uploading your data manually introduction</a></li><li><a href="data_&_documents/csv_upload/download/transactions_upload.html" target="content-frame">Transactions upload</a></li><li><a href="data_&_documents/csv_upload/download/data_download.html" target="content-frame">Data download</a></li><li><a href="data_&_documents/csv_upload/download/airbnb_csv.html" target="content-frame">Airbnb CSV</a></li><li><a href="data_&_documents/csv_upload/download/holdings_upload.html" target="content-frame">Holdings upload</a></li><li><a href="data_&_documents/csv_upload/download/valuations_upload.html" target="content-frame">Valuations upload</a></li><li><a href="data_&_documents/csv_upload/download/csv_standards_and_common_issues.html" target="content-frame">CSV standards and common issues</a></li><li><a href="data_&_documents/csv_upload/download/balances_upload.html" target="content-frame">Balances upload</a></li></ul></li></ul></section>`,
                 'currencies': `<section id="currencies"><h2>6. Currencies</h2><ul><li><h3>6.1 Understanding currencies</h3><ul><li><a href="currencies/understanding_currencies/currency_symbols.html" target="content-frame">Currency symbols</a></li><li><a href="currencies/understanding_currencies/currency_vs._investment_performance.html" target="content-frame">Currency vs. investment performance</a></li></ul></li></ul></section>`,
                 'getting-started': `<section id="getting-started"><h2>7. Getting started</h2><ul><li><h3>7.1 Settings</h3><ul><li><a href="getting_started_with_exirio/settings/account_management.html" target="content-frame">Account management</a></li><li><a href="getting_started_with_exirio/settings/holding_currency.html" target="content-frame">Holding currency</a></li><li><a href="getting_started_with_exirio/settings/third-party_access.html" target="content-frame">Third-party access</a></li><li><a href="getting_started_with_exirio/settings/owner_currency.html" target="content-frame">Owner currency</a></li></ul></li><li><h3>7.2 Your account</h3><ul><li><a href="getting_started_with_exirio/your_account/demo_mode.html" target="content-frame">Demo mode</a></li><li><a href="getting_started_with_exirio/your_account/account_deletion.html" target="content-frame">Account deletion</a></li><li><a href="getting_started_with_exirio/your_account/subscription_downgrade.html" target="content-frame">Subscription downgrade</a></li><li><a href="getting_started_with_exirio/your_account/creating_your_account.html" target="content-frame">Creating your account</a></li><li><a href="getting_started_with_exirio/your_account/understanding_your_home_page.html" target="content-frame">Understanding your home page</a></li></ul></li></ul></section>`,
