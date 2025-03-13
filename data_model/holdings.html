@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holdings - Data Model - Exirio Support</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a237e;
+            --secondary-color: #0d47a1;
+            --text-color: #212121;
+            --background-color: #f5f5f5;
+            --border-color: #e0e0e0;
+            --container-width: 1200px;
+            --section-spacing: 2rem;
+            --subsection-spacing: 1.5rem;
+            --item-spacing: 0.75rem;
+            --accent-color: #2196f3;
+            --hover-color: #1565c0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Source Sans 3', sans-serif;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            line-height: 1.4;
+            color: var(--text-color);
+            background-color: white;
+            padding: 2rem;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 1rem 0 0.75rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        ul {
+            list-style: disc;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        ol {
+            list-style: decimal;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--hover-color);
+            text-decoration: underline;
+        }
+
+        code {
+            font-family: monospace;
+            background-color: #f5f5f5;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background-color: #f5f5f5;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+            font-family: monospace;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--border-color);
+            padding-left: 1rem;
+            margin-left: 0;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 1rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<h1 id="holdings">Holdings</h1>
+<p style="margin-left: 0in; font-size: 15px; font-family: 'Source Sans 3', sans-serif; margin-bottom: 8pt; line-height: 200%; text-align: justify;">
+    <span style="font-size: 16px; line-height: 200%; color: rgb(24, 50, 71);">In Exirio's data model, "Holdings" represent the fundamental structure for organizing and categorizing all your financial assets and liabilities. Holdings follow a hierarchical classification system that allows for precise tracking and analysis of your complete financial portfolio.</span>
+</p>
+
+<h2 id="holdings-structure">Holdings Structure</h2>
+<p style="margin-left: 0in; font-size: 15px; font-family: 'Source Sans 3', sans-serif; margin-bottom: 8pt; line-height: 200%; text-align: justify;">
+    <span style="font-size: 16px; line-height: 200%; color: rgb(24, 50, 71);">The Holdings structure in Exirio follows a three-level hierarchy:</span>
+</p>
+
+<ul style="margin-left: 1.5rem; font-family: 'Source Sans 3', sans-serif; font-size: 16px; color: rgb(24, 50, 71); line-height: 200%;">
+    <li><strong>Level 1: Holding Class</strong> - The broadest category (Investment, Cash, or Debt)</li>
+    <li><strong>Level 2: Holding Type</strong> - Subcategories within each class</li>
+    <li><strong>Level 3: Holding Subtype</strong> - Specific types of assets or liabilities</li>
+</ul>
+
+<p style="margin-left: 0in; font-size: 15px; font-family: 'Source Sans 3', sans-serif; margin-bottom: 8pt; line-height: 200%; text-align: justify;">
+    <span style="font-size: 16px; line-height: 200%; color: rgb(24, 50, 71);">This hierarchical structure is represented in JSON format as follows:</span>
+</p>
+
+<pre style="margin-left: 0in; font-size: 14px; font-family: monospace; margin-bottom: 12pt; line-height: 150%; background-color: #f5f5f5; padding: 15px; border-radius: 5px; overflow-x: auto;">
+{
+  "investment": {
+    "crypto": [
+      "exchange",
+      "wallet",
+      "advancedExchange",
+      "other"
+    ],
+    "luxuryAssets": [
+      "jewelleryNWatches",
+      "carsNBoats",
+      "artNNFTs",
+      "wine",
+      "other"
+    ],
+    "commodities": [
+      "preciousMetals",
+      "other"
+    ],
+    "fundsBrokersNBanks": [
+      "securitiesPortfolios",
+      "bankAccounts",
+      "currentAccounts",
+      "privateEquityFunds",
+      "ventureCapitalFunds",
+      "hedgeFunds",
+      "structuredProducts",
+      "other"
+    ],
+    "privateCompanies": [
+      "privateCompanyShares",
+      "privateLoans",
+      "other"
+    ],
+    "realEstate": [
+      "residential",
+      "commercial",
+      "land",
+      "other"
+    ],
+    "retirementPlans": [
+      "managedPensionFunds",
+      "selfDirectedSchemes",
+      "other"
+    ],
+    "other": [
+      "vehicles",
+      "other"
+    ]
+  },
+  "cash": {
+    "cash": [
+      "currentAccounts",
+      "notesNCoins",
+      "bankAccounts",
+      "other"
+    ]
+  },
+  "debt": {
+    "mortgages": [
+      "mortgages",
+      "other"
+    ],
+    "creditCards": [
+      "creditCards",
+      "other"
+    ],
+    "personalLoans": [
+      "studentLoans",
+      "carLoans",
+      "consumerLoans",
+      "other"
+    ],
+    "other": [
+      "other"
+    ]
+  }
+}
+</pre>
+
+<h2 id="holding-classes">Holding Classes</h2>
+<p style="margin-left: 0in; font-size: 15px; font-family: 'Source Sans 3', sans-serif; margin-bottom: 8pt; line-height: 200%; text-align: justify;">
+    <span style="font-size: 16px; line-height: 200%; color: rgb(24, 50, 71);">Exirio organizes all holdings into three primary classes:</span>
+</p>
+
+<h3 id="investment">Investment</h3>
+<p style="margin-left: 0in; font-size: 15px; font-family: 'Source Sans 3', sans-serif; margin-bottom: 8pt; line-height: 200%; text-align: justify;">
+    <span style="font-size: 16px; line-height: 200%; color: rgb(24, 50, 71);">The "investment" class encompasses assets that have the potential to generate returns or appreciate in value. This includes:</span>
+</p>
+
+<ul style="margin-left: 1.5rem; font-family: 'Source Sans 3', sans-serif; font-size: 16px; color: rgb(24, 50, 71); line-height: 200%;">
+    <li><strong>Crypto</strong>: Digital currencies and tokens held in exchanges or wallets</li>
+    <li><strong>Luxury Assets</strong>: High-value personal possessions like jewelry, art, and collectibles</li>
+    <li><strong>Commodities</strong>: Physical goods like precious metals</li>
+    <li><strong>Funds, Brokers & Banks</strong>: Traditional financial investments including securities portfolios and fund investments</li>
+    <li><strong>Private Companies</strong>: Ownership stakes in non-public businesses</li>
+    <li><strong>Real Estate</strong>: Property investments across residential, commercial, and land</li>
+    <li><strong>Retirement Plans</strong>: Pension funds and retirement savings vehicles</li>
+    <li><strong>Other</strong>: Miscellaneous investment types not covered by other categories</li>
+</ul>
+
+<h3 id="cash">Cash</h3>
+<p style="margin-left: 0in; font-size: 15px; font-family: 'Source Sans 3', sans-serif; margin-bottom: 8pt; line-height: 200%; text-align: justify;">
+    <span style="font-size: 16px; line-height: 200%; color: rgb(24, 50, 71);">The "cash" class represents liquid assets that are readily available for spending or investment:</span>
+</p>
+
+<ul style="margin-left: 1.5rem; font-family: 'Source Sans 3', sans-serif; font-size: 16px; color: rgb(24, 50, 71); line-height: 200%;">
+    <li><strong>Current Accounts</strong>: Everyday banking accounts</li>
+    <li><strong>Notes & Coins</strong>: Physical currency</li>
+    <li><strong>Bank Accounts</strong>: Savings and deposit accounts</li>
+    <li><strong>Other</strong>: Additional cash-equivalent assets</li>
+</ul>
+
+<h3 id="debt">Debt</h3>
+<p style="margin-left: 0in; font-size: 15px; font-family: 'Source Sans 3', sans-serif; margin-bottom: 8pt; line-height: 200%; text-align: justify;">
+    <span style="font-size: 16px; line-height: 200%; color: rgb(24, 50, 71);">The "debt" class covers all financial obligations and liabilities:</span>
+</p>
+
+<ul style="margin-left: 1.5rem; font-family: 'Source Sans 3', sans-serif; font-size: 16px; color: rgb(24, 50, 71); line-height: 200%;">
+    <li><strong>Mortgages</strong>: Home and property loans</li>
+    <li><strong>Credit Cards</strong>: Revolving credit balances</li>
+    <li><strong>Personal Loans</strong>: Including student loans, car loans, and consumer loans</li>
+    <li><strong>Other</strong>: Miscellaneous debt obligations</li>
+</ul>
+
+<h2 id="using-the-holdings-structure">Using the Holdings Structure</h2>
+<p style="margin-left: 0in; font-size: 15px; font-family: 'Source Sans 3', sans-serif; margin-bottom: 8pt; line-height: 200%; text-align: justify;">
+    <span style="font-size: 16px; line-height: 200%; color: rgb(24, 50, 71);">When adding assets or liabilities to Exirio, you'll navigate through this hierarchical structure to properly categorize each holding. This classification system enables:</span>
+</p>
+
+<ul style="margin-left: 1.5rem; font-family: 'Source Sans 3', sans-serif; font-size: 16px; color: rgb(24, 50, 71); line-height: 200%;">
+    <li><strong>Accurate Asset Allocation</strong>: Visualize how your wealth is distributed across different asset classes</li>
+    <li><strong>Targeted Performance Analysis</strong>: Compare returns within specific categories</li>
+    <li><strong>Comprehensive Net Worth Calculation</strong>: Account for all assets and liabilities in your financial picture</li>
+    <li><strong>Customized Reporting</strong>: Generate insights based on specific holding types</li>
+</ul>
+
+<p style="margin-left: 0in; font-size: 15px; font-family: 'Source Sans 3', sans-serif; margin-bottom: 8pt; line-height: 200%; text-align: justify;">
+    <span style="font-size: 16px; line-height: 200%; color: rgb(24, 50, 71);">For more detailed information on specific holding types, please refer to the related articles in the <a href="data_model/investments.html">Investments</a>, <a href="data_model/other_assets.html">Other Assets</a>, and <a href="data_model/debt.html">Debt</a> sections.</span>
+</p>
+</body>
+</html> 
