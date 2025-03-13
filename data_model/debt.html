@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debt - Data Model - Exirio Support</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a237e;
+            --secondary-color: #0d47a1;
+            --text-color: #212121;
+            --background-color: #f5f5f5;
+            --border-color: #e0e0e0;
+            --container-width: 1200px;
+            --section-spacing: 2rem;
+            --subsection-spacing: 1.5rem;
+            --item-spacing: 0.75rem;
+            --accent-color: #2196f3;
+            --hover-color: #1565c0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Source Sans 3', sans-serif;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            line-height: 1.4;
+            color: var(--text-color);
+            background-color: white;
+            padding: 2rem;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 1rem 0 0.75rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        ul {
+            list-style: disc;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        ol {
+            list-style: decimal;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--hover-color);
+            text-decoration: underline;
+        }
+
+        code {
+            font-family: monospace;
+            background-color: #f5f5f5;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background-color: #f5f5f5;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--border-color);
+            padding-left: 1rem;
+            margin-left: 0;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 1rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<h1 id="debt">Debt</h1>
+<p style="margin-left: 0in; font-size: 15px; font-family: 'Source Sans 3', sans-serif; margin-bottom: 8pt; line-height: 200%; text-align: justify;">
+    <span style="font-size: 16px; line-height: 200%; color: rgb(24, 50, 71);">In Exirio's data model, Debt represents financial obligations that you owe to creditors. Tracking debt is essential for understanding your complete financial picture and calculating your true net worth. Exirio provides comprehensive tools for monitoring and managing various types of debt.</span>
+</p>
+
+<h2 id="types-of-debt">Types of Debt</h2>
+<p style="margin-left: 0in; font-size: 15px; font-family: 'Source Sans 3', sans-serif; margin-bottom: 8pt; line-height: 200%; text-align: justify;">
+    <span style="font-size: 16px; line-height: 200%; color: rgb(24, 50, 71);">Exirio allows you to track multiple types of debt, including:</span>
+</p>
+
+<ul style="margin-left: 1.5rem; font-family: 'Source Sans 3', sans-serif; font-size: 16px; color: rgb(24, 50, 71); line-height: 200%;">
+    <li><strong>Mortgages</strong>: Home loans and property-related financing</li>
+    <li><strong>Personal Loans</strong>: Unsecured loans from banks or other financial institutions</li>
+    <li><strong>Student Loans</strong>: Education-related debt</li>
+    <li><strong>Auto Loans</strong>: Vehicle financing</li>
+    <li><strong>Credit Card Debt</strong>: Revolving credit balances</li>
+    <li><strong>Business Loans</strong>: Debt related to business operations</li>
+    <li><strong>Lines of Credit</strong>: Flexible borrowing arrangements</li>
+</ul>
+
+<h2 id="debt-attributes">Debt Attributes</h2>
+<p style="margin-left: 0in; font-size: 15px; font-family: 'Source Sans 3', sans-serif; margin-bottom: 8pt; line-height: 200%; text-align: justify;">
+    <span style="font-size: 16px; line-height: 200%; color: rgb(24, 50, 71);">Each debt in Exirio is tracked with the following key attributes:</span>
+</p>
+
+<ul style="margin-left: 1.5rem; font-family: 'Source Sans 3', sans-serif; font-size: 16px; color: rgb(24, 50, 71); line-height: 200%;">
+    <li><strong>Principal Amount</strong>: The original borrowed amount</li>
+    <li><strong>Current Balance</strong>: The remaining amount to be repaid</li>
+    <li><strong>Interest Rate</strong>: The cost of borrowing, expressed as a percentage</li>
+    <li><strong>Term</strong>: The duration of the loan</li>
+    <li><strong>Payment Schedule</strong>: Frequency and amount of regular payments</li>
+    <li><strong>Start Date</strong>: When the debt was originated</li>
+    <li><strong>Maturity Date</strong>: When the debt is scheduled to be fully repaid</li>
+</ul>
+
+<h2 id="mortgage-tracking">Mortgage Tracking</h2>
+<p style="margin-left: 0in; font-size: 15px; font-family: 'Source Sans 3', sans-serif; margin-bottom: 8pt; line-height: 200%; text-align: justify;">
+    <span style="font-size: 16px; line-height: 200%; color: rgb(24, 50, 71);">Mortgages receive special treatment in Exirio due to their connection to real estate investments:</span>
+</p>
+
+<ul style="margin-left: 1.5rem; font-family: 'Source Sans 3', sans-serif; font-size: 16px; color: rgb(24, 50, 71); line-height: 200%;">
+    <li><strong>Automatic Amortization</strong>: Exirio calculates the principal and interest components of each payment</li>
+    <li><strong>Property Linkage</strong>: Mortgages can be linked to specific real estate holdings</li>
+    <li><strong>Equity Calculation</strong>: The system automatically calculates your equity position</li>
+    <li><strong>Investment Performance</strong>: Mortgage costs are factored into real estate investment returns</li>
+</ul>
+
+<h2 id="debt-management">Debt Management</h2>
+<p style="margin-left: 0in; font-size: 15px; font-family: 'Source Sans 3', sans-serif; margin-bottom: 8pt; line-height: 200%; text-align: justify;">
+    <span style="font-size: 16px; line-height: 200%; color: rgb(24, 50, 71);">Exirio provides several tools for managing and analyzing your debt:</span>
+</p>
+
+<ul style="margin-left: 1.5rem; font-family: 'Source Sans 3', sans-serif; font-size: 16px; color: rgb(24, 50, 71); line-height: 200%;">
+    <li><strong>Payment Tracking</strong>: Record and monitor regular payments and extra principal payments</li>
+    <li><strong>Balance Updates</strong>: Automatically or manually update outstanding balances</li>
+    <li><strong>Debt-to-Asset Ratio</strong>: Calculate and monitor your leverage</li>
+    <li><strong>Interest Expense Analysis</strong>: Track the cost of your debt over time</li>
+    <li><strong>Payoff Projections</strong>: Visualize debt reduction over the loan term</li>
+</ul>
+
+<p style="margin-left: 0in; font-size: 15px; font-family: 'Source Sans 3', sans-serif; margin-bottom: 8pt; line-height: 200%; text-align: justify;">
+    <span style="font-size: 16px; line-height: 200%; color: rgb(24, 50, 71);">For more detailed information on managing specific types of debt, please refer to the <a href="instructions/add,_edit,_delete_&_close_loans/mortgages.html">Mortgage</a> section or the <a href="glossary/other_holdings/loans.html">Loans</a> article in the Glossary.</span>
+</p>
+</body>
+</html> 
