@@ -165,18 +165,23 @@
                 transform: translateX(-100%);
                 transition: transform 0.3s ease;
                 z-index: 1000;
+                width: 85%;
+                max-width: var(--sidebar-width);
             }
 
             .sidebar.active {
                 transform: translateX(0);
+                box-shadow: 0 0 15px rgba(0,0,0,0.5);
             }
 
             main {
                 margin-left: 0;
+                width: 100%;
             }
 
             body {
                 padding: 0;
+                position: relative;
             }
 
             .content {
@@ -195,6 +200,54 @@
 
             h3 {
                 font-size: 1.1rem;
+            }
+            
+            /* Mobile menu toggle button */
+            .menu-toggle {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 2000;
+                background-color: var(--primary-color);
+                color: white;
+                border: none;
+                border-radius: 4px;
+                padding: 0.5rem;
+                cursor: pointer;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+                transition: all 0.3s ease;
+            }
+            
+            .menu-toggle:hover {
+                background-color: var(--hover-color);
+            }
+            
+            .menu-toggle svg {
+                width: 24px;
+                height: 24px;
+            }
+            
+            /* Overlay for when sidebar is open on mobile */
+            .overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0,0,0,0.5);
+                z-index: 999;
+            }
+            
+            .overlay.active {
+                display: block;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .menu-toggle {
+                display: none;
             }
         }
 
@@ -297,10 +350,27 @@
             font-size: 0.8rem;
             color: #666;
         }
+
+        /* No-scroll class for body when mobile menu is open */
+        body.no-scroll {
+            overflow: hidden;
+        }
     </style>
 </head>
 <body>
-    <nav class="sidebar">
+    <!-- Mobile Menu Toggle Button -->
+    <button class="menu-toggle" aria-label="Toggle menu" id="menu-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+    </button>
+    
+    <!-- Overlay for mobile -->
+    <div class="overlay" id="overlay"></div>
+    
+    <nav class="sidebar" id="sidebar">
         <a href="#" onclick="showWelcomeMessage(); return false;"><img src="https://www.exirio.com/wp-content/uploads/2022/03/ExirioLogo.svg" alt="Exirio Logo" class="logo"></a>
         
         <!-- Search Box -->
@@ -593,6 +663,48 @@
             });
         }
 
+        // Mobile menu functionality
+        function initializeMobileMenu() {
+            const menuToggle = document.getElementById('menu-toggle');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            
+            // Toggle sidebar on menu button click
+            menuToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('active');
+                overlay.classList.toggle('active');
+                document.body.classList.toggle('no-scroll');
+            });
+            
+            // Close sidebar when clicking on overlay
+            overlay.addEventListener('click', function() {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+            
+            // Close sidebar when window is resized to desktop size
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                    document.body.classList.remove('no-scroll');
+                }
+            });
+            
+            // Close sidebar when a menu item is clicked
+            const menuItems = document.querySelectorAll('.sidebar a');
+            menuItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        sidebar.classList.remove('active');
+                        overlay.classList.remove('active');
+                        document.body.classList.remove('no-scroll');
+                    }
+                });
+            });
+        }
+
         // Initialize sidebar links to target the iframe
         function initializeSidebarLinks() {
             const sidebarLinks = document.querySelectorAll('.sidebar a');
@@ -618,6 +730,7 @@
             // The welcome message is already visible in the HTML
             initializeSidebarLinks();
             initializeSearch(); // Initialize search functionality
+            initializeMobileMenu(); // Initialize mobile menu functionality
         });
     </script>
 </body>
