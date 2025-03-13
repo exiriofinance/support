@@ -1,0 +1,4 @@
+- Write concise TypeScript code with explicit types.
+- Name variables descriptively
+- Use lowercase-with-dashes for folder names (e.g., auth-wizard).
+- When writing text to be presented to users, avoid "Title Case" and always use "Sentence case" instead
