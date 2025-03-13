@@ -3,41 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Decimal Precision in Units and Prices - Exirio Support</title>
+    <title>Decimal precision in units and prices - Exirio support</title>
     <link rel="stylesheet" href="../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a237e;
+            --secondary-color: #0d47a1;
+            --text-color: #212121;
+            --background-color: #f5f5f5;
+            --border-color: #e0e0e0;
+            --container-width: 1200px;
+            --section-spacing: 2rem;
+            --subsection-spacing: 1.5rem;
+            --item-spacing: 0.75rem;
+            --accent-color: #2196f3;
+            --hover-color: #1565c0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Source Sans 3', sans-serif;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            line-height: 1.4;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0 0 1.5rem 1.25rem;
+        }
+
+        li {
+            margin-bottom: var(--item-spacing);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        li:before {
+            content: "•";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .container {
+                padding: 1.25rem;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Decimal Precision in Units and Prices</h1>
+        <h1 id="decimal-precision-in-units-and-prices">Decimal precision in units and prices</h1>
 
         <p>Understanding how Exirio handles decimal precision is crucial for accurate financial tracking. We maintain high precision standards to ensure your financial data is represented accurately across different asset types and currencies.</p>
+        <p>Decimal precision for units and prices are set for each public instrument so if you are not receiving the precision you need, let us know which instruments you need greater precision for (and for which variables) and we'll amend them.</p>
 
-        <h2>Asset Units Precision</h2>
+        <h2>Calculations and rounding</h2>
         <ul>
-            <li>Cryptocurrencies: Up to 8 decimal places (e.g., 0.00000001 BTC)</li>
-            <li>Stocks and ETFs: Up to 6 decimal places for fractional shares</li>
-            <li>Commodities: Up to 3 decimal places (e.g., 0.001 oz of gold)</li>
-            <li>Real Estate: Up to 2 decimal places for partial ownership</li>
-            <li>Cash and Fiat: 2 decimal places, following standard currency format</li>
-        </ul>
-
-        <h2>Price Precision</h2>
-        <ul>
-            <li>Cryptocurrency prices: Up to 8 decimal places for small-value tokens</li>
-            <li>Stock prices: Up to 4 decimal places</li>
-            <li>Exchange rates: Up to 6 decimal places</li>
-            <li>Commodity prices: Up to 2 decimal places for standard units</li>
-        </ul>
-
-        <h2>Calculations and Rounding</h2>
-        <ul>
-            <li>All internal calculations maintain maximum precision to avoid rounding errors</li>
+            <li>All internal calculations maintain maximum configured precision to avoid rounding errors</li>
             <li>Display values are rounded to appropriate decimals based on context</li>
-            <li>Totals and summaries use 2 decimal places for final display</li>
-            <li>Percentage calculations maintain 2 decimal places</li>
         </ul>
 
-        <p>For specific asset types or use cases requiring different precision levels, you can adjust the display settings in your account preferences. If you need more information about how we handle specific numerical cases, please contact our support team.</p>
     </div>
 </body>
 </html> 
