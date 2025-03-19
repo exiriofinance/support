@@ -144,18 +144,17 @@
 </head>
 <body>
 <h1 id="balancing-transactions">Balancing Transactions</h1>
-<p>When an Institution is connected, Exirio may not always receive the full Transaction history for the various <a href="data-model/position.html">Positions</a> included in a Securities Portfolio or Wallet. When this happens, we are usually able to find out because of a mistmach in the balance of units in your Portfolio.
+<p>When an Institution is connected, Exirio may not always receive the full Transaction history for the various <a href="data-model/position.html">Positions</a> included in a Securities Portfolio or Wallet. When this happens, we are usually able to find out because of a mismach in the balance of units in your Portfolio.
     Because we know the data received is incomplete, we generate automatic "Balancing Transactions" in order to make sense of the data received. And when we do that, we inform you so that you can make the necessary manual adjustments.
 </p>
-<p>There are two frequent cases of incomplete data:
-</p>
+<p>There are two frequent cases of incomplete data:</p>
 <ul>
     <li>Missing opening Transactions: if you bought three Apple shares many years ago and sold two last month - and we receive data only for the last 12 months - we will have Transactions that generate a negative balance of two units, against a real balance of one unit. When this happens, i.e. when we are limited by the Institution you have connected in how far back in time we can retrieve data, we add one initial Balancing Transaction. This Transaction is added to make your balances of shares or tokens match, and it's meant to "summarize" all your activity prior to the earliest date we have data for.
     </li>
-    <li>Missing closing Transactions: some brokers only send historical Transactions for Positions that are still open (current number of units is not zero). If you have a Position in your Portfolio and when we synchronize the last movements this Position has "disappeared", we assume you closed the Position and we generate a Balancing Transaction accordingly, for the previous.
+    <li>Missing closing Transactions: some brokers only send historical Transactions for Positions that are still open (current number of units is not zero). If you have a Position in your Portfolio and when we synchronize the last movements this Position has "disappeared", we assume you closed the Position and we generate a closing Balancing Transaction accordingly, for the previous day.
     </li>
 </ul>
-<p>In order to for Exirio to produce realiable metrics, you are encouraged to manually edit any Balancing Transaction we created for you, to reflect the actual trading events, "
+<p>In order to for Exirio to produce reliable metrics, you are encouraged to manually edit any Balancing Transaction we created for you, to reflect the actual trading events."
 </p>
 </body>
 </html>
