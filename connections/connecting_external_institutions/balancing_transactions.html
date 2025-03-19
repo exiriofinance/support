@@ -144,7 +144,20 @@
 </head>
 <body>
 <h1 id="balancing-transactions">Balancing Transactions</h1>
-<span dir="ltr" style="box-sizing: border-box; font-size: 16px; line-height: 32px;">When an Institution is connected, Exirio may not always receive the full transaction history in relation to the various <a href="data-model/position.html">Positions&nbsp;</a>included in a Securities Portfolio or Wallet. This may cause several inconsistencies, like a mismatch in units Balance: if you bought three Apple shares many years ago and sold two last month - and we receive only data for last year - we will have Transactions that generate a negative balance of two units, against a real balance of one unit.&nbsp;</span><br/><span dir="ltr" style="box-sizing: border-box; font-size: 16px; line-height: 32px;">When this happens, i.e. when we are limited by either our connection partners or by the Institution you have connected in how far back in time we can retrieve data, we add one <strong>initial </strong>Balancing Transaction. This Transaction is added to make numbers match, and it's meant to "summarize" all your activity prior to the earliest date we have data for. It is up to you whether to leave it how it is, or manually replace it with the actual historical Transactions. In the example of Apple shares, we would add one Balancing Buy Transaction for three shares.&nbsp;</span></p>
-<br/></p>
+<p>When an Institution is connected, Exirio may not always receive the full Transaction history in relation 
+    to the various <a href="data-model/position.html">Positions</a> included in a Securities Portfolio or Wallet. This may cause several inconsistencies and we identify them by a mismatch in the current number of units in the Portfolio.
+</p>
+<p>There are two frequent cases when this happens:
+</p>
+<ul>
+    <li>Missing opening Transactions: for example, if you bought three Apple shares many years ago and sold two last 
+        month - and we receive only data for last year - we will have Transactions that generate a negative balance of two units, against a real balance of one unit. When this happens, i.e. when we are limited by the Institution you have connected in how far back in time we can retrieve data, we add one <strong>initial</strong> Balancing Transaction. This Transaction is added to make numbers match, and it's meant to "summarize" all your activity prior to the earliest date we have data for. </p>
+    </li>
+    <li>Missing closing Transactions: some brokers only send historical Transactions for Positions that are
+         still open (current number of units is not zero). If you have a Position in your Portfolio and when
+          we synchronize the last movements Position has "disappeared" from the Portfolio, we assume you closed the Position and we generate a Balancing Transaction the previous day with a Sell Transaction for the total number of remaining units.</p>
+    </li>
+</ul>
+<p>It is up to you whether to leave those Transactions as they are or manually edit them to correctly enter the actual Transactions that occurred.</p>
 </body>
 </html>
