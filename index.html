@@ -1,850 +1,1268 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Exirio Support</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        :root {
-            --primary-color: #1a237e;
-            --secondary-color: #0d47a1;
-            --text-color: #212121;
-            --background-color: #f5f5f5;
-            --border-color: #e0e0e0;
-            --container-width: 1200px;
-            --section-spacing: 2rem;
-            --subsection-spacing: 1.5rem;
-            --item-spacing: 0.75rem;
-            --sidebar-width: 300px;
-            --accent-color: #2196f3;
-            --hover-color: #1565c0;
-        }
+      :root {
+        --primary-color: #1a237e;
+        --secondary-color: #0d47a1;
+        --text-color: #212121;
+        --background-color: #f5f5f5;
+        --border-color: #e0e0e0;
+        --container-width: 1200px;
+        --section-spacing: 2rem;
+        --subsection-spacing: 1.5rem;
+        --item-spacing: 0.75rem;
+        --sidebar-width: 300px;
+        --accent-color: #2196f3;
+        --hover-color: #1565c0;
+      }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter Tight', sans-serif;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter Tight", sans-serif;
+      }
 
-        body {
-            font-family: 'Inter Tight', sans-serif;
-            line-height: 1.4;
-            color: var(--text-color);
-            background-color: var(--background-color);
-            display: flex;
-            min-height: 100vh;
-        }
+      body {
+        font-family: "Inter Tight", sans-serif;
+        line-height: 1.4;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        display: flex;
+        min-height: 100vh;
+      }
 
+      .sidebar {
+        width: var(--sidebar-width);
+        background-color: var(--primary-color);
+        padding: 2rem;
+        position: fixed;
+        height: 100vh;
+        overflow-y: auto;
+        border-right: 1px solid var(--border-color);
+        box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .sidebar .logo {
+        width: 150px;
+        margin-bottom: 2rem;
+      }
+
+      .sidebar h2 {
+        color: white;
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .sidebar ul {
+        list-style: none;
+      }
+
+      .sidebar li {
+        margin-bottom: 0.25rem;
+      }
+
+      .sidebar a {
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        display: block;
+        padding: 0.25rem 0;
+        font-size: 0.9rem;
+        transition: all 0.2s ease;
+        line-height: 1.2;
+      }
+
+      .sidebar a:hover {
+        color: white;
+        padding-left: 0.5rem;
+      }
+
+      .sidebar .active {
+        color: white;
+        font-weight: 600;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        padding: 0.5rem;
+      }
+
+      main {
+        flex: 1;
+        margin-left: var(--sidebar-width);
+        padding: 2rem;
+        background-color: var(--background-color);
+      }
+
+      .content {
+        max-width: var(--container-width);
+        margin: 0 auto;
+        background-color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      section {
+        margin-bottom: var(--section-spacing);
+      }
+
+      section:last-child {
+        margin-bottom: 0;
+      }
+
+      h2 {
+        color: var(--primary-color);
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--border-color);
+      }
+
+      h3 {
+        color: var(--secondary-color);
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 1rem 0 0.75rem;
+      }
+
+      ul {
+        list-style: none;
+        margin-left: 1.25rem;
+      }
+
+      ul ul {
+        margin-left: 1.5rem;
+      }
+
+      li {
+        margin-bottom: var(--item-spacing);
+      }
+
+      a {
+        color: var(--accent-color);
+        text-decoration: none;
+        transition: color 0.2s ease;
+        display: inline-block;
+        padding: 0.15rem 0;
+        line-height: 1.3;
+      }
+
+      a:hover {
+        color: var(--hover-color);
+      }
+
+      @media (max-width: 768px) {
         .sidebar {
-            width: var(--sidebar-width);
-            background-color: var(--primary-color);
-            padding: 2rem;
-            position: fixed;
-            height: 100vh;
-            overflow-y: auto;
-            border-right: 1px solid var(--border-color);
-            box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+          transform: translateX(-100%);
+          transition: transform 0.3s ease;
+          z-index: 1000;
+          width: 85%;
+          max-width: var(--sidebar-width);
         }
 
-        .sidebar .logo {
-            width: 150px;
-            margin-bottom: 2rem;
-        }
-
-        .sidebar h2 {
-            color: white;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .sidebar ul {
-            list-style: none;
-        }
-
-        .sidebar li {
-            margin-bottom: 0.25rem;
-        }
-
-        .sidebar a {
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            display: block;
-            padding: 0.25rem 0;
-            font-size: 0.9rem;
-            transition: all 0.2s ease;
-            line-height: 1.2;
-        }
-
-        .sidebar a:hover {
-            color: white;
-            padding-left: 0.5rem;
-        }
-
-        .sidebar .active {
-            color: white;
-            font-weight: 600;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            padding: 0.5rem;
+        .sidebar.active {
+          transform: translateX(0);
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
         }
 
         main {
-            flex: 1;
-            margin-left: var(--sidebar-width);
-            padding: 2rem;
-            background-color: var(--background-color);
+          margin-left: 0;
+          width: 100%;
+        }
+
+        body {
+          padding: 0;
+          position: relative;
         }
 
         .content {
-            max-width: var(--container-width);
-            margin: 0 auto;
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          padding: 1.25rem;
         }
 
-        section {
-            margin-bottom: var(--section-spacing);
-        }
-
-        section:last-child {
-            margin-bottom: 0;
+        :root {
+          --section-spacing: 1.5rem;
+          --subsection-spacing: 1.25rem;
+          --item-spacing: 0.5rem;
         }
 
         h2 {
-            color: var(--primary-color);
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--border-color);
+          font-size: 1.5rem;
         }
 
         h3 {
-            color: var(--secondary-color);
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin: 1rem 0 0.75rem;
+          font-size: 1.1rem;
         }
 
-        ul {
-            list-style: none;
-            margin-left: 1.25rem;
+        /* Mobile menu toggle button */
+        .menu-toggle {
+          display: block;
+          position: fixed;
+          top: 1rem;
+          left: 1rem;
+          z-index: 2000;
+          background-color: var(--primary-color);
+          color: white;
+          border: none;
+          border-radius: 4px;
+          padding: 0.5rem;
+          cursor: pointer;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+          transition: all 0.3s ease;
         }
 
-        ul ul {
-            margin-left: 1.5rem;
+        .menu-toggle:hover {
+          background-color: var(--hover-color);
         }
 
-        li {
-            margin-bottom: var(--item-spacing);
+        .menu-toggle svg {
+          width: 24px;
+          height: 24px;
         }
 
-        a {
-            color: var(--accent-color);
-            text-decoration: none;
-            transition: color 0.2s ease;
-            display: inline-block;
-            padding: 0.15rem 0;
-            line-height: 1.3;
+        /* Overlay for when sidebar is open on mobile */
+        .overlay {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: rgba(0, 0, 0, 0.5);
+          z-index: 999;
         }
 
-        a:hover {
-            color: var(--hover-color);
+        .overlay.active {
+          display: block;
         }
+      }
 
-        @media (max-width: 768px) {
-            .sidebar {
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-                z-index: 1000;
-                width: 85%;
-                max-width: var(--sidebar-width);
-            }
-
-            .sidebar.active {
-                transform: translateX(0);
-                box-shadow: 0 0 15px rgba(0,0,0,0.5);
-            }
-
-            main {
-                margin-left: 0;
-                width: 100%;
-            }
-
-            body {
-                padding: 0;
-                position: relative;
-            }
-
-            .content {
-                padding: 1.25rem;
-            }
-
-            :root {
-                --section-spacing: 1.5rem;
-                --subsection-spacing: 1.25rem;
-                --item-spacing: 0.5rem;
-            }
-
-            h2 {
-                font-size: 1.5rem;
-            }
-
-            h3 {
-                font-size: 1.1rem;
-            }
-            
-            /* Mobile menu toggle button */
-            .menu-toggle {
-                display: block;
-                position: fixed;
-                top: 1rem;
-                left: 1rem;
-                z-index: 2000;
-                background-color: var(--primary-color);
-                color: white;
-                border: none;
-                border-radius: 4px;
-                padding: 0.5rem;
-                cursor: pointer;
-                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-                transition: all 0.3s ease;
-            }
-            
-            .menu-toggle:hover {
-                background-color: var(--hover-color);
-            }
-            
-            .menu-toggle svg {
-                width: 24px;
-                height: 24px;
-            }
-            
-            /* Overlay for when sidebar is open on mobile */
-            .overlay {
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-color: rgba(0,0,0,0.5);
-                z-index: 999;
-            }
-            
-            .overlay.active {
-                display: block;
-            }
+      @media (min-width: 769px) {
+        .menu-toggle {
+          display: none;
         }
-        
-        @media (min-width: 769px) {
-            .menu-toggle {
-                display: none;
-            }
-        }
+      }
 
-        .content iframe {
-            width: 100%;
-            height: calc(100vh - 4rem);
-            border: none;
-            background: white;
-        }
+      .content iframe {
+        width: 100%;
+        height: calc(100vh - 4rem);
+        border: none;
+        background: white;
+      }
 
-        #welcome-message {
-            text-align: center;
-            padding: 3rem 1rem;
-        }
+      #welcome-message {
+        text-align: center;
+        padding: 3rem 1rem;
+      }
 
-        #welcome-message h1 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            font-size: 2.5rem;
-        }
+      #welcome-message h1 {
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+        font-size: 2.5rem;
+      }
 
-        #welcome-message p {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: var(--text-color);
-        }
+      #welcome-message p {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        color: var(--text-color);
+      }
 
-        /* Search box styles */
-        .search-container {
-            position: relative;
-            margin-bottom: 1.5rem;
-        }
+      /* Search box styles */
+      .search-container {
+        position: relative;
+        margin-bottom: 1.5rem;
+      }
 
-        #search-input {
-            width: 100%;
-            padding: 0.5rem 2.5rem 0.5rem 0.75rem;
-            border-radius: 4px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 0.9rem;
-        }
+      #search-input {
+        width: 100%;
+        padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+        border-radius: 4px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+        font-size: 0.9rem;
+      }
 
-        #search-input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
+      #search-input::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+      }
 
-        #search-button {
-            position: absolute;
-            right: 0.5rem;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+      #search-button {
+        position: absolute;
+        right: 0.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-        .search-results {
-            position: absolute;
-            width: 100%;
-            max-height: 300px;
-            overflow-y: auto;
-            background-color: white;
-            border-radius: 4px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            display: none;
-        }
+      .search-results {
+        position: absolute;
+        width: 100%;
+        max-height: 300px;
+        overflow-y: auto;
+        background-color: white;
+        border-radius: 4px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        display: none;
+      }
 
-        .search-results.show {
-            display: block;
-        }
+      .search-results.show {
+        display: block;
+      }
 
-        .search-result-item {
-            padding: 0.75rem;
-            cursor: pointer;
-            border-bottom: 1px solid #eee;
-        }
+      .search-result-item {
+        padding: 0.75rem;
+        cursor: pointer;
+        border-bottom: 1px solid #eee;
+      }
 
-        .search-result-item:hover {
-            background-color: #f5f5f5;
-        }
+      .search-result-item:hover {
+        background-color: #f5f5f5;
+      }
 
-        .search-result-item a {
-            color: var(--primary-color);
-            text-decoration: none;
-            display: block;
-        }
+      .search-result-item a {
+        color: var(--primary-color);
+        text-decoration: none;
+        display: block;
+      }
 
-        .search-result-item-title {
-            font-weight: 500;
-            margin-bottom: 0.25rem;
-        }
+      .search-result-item-title {
+        font-weight: 500;
+        margin-bottom: 0.25rem;
+      }
 
-        .search-result-item-path {
-            font-size: 0.8rem;
-            color: #666;
-        }
+      .search-result-item-path {
+        font-size: 0.8rem;
+        color: #666;
+      }
 
-        /* No-scroll class for body when mobile menu is open */
-        body.no-scroll {
-            overflow: hidden;
-        }
+      /* No-scroll class for body when mobile menu is open */
+      body.no-scroll {
+        overflow: hidden;
+      }
 
-        .collapsible {
-            cursor: pointer;
-            user-select: none;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            color: rgba(255, 255, 255, 0.85); /* Lighter grey for section headers */
-        }
+      .collapsible {
+        cursor: pointer;
+        user-select: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: rgba(255, 255, 255, 0.85); /* Lighter grey for section headers */
+      }
 
-        .collapsible::after {
-            content: '\25B6'; /* Right-pointing triangle */
-            font-size: 0.8rem;
-            transition: transform 0.3s ease;
-        }
+      .collapsible::after {
+        content: "\25B6"; /* Right-pointing triangle */
+        font-size: 0.8rem;
+        transition: transform 0.3s ease;
+      }
 
-        .collapsible.active::after {
-            transform: rotate(90deg); /* Down-pointing triangle */
-        }
+      .collapsible.active::after {
+        transform: rotate(90deg); /* Down-pointing triangle */
+      }
 
-        .collapsible-content {
-            display: none;
-            overflow: hidden;
-        }
+      .collapsible-content {
+        display: none;
+        overflow: hidden;
+      }
 
-        .collapsible-content.show {
-            display: block;
-        }
+      .collapsible-content.show {
+        display: block;
+      }
 
-        .collapsible-content a {
-            color: rgba(255, 255, 255, 0.85); /* Even lighter grey */
-        }
+      .collapsible-content a {
+        color: rgba(255, 255, 255, 0.85); /* Even lighter grey */
+      }
 
-        .collapsible-content a:hover {
-            color: white;
-        }
+      .collapsible-content a:hover {
+        color: white;
+      }
 
-        .collapsible:hover {
-            color: white;
-        }
+      .collapsible:hover {
+        color: white;
+      }
 
-        .collapsible-content a.selected {
-            color: #06E3D0;
-        }
+      .collapsible-content a.selected {
+        color: #06e3d0;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Mobile Menu Toggle Button -->
     <button class="menu-toggle" aria-label="Toggle menu" id="menu-toggle">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
     </button>
-    
+
     <!-- Overlay for mobile -->
     <div class="overlay" id="overlay"></div>
-    
+
     <nav class="sidebar" id="sidebar">
-        <a href="#" onclick="showWelcomeMessage(); return false;">
-            <img src="https://www.exirio.com/wp-content/uploads/2022/03/ExirioLogo.svg" alt="Exirio Logo" class="logo">
-        </a>
-        
-        <!-- Search Box -->
-        <div class="search-container">
-            <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search articles">
-            <button id="search-button" aria-label="Search">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-            </button>
-            <div id="search-results" class="search-results"></div>
-        </div>
-        
-        <ul>
-            <li>
-                <div class="collapsible">1. Account management</div>
-                <ul class="collapsible-content">
-                    <li><a href="getting_started_with_exirio/your_account/creating_your_account.html">Creating your account</a></li>
-                    <li><a href="getting_started_with_exirio/your_account/demo_mode.html">Demo mode</a></li>
-                    <li><a href="getting_started_with_exirio/settings/account_management.html">Account management</a></li>
-                    <li><a href="getting_started_with_exirio/your_account/understanding_your_home_page.html">Understanding your home page</a></li>
-                    <li><a href="getting_started_with_exirio/settings/third-party_access.html">Third-party access</a></li>
-                    <li><a href="general/faqs/upcoming_features.html">Upcoming features</a></li>
-                    <li><a href="general/faqs/can_you_provide_new_functionalities.html">Can you provide new functionalities?</a></li>
-                    <li><a href="general/faqs/how_much_does_this_cost.html">How much does this cost?</a></li>                   
-                    <li><a href="getting_started_with_exirio/your_account/subscription_downgrade.html">Subscription downgrade</a></li>
-                    <li><a href="general/faqs/why_are_you_doing_this.html">Why are you doing this?</a></li>
-                    <li><a href="getting_started_with_exirio/your_account/account_deletion.html">Account deletion</a></li>
-                </ul>
-            </li>
-            <li>
-                <div class="collapsible">2. Data model</div>
-                <ul class="collapsible-content">
-                    <div class="collapsible">
-                        <a href="data-model/holding.html">Holding</a>
-                    </div>
-                    <ul class="collapsible-content">
-                        <div class="collapsible">
-                            <a href="data-model/investment.html">Investment</a>
-                        </div>
-                        <ul class="collapsible-content">
-                            <li><a href="data-model/position.html">Position</a></li>
-                            <li><a href="glossary/investments/investments_vs_holdings.html">Investments vs Holdings</a></li>
-                            <li><a href="glossary/investments/investment_vs._position.html">Investment vs. Position</a></li>
-                                    <li><a href="general/faqs/decimal_precision_in_units_and_prices.html">Decimal precision in units and prices</a></li>
-                        </ul>
-                            <li><a href="data-model/other_asset.html">Other Asset</a></li>
-                        <li><a href="data-model/debt.html">Debt</a></li>
-                </ul>
-                    <div class="collapsible">
-                        <a href="data-model/transaction/transaction.html">Transaction</a>
-                    </div>
-                    <ul class="collapsible-content">
-                        <li><a href="data-model/transaction/deposit.html">Deposit</a></li>
-                        <li><a href="data-model/transaction/withdrawal.html">Withdrawal</a></li>
-                        <li><a href="data-model/transaction/buy.html">Buy</a></li>
-                        <li><a href="data-model/transaction/sell.html">Sell</a></li>
-                        <li><a href="data-model/transaction/income.html">Income</a></li>
-                        <li><a href="data-model/transaction/expense.html">Expense</a></li>
-                        <li><a href="data-model/transaction/corporate_action.html">Corporate Action</a></li>
-                        <li><a href="data-model/transaction/recurrent_transactions.html">Recurrent Transactions</a></li>
-                    </ul>
-                    <div class="collapsible">
-                        <a href="currencies/understanding_currencies/currency.html">Currency</a>
-                    </div>
-                    <ul class="collapsible-content">
-                    <li><a href="getting_started_with_exirio/settings/holding_currency.html">Holding currency</a></li>
-                    <li><a href="getting_started_with_exirio/settings/user_currency.html">User currency</a></li>
-                </ul>
-                <li><a href="glossary/valuations_&_balances/valuation.html">Valuation</a></li>
-                    <li><a href="glossary/valuations_&_balances/balance.html">Balance</a></li>
-                    <li><a href="data-model/institution.html">Institution</a></li>
-                </ul>
-            </li>
+      <a href="#" onclick="showWelcomeMessage(); return false;">
+        <img
+          src="https://www.exirio.com/wp-content/uploads/2022/03/ExirioLogo.svg"
+          alt="Exirio Logo"
+          class="logo"
+        />
+      </a>
 
-            <li>
-                <div class="collapsible">3. How to...</div>
-                <ul class="collapsible-content">
-                    <li>
-                        <div class="collapsible">Mortgage</div>
-                        <ul class="collapsible-content">
-                            <li><a href="instructions/add,_edit,_delete_&_close_loans/mortgage/mortgages.html">Mortgages</a></li>
-                            <li><a href="instructions/add,_edit,_delete_&_close_loans/mortgage/mortgage_early_repayment.html">Mortgage early repayment</a></li>
-                            <li><a href="instructions/add,_edit,_delete_&_close_loans/mortgage/closing_a_mortgage.html">Closing a mortgage</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="instructions/add,_edit,_delete_&_close_investments/alternative_ways_to_add_securities.html">Alternative ways to add securities</a></li>
-                    <li><a href="instructions/add,_edit,_delete_&_close_investments/adding_securities_(securities_portfolios).html">Adding securities (securities portfolios)</a></li>
-                    <li><a href="instructions/add,_edit,_delete_&_close_investments/adding_crypto_(exchange-wallet).html">Adding crypto (exchange-wallet)</a></li>
-                    <li><a href="instructions/add,_edit,_delete_&_close_investments/adding_an_investment.html">Adding an investment</a></li>
-                    <li><a href="instructions/add,_edit,_delete_&_close_investments/alternative_ways_to_add_crypto.html">Alternative ways to add crypto</a></li>
-                    <li><a href="instructions/add,_edit,_delete_&_close_investments/adding_precious_metals.html">Adding precious metals</a></li>
-                    <li><a href="instructions/add,_edit,_delete_&_close_investments/adding_a_real_estate_holding.html">Adding a real estate Holding</a></li>
-                    <li><a href="instructions/add,_edit,_delete_&_close_investments/adding_a_retirement-pension_plan_manually.html">Adding a retirement-pension plan manually</a></li>
-                    <li><a href="instructions/add,_edit,_delete_&_close_investments/adding_a_bond.html">Adding a bond</a></li>
-                    <li><a href="instructions/add,_edit,_delete_&_close_investments/updating_an_investment.html">Updating an investment</a></li>
-                    <li><a href="instructions/add,_edit,_delete_&_close_investments/adding_crypto_(connecting_exchange-custodial_wallets).html">Adding crypto (connecting exchange-custodial wallets)</a></li>
-                    <li><a href="instructions/add,_edit,_delete_&_close_investments/closing_an_investment_(sale).html">Closing a Holding (sale)</a></li>
-                    <li><a href="instructions/add,_edit,_delete_&_close_investments/closing_an_investment_(write-off).html">Closing a Holding (write-off)</a></li>
-                    <li><a href="instructions/add,_edit,_delete_&_close_investments/reopening_an_investment.html">Reopening a Holding</a></li>
-                    <li><a href="instructions/add,_edit,_delete_&_close_investments/deleting_an_investment.html">Deleting a Holding</a></li>
-                </ul>
-            </li>
+      <!-- Search Box -->
+      <div class="search-container">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search articles..."
+          aria-label="Search articles"
+        />
+        <button id="search-button" aria-label="Search">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+        <div id="search-results" class="search-results"></div>
+      </div>
 
+      <ul>
+        <li>
+          <div class="collapsible">1. Account management</div>
+          <ul class="collapsible-content">
             <li>
-                <div class="collapsible">5. Connections to external Institutions</div>
-                <ul class="collapsible-content">
-                    <li><a href="connections/connecting_external_institutions/connecting_third-party_institutions_(bank-brokerage_accounts,_crypto_exchange-wallets).html">Connecting external Institutions (bank-brokerage accounts, crypto exchange-wallets)</a></li>
-                    <li><a href="connections/connecting_external_institutions/accounts_with_public_instruments.html">Accounts with public instruments</a></li>
-                    <li><a href="connections/connecting_external_institutions/connecting_crypto_platforms.html">Connecting crypto platforms</a></li>
-                    <li><a href="connections/connecting_external_institutions/data_discrepancies.html">Data discrepancies</a></li>
-                    <li><a href="connections/connecting_external_institutions/balancing_transactions.html">Balancing Transactions</a></li>
-                    <li><a href="connections/connecting_external_institutions/re-authorization_and_re-connection.html">Re-authorization and re-connection</a></li>
-                    <li><a href="connections/connecting_external_institutions/current_accounts.html">Current accounts</a></li>
-                    <li><a href="connections/connecting_external_institutions/invalid_credentials_error.html">Error: Invalid credentials</a></li>
-                    <li><a href="connections/connecting_external_institutions/invalid_sca_error.html">Error: Invalid SCA</a></li>
-                    <li><a href="connections/connecting_external_institutions/user_interaction_needed_error.html">Error: User interaction needed</a></li>
-                    <li><a href="connections/connecting_external_institutions/security_in_the_connections_to_external_institutions.html">Security in the connections to external Institutions</a></li>
-                </ul>
+              <a
+                href="getting_started_with_exirio/your_account/creating_your_account.html"
+                >Creating your account</a
+              >
             </li>
+            <li>
+              <a href="getting_started_with_exirio/your_account/demo_mode.html"
+                >Demo mode</a
+              >
+            </li>
+            <li>
+              <a
+                href="getting_started_with_exirio/settings/account_management.html"
+                >Account management</a
+              >
+            </li>
+            <li>
+              <a
+                href="getting_started_with_exirio/your_account/understanding_your_home_page.html"
+                >Understanding your home page</a
+              >
+            </li>
+            <li>
+              <a
+                href="getting_started_with_exirio/settings/third-party_access.html"
+                >Share access</a
+              >
+            </li>
+            <li>
+              <a href="general/faqs/upcoming_features.html"
+                >Upcoming features</a
+              >
+            </li>
+            <li>
+              <a href="general/faqs/can_you_provide_new_functionalities.html"
+                >Can you provide new functionalities?</a
+              >
+            </li>
+            <li>
+              <a href="general/faqs/how_much_does_this_cost.html"
+                >How much does this cost?</a
+              >
+            </li>
+            <li>
+              <a
+                href="getting_started_with_exirio/your_account/subscription_downgrade.html"
+                >Subscription downgrade</a
+              >
+            </li>
+            <li>
+              <a href="general/faqs/why_are_you_doing_this.html"
+                >Why are you doing this?</a
+              >
+            </li>
+            <li>
+              <a
+                href="getting_started_with_exirio/your_account/account_deletion.html"
+                >Account deletion</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="collapsible">2. Data model</div>
+          <ul class="collapsible-content">
+            <div class="collapsible">
+              <a href="data-model/holding.html">Holding</a>
+            </div>
+            <ul class="collapsible-content">
+              <div class="collapsible">
+                <a href="data-model/investment.html">Investment</a>
+              </div>
+              <ul class="collapsible-content">
+                <li><a href="data-model/position.html">Position</a></li>
+                <li>
+                  <a href="glossary/investments/investments_vs_holdings.html"
+                    >Investments vs Holdings</a
+                  >
+                </li>
+                <li>
+                  <a href="glossary/investments/investment_vs._position.html"
+                    >Investment vs. Position</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="general/faqs/decimal_precision_in_units_and_prices.html"
+                    >Decimal precision in units and prices</a
+                  >
+                </li>
+              </ul>
+              <li><a href="data-model/other_asset.html">Other Asset</a></li>
+              <li><a href="data-model/debt.html">Debt</a></li>
+            </ul>
+            <div class="collapsible">
+              <a href="data-model/transaction/transaction.html">Transaction</a>
+            </div>
+            <ul class="collapsible-content">
+              <li><a href="data-model/transaction/deposit.html">Deposit</a></li>
+              <li>
+                <a href="data-model/transaction/withdrawal.html">Withdrawal</a>
+              </li>
+              <li><a href="data-model/transaction/buy.html">Buy</a></li>
+              <li><a href="data-model/transaction/sell.html">Sell</a></li>
+              <li><a href="data-model/transaction/income.html">Income</a></li>
+              <li><a href="data-model/transaction/expense.html">Expense</a></li>
+              <li>
+                <a href="data-model/transaction/corporate_action.html"
+                  >Corporate Action</a
+                >
+              </li>
+              <li>
+                <a href="data-model/transaction/recurrent_transactions.html"
+                  >Recurrent Transactions</a
+                >
+              </li>
+            </ul>
+            <div class="collapsible">
+              <a href="currencies/understanding_currencies/currency.html"
+                >Currency</a
+              >
+            </div>
+            <ul class="collapsible-content">
+              <li>
+                <a
+                  href="getting_started_with_exirio/settings/holding_currency.html"
+                  >Holding currency</a
+                >
+              </li>
+              <li>
+                <a
+                  href="getting_started_with_exirio/settings/user_currency.html"
+                  >User currency</a
+                >
+              </li>
+            </ul>
+            <li>
+              <a href="glossary/valuations_&_balances/valuation.html"
+                >Valuation</a
+              >
+            </li>
+            <li>
+              <a href="glossary/valuations_&_balances/balance.html">Balance</a>
+            </li>
+            <li><a href="data-model/institution.html">Institution</a></li>
+          </ul>
+        </li>
 
+        <li>
+          <div class="collapsible">3. How to...</div>
+          <ul class="collapsible-content">
+            <li>
+              <div class="collapsible">Mortgage</div>
+              <ul class="collapsible-content">
+                <li>
+                  <a
+                    href="instructions/add,_edit,_delete_&_close_loans/mortgage/mortgages.html"
+                    >Mortgages</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="instructions/add,_edit,_delete_&_close_loans/mortgage/mortgage_early_repayment.html"
+                    >Mortgage early repayment</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="instructions/add,_edit,_delete_&_close_loans/mortgage/closing_a_mortgage.html"
+                    >Closing a mortgage</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a
+                href="instructions/add,_edit,_delete_&_close_investments/alternative_ways_to_add_securities.html"
+                >Alternative ways to add securities</a
+              >
+            </li>
+            <li>
+              <a
+                href="instructions/add,_edit,_delete_&_close_investments/adding_securities_(securities_portfolios).html"
+                >Adding securities (securities portfolios)</a
+              >
+            </li>
+            <li>
+              <a
+                href="instructions/add,_edit,_delete_&_close_investments/adding_crypto_(exchange-wallet).html"
+                >Adding crypto (exchange-wallet)</a
+              >
+            </li>
+            <li>
+              <a
+                href="instructions/add,_edit,_delete_&_close_investments/adding_an_investment.html"
+                >Adding an investment</a
+              >
+            </li>
+            <li>
+              <a
+                href="instructions/add,_edit,_delete_&_close_investments/alternative_ways_to_add_crypto.html"
+                >Alternative ways to add crypto</a
+              >
+            </li>
+            <li>
+              <a
+                href="instructions/add,_edit,_delete_&_close_investments/adding_precious_metals.html"
+                >Adding precious metals</a
+              >
+            </li>
+            <li>
+              <a
+                href="instructions/add,_edit,_delete_&_close_investments/adding_a_real_estate_holding.html"
+                >Adding a real estate Holding</a
+              >
+            </li>
+            <li>
+              <a
+                href="instructions/add,_edit,_delete_&_close_investments/adding_a_retirement-pension_plan_manually.html"
+                >Adding a retirement-pension plan manually</a
+              >
+            </li>
+            <li>
+              <a
+                href="instructions/add,_edit,_delete_&_close_investments/adding_a_bond.html"
+                >Adding a bond</a
+              >
+            </li>
+            <li>
+              <a
+                href="instructions/add,_edit,_delete_&_close_investments/updating_an_investment.html"
+                >Updating an investment</a
+              >
+            </li>
+            <li>
+              <a
+                href="instructions/add,_edit,_delete_&_close_investments/adding_crypto_(connecting_exchange-custodial_wallets).html"
+                >Adding crypto (connecting exchange-custodial wallets)</a
+              >
+            </li>
+            <li>
+              <a
+                href="instructions/add,_edit,_delete_&_close_investments/closing_an_investment_(sale).html"
+                >Closing a Holding (sale)</a
+              >
+            </li>
+            <li>
+              <a
+                href="instructions/add,_edit,_delete_&_close_investments/closing_an_investment_(write-off).html"
+                >Closing a Holding (write-off)</a
+              >
+            </li>
+            <li>
+              <a
+                href="instructions/add,_edit,_delete_&_close_investments/reopening_an_investment.html"
+                >Reopening a Holding</a
+              >
+            </li>
+            <li>
+              <a
+                href="instructions/add,_edit,_delete_&_close_investments/deleting_an_investment.html"
+                >Deleting a Holding</a
+              >
+            </li>
+          </ul>
+        </li>
 
+        <li>
+          <div class="collapsible">5. Connections to external Institutions</div>
+          <ul class="collapsible-content">
             <li>
-                <div class="collapsible">6. Uploading & downloading data</div>
-                <ul class="collapsible-content">
-                    <li><a href="data_&_documents/csv_upload/upload_xlsx_file.html">Upload Holdings XLSX file</a></li>
-                    <li><a href="data_&_documents/documents_storage/safe_storage_of_documents.html">Safe storage of documents</a></li>
-                    <li><a href="data_&_documents/csv_upload/download/csv_upload_date_format.html">CSV upload date format</a></li>
-                    <li><a href="data_&_documents/csv_upload/download/uploading_you_data_manually_introduction.html">Uploading your data manually introduction</a></li>
-                    <li><a href="data_&_documents/csv_upload/download/transactions_upload.html">Transactions upload</a></li>
-                    <li><a href="data_&_documents/csv_upload/download/data_download.html">Data download</a></li>
-                    <li><a href="data_&_documents/csv_upload/download/airbnb_csv.html">Airbnb CSV</a></li>
-                    <li><a href="data_&_documents/csv_upload/download/holdings_upload.html">Holdings upload</a></li>
-                    <li><a href="data_&_documents/csv_upload/download/valuations_upload.html">Valuations upload</a></li>
-                    <li><a href="data_&_documents/csv_upload/download/balances_upload.html">Balances upload</a></li>
-                    <li><a href="data_&_documents/csv_upload/download/csv_standards_and_common_issues.html">CSV standards and common issues</a></li>
-                </ul>
+              <a
+                href="connections/connecting_external_institutions/connecting_third-party_institutions_(bank-brokerage_accounts,_crypto_exchange-wallets).html"
+                >Connecting external Institutions (bank-brokerage accounts,
+                crypto exchange-wallets)</a
+              >
             </li>
             <li>
-                <div class="collapsible">7. Analytics</div>
-                <ul class="collapsible-content">
-                    <li><a href="analytics/return_metrics/total_net_worth.html">Total net worth</a></li>
-                    <li><a href="analytics/return_metrics/30_day_growth.html">30 day growth</a></li>
-                    <li><a href="analytics/return_metrics/total_gain.html">Total gain</a></li>
-                    <li><a href="analytics/return_metrics/unrealized_gain.html">Unrealized gain</a></li>
-                    <li><a href="analytics/return_metrics/realized_gain.html">Realized gain</a></li>
-                    <li><a href="glossary/investments/invested_capital.html">Invested capital</a></li>
-                    <li><a href="glossary/investments/unfunded_commitment.html">Unfunded commitment</a></li>
-                    <li><a href="glossary/investments/committed_capital.html">Committed capital</a></li>
-                    <li><a href="analytics/return_metrics/historical_performance.html">Historical performance</a></li>
-                    <li><a href="analytics/return_metrics/mwr.html">MWR</a></li>
-                    <li><a href="analytics/return_metrics/twr.html">TWR</a></li>
-                    <li><a href="currencies/understanding_currencies/currency_vs._investment_performance.html">Currency vs. investment performance</a></li>
-                    <li><a href="analytics/return_metrics/a_word_of_caution.html">A word of caution</a></li>
-                    <li><a href="analytics/pie_charts/allocation.html">Allocation</a></li>
-                    <li><a href="analytics/pie_charts/currency_exposure.html">Currency exposure</a></li>
-                </ul>
+              <a
+                href="connections/connecting_external_institutions/accounts_with_public_instruments.html"
+                >Accounts with public instruments</a
+              >
             </li>
             <li>
-                <div class="collapsible">8. Security</div>
-                <ul class="collapsible-content">
-                    <li><a href="general/faqs/is_my_data_secure.html">Is my data secure?</a></li>
-                    <li><a href="general/faqs/social_or_native_login.html">Social or native login?</a></li>
-                    <li><a href="general/faqs/two-factors_authentication_(2fa).html">Two-factor authentication (2FA)</a></li>
-                </ul>
+              <a
+                href="connections/connecting_external_institutions/connecting_crypto_platforms.html"
+                >Connecting crypto platforms</a
+              >
             </li>
             <li>
-                <div class="collapsible">9. Glossary</div>
-                <ul class="collapsible-content">
-                    <li><a href="glossary/investments/asset_classes_and_asset_types.html">Asset classes and asset types</a></li>
-                    <li><a href="glossary/investments/precious_metals.html">Precious metals</a></li>
-                    <li><a href="glossary/investments/liquid_vs_illiquid_investments.html">Liquid vs illiquid investments</a></li>
-                    <li><a href="glossary/valuations_&_balances/current_value.html">Current value</a></li>
-                    <li><a href="glossary/valuations_&_balances/manual_valuation_for_public_securities.html">Manual valuation for public securities</a></li>
-                    <li><a href="glossary/other_holdings/cash.html">Cash</a></li>
-                    <li><a href="glossary/other_holdings/loans.html">Loans</a></li>
-                </ul>
+              <a
+                href="connections/connecting_external_institutions/data_discrepancies.html"
+                >Data discrepancies</a
+              >
             </li>
-        </ul>
+            <li>
+              <a
+                href="connections/connecting_external_institutions/balancing_transactions.html"
+                >Balancing Transactions</a
+              >
+            </li>
+            <li>
+              <a
+                href="connections/connecting_external_institutions/re-authorization_and_re-connection.html"
+                >Re-authorization and re-connection</a
+              >
+            </li>
+            <li>
+              <a
+                href="connections/connecting_external_institutions/current_accounts.html"
+                >Current accounts</a
+              >
+            </li>
+            <li>
+              <a
+                href="connections/connecting_external_institutions/invalid_credentials_error.html"
+                >Error: Invalid credentials</a
+              >
+            </li>
+            <li>
+              <a
+                href="connections/connecting_external_institutions/invalid_sca_error.html"
+                >Error: Invalid SCA</a
+              >
+            </li>
+            <li>
+              <a
+                href="connections/connecting_external_institutions/user_interaction_needed_error.html"
+                >Error: User interaction needed</a
+              >
+            </li>
+            <li>
+              <a
+                href="connections/connecting_external_institutions/security_in_the_connections_to_external_institutions.html"
+                >Security in the connections to external Institutions</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <div class="collapsible">6. Uploading & downloading data</div>
+          <ul class="collapsible-content">
+            <li>
+              <a href="data_&_documents/csv_upload/upload_xlsx_file.html"
+                >Upload Holdings XLSX file</a
+              >
+            </li>
+            <li>
+              <a
+                href="data_&_documents/documents_storage/safe_storage_of_documents.html"
+                >Safe storage of documents</a
+              >
+            </li>
+            <li>
+              <a
+                href="data_&_documents/csv_upload/download/csv_upload_date_format.html"
+                >CSV upload date format</a
+              >
+            </li>
+            <li>
+              <a
+                href="data_&_documents/csv_upload/download/uploading_you_data_manually_introduction.html"
+                >Uploading your data manually introduction</a
+              >
+            </li>
+            <li>
+              <a
+                href="data_&_documents/csv_upload/download/transactions_upload.html"
+                >Transactions upload</a
+              >
+            </li>
+            <li>
+              <a href="data_&_documents/csv_upload/download/data_download.html"
+                >Data download</a
+              >
+            </li>
+            <li>
+              <a href="data_&_documents/csv_upload/download/airbnb_csv.html"
+                >Airbnb CSV</a
+              >
+            </li>
+            <li>
+              <a
+                href="data_&_documents/csv_upload/download/holdings_upload.html"
+                >Holdings upload</a
+              >
+            </li>
+            <li>
+              <a
+                href="data_&_documents/csv_upload/download/valuations_upload.html"
+                >Valuations upload</a
+              >
+            </li>
+            <li>
+              <a
+                href="data_&_documents/csv_upload/download/balances_upload.html"
+                >Balances upload</a
+              >
+            </li>
+            <li>
+              <a
+                href="data_&_documents/csv_upload/download/csv_standards_and_common_issues.html"
+                >CSV standards and common issues</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="collapsible">7. Analytics</div>
+          <ul class="collapsible-content">
+            <li>
+              <a href="analytics/return_metrics/total_net_worth.html"
+                >Total net worth</a
+              >
+            </li>
+            <li>
+              <a href="analytics/return_metrics/30_day_growth.html"
+                >30 day growth</a
+              >
+            </li>
+            <li>
+              <a href="analytics/return_metrics/total_gain.html">Total gain</a>
+            </li>
+            <li>
+              <a href="analytics/return_metrics/unrealized_gain.html"
+                >Unrealized gain</a
+              >
+            </li>
+            <li>
+              <a href="analytics/return_metrics/realized_gain.html"
+                >Realized gain</a
+              >
+            </li>
+            <li>
+              <a href="glossary/investments/invested_capital.html"
+                >Invested capital</a
+              >
+            </li>
+            <li>
+              <a href="glossary/investments/unfunded_commitment.html"
+                >Unfunded commitment</a
+              >
+            </li>
+            <li>
+              <a href="glossary/investments/committed_capital.html"
+                >Committed capital</a
+              >
+            </li>
+            <li>
+              <a href="analytics/return_metrics/historical_performance.html"
+                >Historical performance</a
+              >
+            </li>
+            <li><a href="analytics/return_metrics/mwr.html">MWR</a></li>
+            <li><a href="analytics/return_metrics/twr.html">TWR</a></li>
+            <li>
+              <a
+                href="currencies/understanding_currencies/currency_vs._investment_performance.html"
+                >Currency vs. investment performance</a
+              >
+            </li>
+            <li>
+              <a href="analytics/return_metrics/a_word_of_caution.html"
+                >A word of caution</a
+              >
+            </li>
+            <li>
+              <a href="analytics/pie_charts/allocation.html">Allocation</a>
+            </li>
+            <li>
+              <a href="analytics/pie_charts/currency_exposure.html"
+                >Currency exposure</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="collapsible">8. Security</div>
+          <ul class="collapsible-content">
+            <li>
+              <a href="general/faqs/is_my_data_secure.html"
+                >Is my data secure?</a
+              >
+            </li>
+            <li>
+              <a href="general/faqs/social_or_native_login.html"
+                >Social or native login?</a
+              >
+            </li>
+            <li>
+              <a href="general/faqs/two-factors_authentication_(2fa).html"
+                >Two-factor authentication (2FA)</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="collapsible">9. Glossary</div>
+          <ul class="collapsible-content">
+            <li>
+              <a href="glossary/investments/asset_classes_and_asset_types.html"
+                >Asset classes and asset types</a
+              >
+            </li>
+            <li>
+              <a href="glossary/investments/precious_metals.html"
+                >Precious metals</a
+              >
+            </li>
+            <li>
+              <a href="glossary/investments/liquid_vs_illiquid_investments.html"
+                >Liquid vs illiquid investments</a
+              >
+            </li>
+            <li>
+              <a href="glossary/valuations_&_balances/current_value.html"
+                >Current value</a
+              >
+            </li>
+            <li>
+              <a
+                href="glossary/valuations_&_balances/manual_valuation_for_public_securities.html"
+                >Manual valuation for public securities</a
+              >
+            </li>
+            <li><a href="glossary/other_holdings/cash.html">Cash</a></li>
+            <li><a href="glossary/other_holdings/loans.html">Loans</a></li>
+          </ul>
+        </li>
+      </ul>
     </nav>
 
     <main>
-        <div class="content" id="content-area">
-            <div id="welcome-message">
-                <h1>Exirio Support</h1>
-                <p>Please select a topic from the menu on the left or contact us in <a href="mailto:support@exirio.com">support@exirio.com</a>.</p>
-            </div>
-            <iframe id="content-frame" name="content-frame" title="Content"></iframe>
+      <div class="content" id="content-area">
+        <div id="welcome-message">
+          <h1>Exirio Support</h1>
+          <p>
+            Please select a topic from the menu on the left or contact us in
+            <a href="mailto:support@exirio.com">support@exirio.com</a>.
+          </p>
         </div>
+        <iframe
+          id="content-frame"
+          name="content-frame"
+          title="Content"
+        ></iframe>
+      </div>
     </main>
 
     <script>
-        function showContent(sectionId) {
-            const sections = {
-                'general': `<section id="general"><h2>1. Security</h2><ul><li><h3>1.1 FAQs</h3><ul><li><a href="general/faqs/social_or_native_login.html" target="content-frame">Social or native login?</a></li><li><a href="general/faqs/upcoming_features.html" target="content-frame">Upcoming features</a></li><li><a href="general/faqs/two-factors_authentication_(2fa).html" target="content-frame">Two-factor authentication (2FA)</a></li><li><a href="general/faqs/how_much_does_this_cost.html" target="content-frame">How much does this cost?</a></li><li><a href="general/faqs/is_my_data_secure.html" target="content-frame">Is my data secure?</a></li><li><a href="general/faqs/why_are_you_doing_this.html" target="content-frame">Why are you doing this?</a></li><li><a href="general/faqs/can_you_provide_new_functionalities.html" target="content-frame">Can you provide new functionalities?</a></li><li><a href="general/faqs/decimal_precision_in_units_and_prices.html" target="content-frame">Decimal precision in units and prices</a></li><li><a href="general/faqs/for_any_other_question.html" target="content-frame">For any other question</a></li></ul></li></ul></section>`,
-                'graphs': `<section id="graphs"><h2>2. Graphs</h2><ul><li><h3>2.1 Pie charts</h3><ul><li><a href="graphs/pie_charts/allocation.html" target="content-frame">Allocation</a></li><li><a href="graphs/pie_charts/currency_exposure.html" target="content-frame">Currency exposure</a></li></ul></li></ul></section>`,
-                'connections': `<section id="connections"><h2>3. Connections</h2><ul><li><h3>3.1 Connecting external Institutions</h3><ul><li><a href="connections/connecting_external_institutions/invalid_credentials_error.html" target="content-frame">Error: Invalid credentials</a></li><li><a href="connections/connecting_external_institutions/security_in_the_connections_to_external_institutions.html" target="content-frame">Security in the connections to external Institutions</a></li><li><a href="connections/connecting_external_institutions/connecting_crypto_platforms.html" target="content-frame">Connecting crypto platforms</a></li><li><a href="connections/connecting_external_institutions/connect_to_fidelity.html" target="content-frame">Connect to Fidelity</a></li><li><a href="connections/connecting_external_institutions/re-authorization_and_re-connection.html" target="content-frame">Re-authorization and re-connection</a></li><li><a href="connections/connecting_external_institutions/connect_to_interactive_brokers_(ib).html" target="content-frame">Connect to Interactive Brokers (IB)</a></li><li><a href="connections/connecting_external_institutions/connecting_third-party_institutions_(bank-brokerage_accounts,_crypto_exchange-wallets).html" target="content-frame">Connecting external Institutions (bank-brokerage accounts, crypto exchange-wallets)</a></li><li><a href="connections/connecting_external_institutions/current_accounts.html" target="content-frame">Current accounts</a></li><li><a href="connections/connecting_external_institutions/accounts_with_public_instruments.html" target="content-frame">Accounts with public instruments</a></li></ul></li></ul></section>`,
-                'instructions': `<section id="instructions"><h2>4. Instructions</h2><ul><li><h3>4.1 Add, edit, delete &amp; close loans</h3><ul></ul></li><li><h3>4.1.1 Mortgage</h3><ul><li><a href="instructions/add,_edit,_delete_&_close_loans/mortgage_early_repayment.html" target="content-frame">Mortgage early repayment</a></li><li><a href="instructions/add,_edit,_delete_&_close_loans/closing_a_mortgage.html" target="content-frame">Closing a mortgage</a></li><li><a href="instructions/add,_edit,_delete_&_close_loans/mortgage/mortgages.html" target="content-frame">Mortgages</a></li></ul></li><li><h3>4.2 Add, edit, delete &amp; close investments</h3><ul><li><a href="instructions/add,_edit,_delete_&_close_investments/alternative_ways_to_add_securities.html" target="content-frame">Alternative ways to add securities</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_securities_(securities_portfolios).html" target="content-frame">Adding securities (securities portfolios)</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/deleting_an_investment.html" target="content-frame">Deleting an investment</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_crypto_(exchange-wallet).html" target="content-frame">Adding crypto (exchange-wallet)</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_an_investment.html" target="content-frame">Adding an investment</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/closing_an_investment_(write-off).html" target="content-frame">Closing a Holding (write-off)</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/alternative_ways_to_add_crypto.html" target="content-frame">Alternative ways to add crypto</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_precious_metals.html" target="content-frame">Adding precious metals</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/reopening_an_investment.html" target="content-frame">Reopening an investment</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_a_real_estate_holding.html" target="content-frame">Adding a real estate holding</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_a_retirement-pension_plan_manually.html" target="content-frame">Adding a retirement-pension plan manually</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_a_bond.html" target="content-frame">Adding a bond</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/updating_an_investment.html" target="content-frame">Updating an investment</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_crypto_(connecting_exchange-custodial_wallets).html" target="content-frame">Adding crypto (connecting exchange-custodial wallets)</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/closing_an_investment_(sale).html" target="content-frame">Closing a Holding (sale)</a></li></ul></li></ul></section>`,
-                'data-documents': `<section id="data-documents"><h2>5. Data &amp; documents</h2><ul><li><h3>5.1 Documents storage</h3><ul><li><a href="data_&_documents/documents_storage/safe_storage_of_documents.html" target="content-frame">Safe storage of documents</a></li></ul></li><li><h3>5.2 CSV upload - download</h3><ul><li><a href="data_&_documents/csv_upload/download/csv_upload_date_format.html" target="content-frame">CSV upload date format</a></li><li><a href="data_&_documents/csv_upload/download/uploading_you_data_manually_introduction.html" target="content-frame">Uploading your data manually introduction</a></li><li><a href="data_&_documents/csv_upload/download/transactions_upload.html" target="content-frame">Transactions upload</a></li><li><a href="data_&_documents/csv_upload/download/data_download.html" target="content-frame">Data download</a></li><li><a href="data_&_documents/csv_upload/download/airbnb_csv.html" target="content-frame">Airbnb CSV</a></li><li><a href="data_&_documents/csv_upload/download/holdings_upload.html" target="content-frame">Holdings upload</a></li><li><a href="data_&_documents/csv_upload/download/valuations_upload.html" target="content-frame">Valuations upload</a></li><li><a href="data_&_documents/csv_upload/download/csv_standards_and_common_issues.html" target="content-frame">CSV standards and common issues</a></li><li><a href="data_&_documents/csv_upload/download/balances_upload.html" target="content-frame">Balances upload</a></li></ul></li></ul></section>`,
-                'currencies': `<section id="currencies"><h2>6. Currencies</h2><ul><li><h3>6.1 Understanding currencies</h3><ul><li><a href="currencies/understanding_currencies/currency.html" target="content-frame">Currency symbols</a></li><li><a href="currencies/understanding_currencies/currency_vs._investment_performance.html" target="content-frame">Currency vs. investment performance</a></li></ul></li></ul></section>`,
-                'getting-started': `<section id="getting-started"><h2>7. Getting started</h2><ul><li><h3>7.1 Settings</h3><ul><li><a href="getting_started_with_exirio/settings/account_management.html" target="content-frame">Account management</a></li><li><a href="getting_started_with_exirio/settings/holding_currency.html" target="content-frame">Holding currency</a></li><li><a href="getting_started_with_exirio/settings/third-party_access.html" target="content-frame">Third-party access</a></li><li><a href="getting_started_with_exirio/settings/user_currency.html" target="content-frame">User currency</a></li></ul></li><li><h3>7.2 Your account</h3><ul><li><a href="getting_started_with_exirio/your_account/demo_mode.html" target="content-frame">Demo mode</a></li><li><a href="getting_started_with_exirio/your_account/account_deletion.html" target="content-frame">Account deletion</a></li><li><a href="getting_started_with_exirio/your_account/subscription_downgrade.html" target="content-frame">Subscription downgrade</a></li><li><a href="getting_started_with_exirio/your_account/creating_your_account.html" target="content-frame">Creating your account</a></li><li><a href="getting_started_with_exirio/your_account/understanding_your_home_page.html" target="content-frame">Understanding your home page</a></li></ul></li></ul></section>`,
-                'glossary': `<section id="glossary"><h2>8. Glossary</h2><ul><li><h3>8.1 Transactions</h3><ul><li><a href="glossary/transactions/withdrawal_(or_sell).html" target="content-frame">Withdrawal (or sell)</a></li><li><a href="glossary/transactions/recurrent_transactions.html" target="content-frame">Recurrent transactions</a></li><li><a href="glossary/transactions/deposit_(or_buy).html" target="content-frame">Deposit (or buy)</a></li><li><a href="glossary/transactions/transactions_what_they_are.html" target="content-frame">Transactions what they are</a></li><li><a href="glossary/transactions/balancing_transactions.html" target="content-frame">Balancing transactions</a></li><li><a href="glossary/transactions/income.html" target="content-frame">Income</a></li><li><a href="glossary/transactions/expense.html" target="content-frame">Expense</a></li></ul></li><li><h3>8.2 Return metrics</h3><ul><li><a href="glossary/return_metrics/unrealized_gain.html" target="content-frame">Unrealized gain</a></li><li><a href="glossary/return_metrics/a_word_of_caution.html" target="content-frame">A word of caution</a></li><li><a href="glossary/return_metrics/realized_gain.html" target="content-frame">Realized gain</a></li><li><a href="glossary/return_metrics/historical_performance.html" target="content-frame">Historical performance</a></li><li><a href="glossary/return_metrics/twr.html" target="content-frame">TWR</a></li><li><a href="glossary/return_metrics/total_net_worth.html" target="content-frame">Total net worth</a></li><li><a href="glossary/return_metrics/30_day_growth.html" target="content-frame">30 day growth</a></li><li><a href="glossary/return_metrics/total_gain.html" target="content-frame">Total gain</a></li><li><a href="glossary/return_metrics/mwr.html" target="content-frame">MWR</a></li></ul></li><li><h3>8.3 Investments</h3><ul><li><a href="glossary/investments/precious_metals.html" target="content-frame">Precious metals</a></li><li><a href="glossary/investments/unfunded_commitment.html" target="content-frame">Unfunded commitment</a></li><li><a href="glossary/investments/committed_capital.html" target="content-frame">Committed capital</a></li><li><a href="glossary/investments/liquid_vs_illiquid_investments.html" target="content-frame">Liquid vs illiquid investments</a></li><li><a href="glossary/investments/invested_capital.html" target="content-frame">Invested capital</a></li><li><a href="glossary/investments/investments_vs_holdings.html" target="content-frame">Investments vs holdings</a></li><li><a href="glossary/investments/investments_what_they_are.html" target="content-frame">Investments what they are</a></li><li><a href="glossary/investments/investment_vs._position.html" target="content-frame">Investment vs. position</a></li><li><a href="glossary/investments/asset_classes_and_asset_types.html" target="content-frame">Asset classes and asset types</a></li></ul></li><li><h3>8.4 Valuations &amp; balances</h3><ul><li><a href="glossary/valuations_&_balances/valuations.html" target="content-frame">Valuations</a></li><li><a href="glossary/valuations_&_balances/balances.html" target="content-frame">Balances</a></li><li><a href="glossary/valuations_&_balances/current_value.html" target="content-frame">Current value</a></li><li><a href="glossary/valuations_&_balances/manual_valuation_for_public_securities.html" target="content-frame">Manual valuation for public securities</a></li></ul></li><li><h3>8.5 Other holdings</h3><ul><li><a href="glossary/other_holdings/cash.html" target="content-frame">Cash</a></li><li><a href="glossary/other_holdings/loans.html" target="content-frame">Loans</a></li></ul></li><li><h3>8.6 Custody accounts</h3><ul><li><a href="glossary/custody_accounts/precious_metals_&_custody.html" target="content-frame">Precious metals &amp; custody</a></li><li><a href="glossary/custody_accounts/custody_accounts_what_they_are.html" target="content-frame">Custody accounts what they are</a></li><li><a href="glossary/custody_accounts/returns_in_custody_accounts.html" target="content-frame">Returns in custody accounts</a></li><li><a href="glossary/custody_accounts/transactions_and_valuations_in_custody_accounts_(crypto).html" target="content-frame">Transactions and valuations in custody accounts (crypto)</a></li><li><a href="glossary/custody_accounts/transactions_&_valuations_in_custody_accounts_(securities).html" target="content-frame">Transactions & valuations in custody accounts (securities)</a></li></ul></li></ul></section>`,
-                'data-model': `<section id="data-model"><h2>9. Data model</h2><ul><li><a href="data-model/holdings.html" target="content-frame">Holdings</a></li><li><a href="data-model/investments.html" target="content-frame">Investments</a></li><li><a href="data-model/other_assets.html" target="content-frame">Other Assets</a></li><li><a href="data-model/debt.html" target="content-frame">Debt</a></li></ul></section>`
-            };
-            // Remove welcome message when a section is selected
-            document.getElementById('welcome-message').style.display = 'none';
-            document.getElementById('content-area').innerHTML = '<iframe id="content-frame" name="content-frame" title="Content"></iframe>';
-            const contentList = document.createElement('div');
-            contentList.innerHTML = sections[sectionId];
-            document.getElementById('content-area').appendChild(contentList);
-        }
+      function showContent(sectionId) {
+        const sections = {
+          general: `<section id="general"><h2>1. Security</h2><ul><li><h3>1.1 FAQs</h3><ul><li><a href="general/faqs/social_or_native_login.html" target="content-frame">Social or native login?</a></li><li><a href="general/faqs/upcoming_features.html" target="content-frame">Upcoming features</a></li><li><a href="general/faqs/two-factors_authentication_(2fa).html" target="content-frame">Two-factor authentication (2FA)</a></li><li><a href="general/faqs/how_much_does_this_cost.html" target="content-frame">How much does this cost?</a></li><li><a href="general/faqs/is_my_data_secure.html" target="content-frame">Is my data secure?</a></li><li><a href="general/faqs/why_are_you_doing_this.html" target="content-frame">Why are you doing this?</a></li><li><a href="general/faqs/can_you_provide_new_functionalities.html" target="content-frame">Can you provide new functionalities?</a></li><li><a href="general/faqs/decimal_precision_in_units_and_prices.html" target="content-frame">Decimal precision in units and prices</a></li><li><a href="general/faqs/for_any_other_question.html" target="content-frame">For any other question</a></li></ul></li></ul></section>`,
+          graphs: `<section id="graphs"><h2>2. Graphs</h2><ul><li><h3>2.1 Pie charts</h3><ul><li><a href="graphs/pie_charts/allocation.html" target="content-frame">Allocation</a></li><li><a href="graphs/pie_charts/currency_exposure.html" target="content-frame">Currency exposure</a></li></ul></li></ul></section>`,
+          connections: `<section id="connections"><h2>3. Connections</h2><ul><li><h3>3.1 Connecting external Institutions</h3><ul><li><a href="connections/connecting_external_institutions/invalid_credentials_error.html" target="content-frame">Error: Invalid credentials</a></li><li><a href="connections/connecting_external_institutions/security_in_the_connections_to_external_institutions.html" target="content-frame">Security in the connections to external Institutions</a></li><li><a href="connections/connecting_external_institutions/connecting_crypto_platforms.html" target="content-frame">Connecting crypto platforms</a></li><li><a href="connections/connecting_external_institutions/connect_to_fidelity.html" target="content-frame">Connect to Fidelity</a></li><li><a href="connections/connecting_external_institutions/re-authorization_and_re-connection.html" target="content-frame">Re-authorization and re-connection</a></li><li><a href="connections/connecting_external_institutions/connect_to_interactive_brokers_(ib).html" target="content-frame">Connect to Interactive Brokers (IB)</a></li><li><a href="connections/connecting_external_institutions/connecting_third-party_institutions_(bank-brokerage_accounts,_crypto_exchange-wallets).html" target="content-frame">Connecting external Institutions (bank-brokerage accounts, crypto exchange-wallets)</a></li><li><a href="connections/connecting_external_institutions/current_accounts.html" target="content-frame">Current accounts</a></li><li><a href="connections/connecting_external_institutions/accounts_with_public_instruments.html" target="content-frame">Accounts with public instruments</a></li></ul></li></ul></section>`,
+          instructions: `<section id="instructions"><h2>4. Instructions</h2><ul><li><h3>4.1 Add, edit, delete &amp; close loans</h3><ul></ul></li><li><h3>4.1.1 Mortgage</h3><ul><li><a href="instructions/add,_edit,_delete_&_close_loans/mortgage_early_repayment.html" target="content-frame">Mortgage early repayment</a></li><li><a href="instructions/add,_edit,_delete_&_close_loans/closing_a_mortgage.html" target="content-frame">Closing a mortgage</a></li><li><a href="instructions/add,_edit,_delete_&_close_loans/mortgage/mortgages.html" target="content-frame">Mortgages</a></li></ul></li><li><h3>4.2 Add, edit, delete &amp; close investments</h3><ul><li><a href="instructions/add,_edit,_delete_&_close_investments/alternative_ways_to_add_securities.html" target="content-frame">Alternative ways to add securities</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_securities_(securities_portfolios).html" target="content-frame">Adding securities (securities portfolios)</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/deleting_an_investment.html" target="content-frame">Deleting an investment</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_crypto_(exchange-wallet).html" target="content-frame">Adding crypto (exchange-wallet)</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_an_investment.html" target="content-frame">Adding an investment</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/closing_an_investment_(write-off).html" target="content-frame">Closing a Holding (write-off)</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/alternative_ways_to_add_crypto.html" target="content-frame">Alternative ways to add crypto</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_precious_metals.html" target="content-frame">Adding precious metals</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/reopening_an_investment.html" target="content-frame">Reopening an investment</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_a_real_estate_holding.html" target="content-frame">Adding a real estate holding</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_a_retirement-pension_plan_manually.html" target="content-frame">Adding a retirement-pension plan manually</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_a_bond.html" target="content-frame">Adding a bond</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/updating_an_investment.html" target="content-frame">Updating an investment</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/adding_crypto_(connecting_exchange-custodial_wallets).html" target="content-frame">Adding crypto (connecting exchange-custodial wallets)</a></li><li><a href="instructions/add,_edit,_delete_&_close_investments/closing_an_investment_(sale).html" target="content-frame">Closing a Holding (sale)</a></li></ul></li></ul></section>`,
+          "data-documents": `<section id="data-documents"><h2>5. Data &amp; documents</h2><ul><li><h3>5.1 Documents storage</h3><ul><li><a href="data_&_documents/documents_storage/safe_storage_of_documents.html" target="content-frame">Safe storage of documents</a></li></ul></li><li><h3>5.2 CSV upload - download</h3><ul><li><a href="data_&_documents/csv_upload/download/csv_upload_date_format.html" target="content-frame">CSV upload date format</a></li><li><a href="data_&_documents/csv_upload/download/uploading_you_data_manually_introduction.html" target="content-frame">Uploading your data manually introduction</a></li><li><a href="data_&_documents/csv_upload/download/transactions_upload.html" target="content-frame">Transactions upload</a></li><li><a href="data_&_documents/csv_upload/download/data_download.html" target="content-frame">Data download</a></li><li><a href="data_&_documents/csv_upload/download/airbnb_csv.html" target="content-frame">Airbnb CSV</a></li><li><a href="data_&_documents/csv_upload/download/holdings_upload.html" target="content-frame">Holdings upload</a></li><li><a href="data_&_documents/csv_upload/download/valuations_upload.html" target="content-frame">Valuations upload</a></li><li><a href="data_&_documents/csv_upload/download/csv_standards_and_common_issues.html" target="content-frame">CSV standards and common issues</a></li><li><a href="data_&_documents/csv_upload/download/balances_upload.html" target="content-frame">Balances upload</a></li></ul></li></ul></section>`,
+          currencies: `<section id="currencies"><h2>6. Currencies</h2><ul><li><h3>6.1 Understanding currencies</h3><ul><li><a href="currencies/understanding_currencies/currency.html" target="content-frame">Currency symbols</a></li><li><a href="currencies/understanding_currencies/currency_vs._investment_performance.html" target="content-frame">Currency vs. investment performance</a></li></ul></li></ul></section>`,
+          "getting-started": `<section id="getting-started"><h2>7. Getting started</h2><ul><li><h3>7.1 Settings</h3><ul><li><a href="getting_started_with_exirio/settings/account_management.html" target="content-frame">Account management</a></li><li><a href="getting_started_with_exirio/settings/holding_currency.html" target="content-frame">Holding currency</a></li><li><a href="getting_started_with_exirio/settings/third-party_access.html" target="content-frame">Share access</a></li><li><a href="getting_started_with_exirio/settings/user_currency.html" target="content-frame">User currency</a></li></ul></li><li><h3>7.2 Your account</h3><ul><li><a href="getting_started_with_exirio/your_account/demo_mode.html" target="content-frame">Demo mode</a></li><li><a href="getting_started_with_exirio/your_account/account_deletion.html" target="content-frame">Account deletion</a></li><li><a href="getting_started_with_exirio/your_account/subscription_downgrade.html" target="content-frame">Subscription downgrade</a></li><li><a href="getting_started_with_exirio/your_account/creating_your_account.html" target="content-frame">Creating your account</a></li><li><a href="getting_started_with_exirio/your_account/understanding_your_home_page.html" target="content-frame">Understanding your home page</a></li></ul></li></ul></section>`,
+          glossary: `<section id="glossary"><h2>8. Glossary</h2><ul><li><h3>8.1 Transactions</h3><ul><li><a href="glossary/transactions/withdrawal_(or_sell).html" target="content-frame">Withdrawal (or sell)</a></li><li><a href="glossary/transactions/recurrent_transactions.html" target="content-frame">Recurrent transactions</a></li><li><a href="glossary/transactions/deposit_(or_buy).html" target="content-frame">Deposit (or buy)</a></li><li><a href="glossary/transactions/transactions_what_they_are.html" target="content-frame">Transactions what they are</a></li><li><a href="glossary/transactions/balancing_transactions.html" target="content-frame">Balancing transactions</a></li><li><a href="glossary/transactions/income.html" target="content-frame">Income</a></li><li><a href="glossary/transactions/expense.html" target="content-frame">Expense</a></li></ul></li><li><h3>8.2 Return metrics</h3><ul><li><a href="glossary/return_metrics/unrealized_gain.html" target="content-frame">Unrealized gain</a></li><li><a href="glossary/return_metrics/a_word_of_caution.html" target="content-frame">A word of caution</a></li><li><a href="glossary/return_metrics/realized_gain.html" target="content-frame">Realized gain</a></li><li><a href="glossary/return_metrics/historical_performance.html" target="content-frame">Historical performance</a></li><li><a href="glossary/return_metrics/twr.html" target="content-frame">TWR</a></li><li><a href="glossary/return_metrics/total_net_worth.html" target="content-frame">Total net worth</a></li><li><a href="glossary/return_metrics/30_day_growth.html" target="content-frame">30 day growth</a></li><li><a href="glossary/return_metrics/total_gain.html" target="content-frame">Total gain</a></li><li><a href="glossary/return_metrics/mwr.html" target="content-frame">MWR</a></li></ul></li><li><h3>8.3 Investments</h3><ul><li><a href="glossary/investments/precious_metals.html" target="content-frame">Precious metals</a></li><li><a href="glossary/investments/unfunded_commitment.html" target="content-frame">Unfunded commitment</a></li><li><a href="glossary/investments/committed_capital.html" target="content-frame">Committed capital</a></li><li><a href="glossary/investments/liquid_vs_illiquid_investments.html" target="content-frame">Liquid vs illiquid investments</a></li><li><a href="glossary/investments/invested_capital.html" target="content-frame">Invested capital</a></li><li><a href="glossary/investments/investments_vs_holdings.html" target="content-frame">Investments vs holdings</a></li><li><a href="glossary/investments/investments_what_they_are.html" target="content-frame">Investments what they are</a></li><li><a href="glossary/investments/investment_vs._position.html" target="content-frame">Investment vs. position</a></li><li><a href="glossary/investments/asset_classes_and_asset_types.html" target="content-frame">Asset classes and asset types</a></li></ul></li><li><h3>8.4 Valuations &amp; balances</h3><ul><li><a href="glossary/valuations_&_balances/valuations.html" target="content-frame">Valuations</a></li><li><a href="glossary/valuations_&_balances/balances.html" target="content-frame">Balances</a></li><li><a href="glossary/valuations_&_balances/current_value.html" target="content-frame">Current value</a></li><li><a href="glossary/valuations_&_balances/manual_valuation_for_public_securities.html" target="content-frame">Manual valuation for public securities</a></li></ul></li><li><h3>8.5 Other holdings</h3><ul><li><a href="glossary/other_holdings/cash.html" target="content-frame">Cash</a></li><li><a href="glossary/other_holdings/loans.html" target="content-frame">Loans</a></li></ul></li><li><h3>8.6 Custody accounts</h3><ul><li><a href="glossary/custody_accounts/precious_metals_&_custody.html" target="content-frame">Precious metals &amp; custody</a></li><li><a href="glossary/custody_accounts/custody_accounts_what_they_are.html" target="content-frame">Custody accounts what they are</a></li><li><a href="glossary/custody_accounts/returns_in_custody_accounts.html" target="content-frame">Returns in custody accounts</a></li><li><a href="glossary/custody_accounts/transactions_and_valuations_in_custody_accounts_(crypto).html" target="content-frame">Transactions and valuations in custody accounts (crypto)</a></li><li><a href="glossary/custody_accounts/transactions_&_valuations_in_custody_accounts_(securities).html" target="content-frame">Transactions & valuations in custody accounts (securities)</a></li></ul></li></ul></section>`,
+          "data-model": `<section id="data-model"><h2>9. Data model</h2><ul><li><a href="data-model/holdings.html" target="content-frame">Holdings</a></li><li><a href="data-model/investments.html" target="content-frame">Investments</a></li><li><a href="data-model/other_assets.html" target="content-frame">Other Assets</a></li><li><a href="data-model/debt.html" target="content-frame">Debt</a></li></ul></section>`,
+        };
+        // Remove welcome message when a section is selected
+        document.getElementById("welcome-message").style.display = "none";
+        document.getElementById("content-area").innerHTML =
+          '<iframe id="content-frame" name="content-frame" title="Content"></iframe>';
+        const contentList = document.createElement("div");
+        contentList.innerHTML = sections[sectionId];
+        document.getElementById("content-area").appendChild(contentList);
+      }
 
-        // Function to show the welcome message
-        function showWelcomeMessage() {
-            // Clear any section content
-            document.getElementById('content-area').innerHTML = '';
-            
-            // Recreate the welcome message
-            const welcomeMessage = document.createElement('div');
-            welcomeMessage.id = 'welcome-message';
-            welcomeMessage.innerHTML = `
+      // Function to show the welcome message
+      function showWelcomeMessage() {
+        // Clear any section content
+        document.getElementById("content-area").innerHTML = "";
+
+        // Recreate the welcome message
+        const welcomeMessage = document.createElement("div");
+        welcomeMessage.id = "welcome-message";
+        welcomeMessage.innerHTML = `
                 <h1>Exirio Support</h1>
                 <p>Please select a topic from the menu on the left or contact us in <a href="mailto:support@exirio.com">support@exirio.com</a>.</p>
             `;
-            
-            // Add iframe back (hidden behind welcome message)
-            const iframe = document.createElement('iframe');
-            iframe.id = 'content-frame';
-            iframe.name = 'content-frame';
-            iframe.title = 'Content';
-            
-            // Append elements to content area
-            document.getElementById('content-area').appendChild(welcomeMessage);
-            document.getElementById('content-area').appendChild(iframe);
-        }
 
-        // Search functionality
-        function initializeSearch() {
-            const searchInput = document.getElementById('search-input');
-            const searchButton = document.getElementById('search-button');
-            const searchResults = document.getElementById('search-results');
-            
-            // Build an array of all articles for searching
-            const allArticles = [];
-            const sidebarLinks = document.querySelectorAll('.sidebar a[href$=".html"]');
-            
-            sidebarLinks.forEach(link => {
-                if (link.href && link.href.endsWith('.html')) {
-                    allArticles.push({
-                        title: link.textContent.trim(),
-                        url: link.getAttribute('href'),
-                        path: link.getAttribute('href').split('/').slice(0, -1).join('/'),
-                        element: link
-                    });
-                }
+        // Add iframe back (hidden behind welcome message)
+        const iframe = document.createElement("iframe");
+        iframe.id = "content-frame";
+        iframe.name = "content-frame";
+        iframe.title = "Content";
+
+        // Append elements to content area
+        document.getElementById("content-area").appendChild(welcomeMessage);
+        document.getElementById("content-area").appendChild(iframe);
+      }
+
+      // Search functionality
+      function initializeSearch() {
+        const searchInput = document.getElementById("search-input");
+        const searchButton = document.getElementById("search-button");
+        const searchResults = document.getElementById("search-results");
+
+        // Build an array of all articles for searching
+        const allArticles = [];
+        const sidebarLinks = document.querySelectorAll(
+          '.sidebar a[href$=".html"]'
+        );
+
+        sidebarLinks.forEach((link) => {
+          if (link.href && link.href.endsWith(".html")) {
+            allArticles.push({
+              title: link.textContent.trim(),
+              url: link.getAttribute("href"),
+              path: link.getAttribute("href").split("/").slice(0, -1).join("/"),
+              element: link,
             });
-            
-            // Function to perform search
-            function performSearch() {
-                const query = searchInput.value.toLowerCase().trim();
-                if (query.length < 2) {
-                    searchResults.innerHTML = '';
-                    searchResults.classList.remove('show');
-                    return;
-                }
-                
-                const matches = allArticles.filter(article => 
-                    article.title.toLowerCase().includes(query) || 
-                    article.path.toLowerCase().includes(query)
-                );
-                
-                if (matches.length > 0) {
-                    searchResults.innerHTML = '';
-                    matches.slice(0, 10).forEach(match => {
-                        const item = document.createElement('div');
-                        item.className = 'search-result-item';
-                        item.innerHTML = `
+          }
+        });
+
+        // Function to perform search
+        function performSearch() {
+          const query = searchInput.value.toLowerCase().trim();
+          if (query.length < 2) {
+            searchResults.innerHTML = "";
+            searchResults.classList.remove("show");
+            return;
+          }
+
+          const matches = allArticles.filter(
+            (article) =>
+              article.title.toLowerCase().includes(query) ||
+              article.path.toLowerCase().includes(query)
+          );
+
+          if (matches.length > 0) {
+            searchResults.innerHTML = "";
+            matches.slice(0, 10).forEach((match) => {
+              const item = document.createElement("div");
+              item.className = "search-result-item";
+              item.innerHTML = `
                             <a href="${match.url}" target="content-frame">
                                 <div class="search-result-item-title">${match.title}</div>
                                 <div class="search-result-item-path">${match.path}</div>
                             </a>
                         `;
-                        item.addEventListener('click', function() {
-                            // Show the content in the iframe
-                            const iframe = document.getElementById('content-frame');
-                            iframe.src = match.url;
-                            
-                            // Remove welcome message if it's visible
-                            const welcomeMessage = document.getElementById('welcome-message');
-                            if (welcomeMessage) {
-                                welcomeMessage.style.display = 'none';
-                            }
-                            
-                            // Close search results
-                            searchResults.classList.remove('show');
-                            
-                            // Add the iframe if it's not there
-                            const contentArea = document.getElementById('content-area');
-                            if (!document.getElementById('content-frame')) {
-                                contentArea.innerHTML = '<iframe id="content-frame" name="content-frame" title="Content"></iframe>';
-                                document.getElementById('content-frame').src = match.url;
-                            }
-                        });
-                        searchResults.appendChild(item);
-                    });
-                    searchResults.classList.add('show');
-                } else {
-                    searchResults.innerHTML = '<div class="search-result-item">No results found</div>';
-                    searchResults.classList.add('show');
+              item.addEventListener("click", function () {
+                // Show the content in the iframe
+                const iframe = document.getElementById("content-frame");
+                iframe.src = match.url;
+
+                // Remove welcome message if it's visible
+                const welcomeMessage =
+                  document.getElementById("welcome-message");
+                if (welcomeMessage) {
+                  welcomeMessage.style.display = "none";
                 }
-            }
-            
-            // Event listeners
-            searchButton.addEventListener('click', performSearch);
-            searchInput.addEventListener('keyup', function(e) {
-                if (e.key === 'Enter') {
-                    performSearch();
-                } else if (e.key === 'Escape') {
-                    searchResults.classList.remove('show');
-                } else if (searchInput.value.length >= 2) {
-                    performSearch();
-                } else {
-                    searchResults.classList.remove('show');
+
+                // Close search results
+                searchResults.classList.remove("show");
+
+                // Add the iframe if it's not there
+                const contentArea = document.getElementById("content-area");
+                if (!document.getElementById("content-frame")) {
+                  contentArea.innerHTML =
+                    '<iframe id="content-frame" name="content-frame" title="Content"></iframe>';
+                  document.getElementById("content-frame").src = match.url;
                 }
+              });
+              searchResults.appendChild(item);
             });
-            
-            // Close search results when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!searchInput.contains(e.target) && !searchButton.contains(e.target) && !searchResults.contains(e.target)) {
-                    searchResults.classList.remove('show');
-                }
-            });
+            searchResults.classList.add("show");
+          } else {
+            searchResults.innerHTML =
+              '<div class="search-result-item">No results found</div>';
+            searchResults.classList.add("show");
+          }
         }
 
-        // Mobile menu functionality
-        function initializeMobileMenu() {
-            const menuToggle = document.getElementById('menu-toggle');
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('overlay');
-            
-            // Toggle sidebar on menu button click
-            menuToggle.addEventListener('click', function() {
-                sidebar.classList.toggle('active');
-                overlay.classList.toggle('active');
-                document.body.classList.toggle('no-scroll');
-            });
-            
-            // Close sidebar when clicking on overlay
-            overlay.addEventListener('click', function() {
-                sidebar.classList.remove('active');
-                overlay.classList.remove('active');
-                document.body.classList.remove('no-scroll');
-            });
-            
-            // Close sidebar when window is resized to desktop size
-            window.addEventListener('resize', function() {
-                if (window.innerWidth > 768) {
-                    sidebar.classList.remove('active');
-                    overlay.classList.remove('active');
-                    document.body.classList.remove('no-scroll');
-                }
-            });
-            
-            // Close sidebar when a menu item is clicked
-            const menuItems = document.querySelectorAll('.sidebar a');
-            menuItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    if (window.innerWidth <= 768) {
-                        sidebar.classList.remove('active');
-                        overlay.classList.remove('active');
-                        document.body.classList.remove('no-scroll');
-                    }
-                });
-            });
-        }
-
-        // Initialize sidebar links to target the iframe
-        function initializeSidebarLinks() {
-            const sidebarLinks = document.querySelectorAll('.sidebar a');
-            sidebarLinks.forEach(link => {
-                if (link.href.endsWith('.html')) {
-                    link.target = 'content-frame';
-                }
-            });
-        }
-
-        // Handle browser back/forward buttons
-        window.onpopstate = function(event) {
-            if (location.hash) {
-                showContent(location.hash.substring(1));
-            } else {
-                showContent('general');
-            }
-        };
-
-        // Load the first section by default and initialize links
-        document.addEventListener('DOMContentLoaded', () => {
-            // Don't show any section by default, just show the welcome message
-            // The welcome message is already visible in the HTML
-            initializeSidebarLinks();
-            initializeSearch(); // Initialize search functionality
-            initializeMobileMenu(); // Initialize mobile menu functionality
-            initializeCollapsibleSections(); // Initialize collapsible sections
+        // Event listeners
+        searchButton.addEventListener("click", performSearch);
+        searchInput.addEventListener("keyup", function (e) {
+          if (e.key === "Enter") {
+            performSearch();
+          } else if (e.key === "Escape") {
+            searchResults.classList.remove("show");
+          } else if (searchInput.value.length >= 2) {
+            performSearch();
+          } else {
+            searchResults.classList.remove("show");
+          }
         });
 
-        function initializeCollapsibleSections() {
-            const collapsibleHeaders = document.querySelectorAll('.collapsible');
-            collapsibleHeaders.forEach(header => {
-                header.addEventListener('click', function() {
-                    this.classList.toggle('active');
-                    const content = this.nextElementSibling;
-                    if (content.classList.contains('collapsible-content')) {
-                        content.classList.toggle('show');
-                    }
-                });
-            });
+        // Close search results when clicking outside
+        document.addEventListener("click", function (e) {
+          if (
+            !searchInput.contains(e.target) &&
+            !searchButton.contains(e.target) &&
+            !searchResults.contains(e.target)
+          ) {
+            searchResults.classList.remove("show");
+          }
+        });
+      }
 
-            const links = document.querySelectorAll('.collapsible-content a');
-            links.forEach(link => {
-                link.addEventListener('click', function() {
-                    // Remove 'selected' class from all links
-                    links.forEach(l => l.classList.remove('selected'));
-                    // Add 'selected' class to the clicked link
-                    this.classList.add('selected');
-                });
-            });
+      // Mobile menu functionality
+      function initializeMobileMenu() {
+        const menuToggle = document.getElementById("menu-toggle");
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+
+        // Toggle sidebar on menu button click
+        menuToggle.addEventListener("click", function () {
+          sidebar.classList.toggle("active");
+          overlay.classList.toggle("active");
+          document.body.classList.toggle("no-scroll");
+        });
+
+        // Close sidebar when clicking on overlay
+        overlay.addEventListener("click", function () {
+          sidebar.classList.remove("active");
+          overlay.classList.remove("active");
+          document.body.classList.remove("no-scroll");
+        });
+
+        // Close sidebar when window is resized to desktop size
+        window.addEventListener("resize", function () {
+          if (window.innerWidth > 768) {
+            sidebar.classList.remove("active");
+            overlay.classList.remove("active");
+            document.body.classList.remove("no-scroll");
+          }
+        });
+
+        // Close sidebar when a menu item is clicked
+        const menuItems = document.querySelectorAll(".sidebar a");
+        menuItems.forEach((item) => {
+          item.addEventListener("click", function () {
+            if (window.innerWidth <= 768) {
+              sidebar.classList.remove("active");
+              overlay.classList.remove("active");
+              document.body.classList.remove("no-scroll");
+            }
+          });
+        });
+      }
+
+      // Initialize sidebar links to target the iframe
+      function initializeSidebarLinks() {
+        const sidebarLinks = document.querySelectorAll(".sidebar a");
+        sidebarLinks.forEach((link) => {
+          if (link.href.endsWith(".html")) {
+            link.target = "content-frame";
+          }
+        });
+      }
+
+      // Handle browser back/forward buttons
+      window.onpopstate = function (event) {
+        if (location.hash) {
+          showContent(location.hash.substring(1));
+        } else {
+          showContent("general");
         }
+      };
+
+      // Load the first section by default and initialize links
+      document.addEventListener("DOMContentLoaded", () => {
+        // Don't show any section by default, just show the welcome message
+        // The welcome message is already visible in the HTML
+        initializeSidebarLinks();
+        initializeSearch(); // Initialize search functionality
+        initializeMobileMenu(); // Initialize mobile menu functionality
+        initializeCollapsibleSections(); // Initialize collapsible sections
+      });
+
+      function initializeCollapsibleSections() {
+        const collapsibleHeaders = document.querySelectorAll(".collapsible");
+        collapsibleHeaders.forEach((header) => {
+          header.addEventListener("click", function () {
+            this.classList.toggle("active");
+            const content = this.nextElementSibling;
+            if (content.classList.contains("collapsible-content")) {
+              content.classList.toggle("show");
+            }
+          });
+        });
+
+        const links = document.querySelectorAll(".collapsible-content a");
+        links.forEach((link) => {
+          link.addEventListener("click", function () {
+            // Remove 'selected' class from all links
+            links.forEach((l) => l.classList.remove("selected"));
+            // Add 'selected' class to the clicked link
+            this.classList.add("selected");
+          });
+        });
+      }
     </script>
-</body>
+  </body>
 </html>

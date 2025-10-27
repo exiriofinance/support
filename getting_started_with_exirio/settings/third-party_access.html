@@ -1,191 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Third-party access - Exirio Support</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Share access - Exirio Support</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        :root {
-            --primary-color: #1a237e;
-            --secondary-color: #0d47a1;
-            --text-color: #212121;
-            --background-color: #f5f5f5;
-            --border-color: #e0e0e0;
-            --container-width: 1200px;
-            --section-spacing: 2rem;
-            --subsection-spacing: 1.5rem;
-            --item-spacing: 0.75rem;
-            --accent-color: #2196f3;
-            --hover-color: #1565c0;
-        }
+      :root {
+        --primary-color: #1a237e;
+        --secondary-color: #0d47a1;
+        --text-color: #212121;
+        --background-color: #f5f5f5;
+        --border-color: #e0e0e0;
+        --container-width: 1200px;
+        --section-spacing: 2rem;
+        --subsection-spacing: 1.5rem;
+        --item-spacing: 0.75rem;
+        --accent-color: #2196f3;
+        --hover-color: #1565c0;
+      }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter Tight', sans-serif;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter Tight", sans-serif;
+      }
 
-        body {
-            font-family: 'Inter Tight', sans-serif;
-            line-height: 1.4;
-            color: var(--text-color);
-            background-color: white;
-            padding: 2rem;
-        }
+      body {
+        font-family: "Inter Tight", sans-serif;
+        line-height: 1.4;
+        color: var(--text-color);
+        background-color: white;
+        padding: 2rem;
+      }
 
-        h1 {
-            color: var(--primary-color);
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--border-color);
-        }
+      h1 {
+        color: var(--primary-color);
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--border-color);
+      }
 
-        h2 {
-            color: var(--primary-color);
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--border-color);
-        }
+      h2 {
+        color: var(--primary-color);
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--border-color);
+      }
 
-        h3 {
-            color: var(--secondary-color);
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin: 1rem 0 0.75rem;
-        }
+      h3 {
+        color: var(--secondary-color);
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 1rem 0 0.75rem;
+      }
 
-        p {
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
+      p {
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
 
-        ul {
-            list-style: disc;
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
+      ul {
+        list-style: disc;
+        margin-left: 1.5rem;
+        margin-bottom: 1rem;
+      }
 
-        ol {
-            list-style: decimal;
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
+      ol {
+        list-style: decimal;
+        margin-left: 1.5rem;
+        margin-bottom: 1rem;
+      }
 
-        li {
-            margin-bottom: 0.5rem;
-        }
+      li {
+        margin-bottom: 0.5rem;
+      }
 
-        a {
-            color: var(--accent-color);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
+      a {
+        color: var(--accent-color);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
 
-        a:hover {
-            color: var(--hover-color);
-            text-decoration: underline;
-        }
+      a:hover {
+        color: var(--hover-color);
+        text-decoration: underline;
+      }
 
-        code {
-            font-family: monospace;
-            background-color: #f5f5f5;
-            padding: 0.2rem 0.4rem;
-            border-radius: 3px;
-            font-size: 0.9em;
-        }
+      code {
+        font-family: monospace;
+        background-color: #f5f5f5;
+        padding: 0.2rem 0.4rem;
+        border-radius: 3px;
+        font-size: 0.9em;
+      }
 
-        pre {
-            background-color: #f5f5f5;
-            padding: 1rem;
-            border-radius: 5px;
-            overflow-x: auto;
-            margin-bottom: 1rem;
-        }
+      pre {
+        background-color: #f5f5f5;
+        padding: 1rem;
+        border-radius: 5px;
+        overflow-x: auto;
+        margin-bottom: 1rem;
+      }
 
-        blockquote {
-            border-left: 4px solid var(--border-color);
-            padding-left: 1rem;
-            margin-left: 0;
-            margin-bottom: 1rem;
-            color: #555;
-        }
+      blockquote {
+        border-left: 4px solid var(--border-color);
+        padding-left: 1rem;
+        margin-left: 0;
+        margin-bottom: 1rem;
+        color: #555;
+      }
 
-        img {
-            max-width: 100%;
-            height: auto;
-            margin: 1rem 0;
-        }
+      img {
+        max-width: 100%;
+        height: auto;
+        margin: 1rem 0;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 1rem;
-        }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 1rem;
+      }
 
-        th, td {
-            padding: 0.75rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-        }
+      th,
+      td {
+        padding: 0.75rem;
+        text-align: left;
+        border-bottom: 1px solid var(--border-color);
+      }
 
-        th {
-            background-color: var(--primary-color);
-            color: white;
-        }
+      th {
+        background-color: var(--primary-color);
+        color: white;
+      }
     </style>
-</head>
-<body>
-<h1 id="third-party-access">Third-party access</h1>
-<p style="margin-bottom: 8pt; margin-left: 0in; line-height: 200%; font-size: 16px; font-family: text-align: justify;">
-<span dir="ltr"
-style="font-size:16px;line-height:200%;font-family:color:#131C3C;">As
-the <strong>Owner </strong>of your account, you can add additional users
-and grant them the right to <strong>view or edit</strong> your
-Holdings. </span>
-</p>
-<p style="margin-bottom: 8pt; margin-left: 0in; line-height: 200%; font-size: 16px; font-family: text-align: justify;">
-<span dir="ltr"
-style="font-size:16px;line-height:200%;font-family:color:#131C3C;">You
-can also give <strong dir="ltr">Emergency Access </strong>to a person of
-your choice, who will have viewing rights by default and will be
-notified if you have not logged into your account for more than 3
-months.</span>
-</p>
-<p style="margin-bottom: 8pt; margin-left: 0in; line-height: 200%; font-size: 16px; font-family: text-align: justify;">
-<span dir="ltr"
-style="font-size:16px;line-height:200%;font-family:color:#131C3C;">Instructions:</span>
-</p>
-<p><span dir="ltr"
-style="font-size:16px;line-height:200%;font-family:color:#131C3C;">Go to
-Settings through the menu on the top right.</span></p>
-<p><span dir="ltr"
-style="font-size:16px;line-height:200%;font-family:color:#131C3C;">Navigate
-to "Third Party Access"</span></p>
-<p><span dir="ltr"
-style="font-size:16px;line-height:200%;font-family:color:#131C3C;">1. Grant access by entering the other User's email address. The User will be notified by email and invited to register if they don't have an account.
-</span></p>
-<p><span dir="ltr"
-style="font-size:16px;line-height:200%;font-family:color:#131C3C;">2.
-Select the type of access you want to grant:</span></p>
-<ul>
-<li><span dir="ltr"
-style="font-size:16px;line-height:200%;font-family:color:#131C3C;">View
-only</span></li>
-<li><span dir="ltr"
-style="font-size:16px;line-height:200%;font-family:color:#131C3C;">View
-&amp; Edit</span></li>
-<li><span dir="ltr"
-style="font-size:16px;line-height:200%;font-family:color:#131C3C;">Emergency
-access: The recipient will be notified now but will only be granted access (and
-notified again) if you don't log into your account for 3 months.</span></li>
-</ul>
-</body>
+  </head>
+  <body>
+    <h1 id="third-party-access">Share access</h1>
+    <p
+      style="margin-bottom: 8pt; margin-left: 0in; line-height: 200%; font-size: 16px; font-family: text-align: justify;"
+    >
+      <span
+        dir="ltr"
+        style="font-size:16px;line-height:200%;font-family:color:#131C3C;"
+        >As the <strong>Owner </strong>of your account, you can add additional
+        users and grant them the right to <strong>view or edit</strong> your
+        Holdings. </span
+      >
+    </p>
+    <p
+      style="margin-bottom: 8pt; margin-left: 0in; line-height: 200%; font-size: 16px; font-family: text-align: justify;"
+    >
+      <span
+        dir="ltr"
+        style="font-size:16px;line-height:200%;font-family:color:#131C3C;"
+        >You can also give <strong dir="ltr">Emergency Access </strong>to a
+        person of your choice, who will have viewing rights by default and will
+        be notified if you have not logged into your account for more than 3
+        months.</span
+      >
+    </p>
+    <p
+      style="margin-bottom: 8pt; margin-left: 0in; line-height: 200%; font-size: 16px; font-family: text-align: justify;"
+    >
+      <span
+        dir="ltr"
+        style="font-size:16px;line-height:200%;font-family:color:#131C3C;"
+        >Instructions:</span
+      >
+    </p>
+    <p>
+      <span
+        dir="ltr"
+        style="font-size:16px;line-height:200%;font-family:color:#131C3C;"
+        >Go to Settings through the menu on the top right.</span
+      >
+    </p>
+    <p>
+      <span
+        dir="ltr"
+        style="font-size:16px;line-height:200%;font-family:color:#131C3C;"
+        >Navigate to "Share Access"</span
+      >
+    </p>
+    <p>
+      <span
+        dir="ltr"
+        style="font-size:16px;line-height:200%;font-family:color:#131C3C;"
+        >1. Grant access by entering the other User's email address. The User
+        will be notified by email and invited to register if they don't have an
+        account.
+      </span>
+    </p>
+    <p>
+      <span
+        dir="ltr"
+        style="font-size:16px;line-height:200%;font-family:color:#131C3C;"
+        >2. Select the type of access you want to grant:</span
+      >
+    </p>
+    <ul>
+      <li>
+        <span
+          dir="ltr"
+          style="font-size:16px;line-height:200%;font-family:color:#131C3C;"
+          >View only</span
+        >
+      </li>
+      <li>
+        <span
+          dir="ltr"
+          style="font-size:16px;line-height:200%;font-family:color:#131C3C;"
+          >View &amp; Edit</span
+        >
+      </li>
+      <li>
+        <span
+          dir="ltr"
+          style="font-size:16px;line-height:200%;font-family:color:#131C3C;"
+          >Emergency access: The recipient will be notified now but will only be
+          granted access (and notified again) if you don't log into your account
+          for 3 months.</span
+        >
+      </li>
+    </ul>
+  </body>
 </html>
