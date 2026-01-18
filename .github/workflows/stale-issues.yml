@@ -1,0 +1,34 @@
+name: "Stale Issue Management"
+on:
+  schedule:
+    - cron: '30 1 * * *' # Run daily at 1:30 AM UTC
+  workflow_dispatch: # Allow manual trigger for testing
+
+permissions:
+  issues: write
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v9
+        with:
+          # Idle Limit: 90 days
+          days-before-stale: 90
+          
+          # Label to apply
+          stale-issue-label: 'stale'
+          
+          # Comment to post
+          stale-issue-message: |
+            This issue has been automatically marked as 'stale' because it has been inactive for 90 days.
+            It is being "parked" for prioritization. If this is still relevant, please verify against the latest version.
+          
+          # STOP Auto-Closing (Set to -1)
+          days-before-close: -1
+          
+          # Exemptions (Optional: prevent closing pinned or security issues)
+          exempt-issue-labels: 'security,pinned,keep-open'
+          
+          # Operations allowed
+          operations-per-run: 50 # Limit to avoid rate limits on first run
