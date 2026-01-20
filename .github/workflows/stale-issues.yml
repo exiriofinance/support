@@ -31,4 +31,4 @@ jobs:
           exempt-issue-labels: 'security,pinned,keep-open'
           
           # Operations allowed
-          operations-per-run: 50 # Limit to avoid rate limits on first run
+          operations-per-run: 200 # Increased to process more issues per run (was 50)
