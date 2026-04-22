@@ -1,396 +1,1101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Holdings Upload - Exirio Support</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        :root {
-            --primary-color: #1a237e;
-            --secondary-color: #0d47a1;
-            --text-color: #212121;
-            --background-color: #f5f5f5;
-            --border-color: #e0e0e0;
-            --container-width: 1200px;
-            --section-spacing: 2rem;
-            --subsection-spacing: 1.5rem;
-            --item-spacing: 0.75rem;
-            --accent-color: #2196f3;
-            --hover-color: #1565c0;
-        }
+      :root {
+        --primary-color: #1a237e;
+        --secondary-color: #0d47a1;
+        --text-color: #212121;
+        --background-color: #f5f5f5;
+        --border-color: #e0e0e0;
+        --container-width: 1200px;
+        --section-spacing: 2rem;
+        --subsection-spacing: 1.5rem;
+        --item-spacing: 0.75rem;
+        --accent-color: #2196f3;
+        --hover-color: #1565c0;
+      }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter Tight', sans-serif;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter Tight", sans-serif;
+      }
 
-        body {
-            font-family: 'Inter Tight', sans-serif;
-            line-height: 1.4;
-            color: var(--text-color);
-            background-color: white;
-            padding: 2rem;
-        }
+      body {
+        font-family: "Inter Tight", sans-serif;
+        line-height: 1.4;
+        color: var(--text-color);
+        background-color: white;
+        padding: 2rem;
+      }
 
-        h1 {
-            color: var(--primary-color);
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--border-color);
-        }
+      h1 {
+        color: var(--primary-color);
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--border-color);
+      }
 
-        h2 {
-            color: var(--primary-color);
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--border-color);
-        }
+      h2 {
+        color: var(--primary-color);
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--border-color);
+      }
 
-        h3 {
-            color: var(--secondary-color);
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin: 1rem 0 0.75rem;
-        }
+      h3 {
+        color: var(--secondary-color);
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 1rem 0 0.75rem;
+      }
 
-        p {
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
+      p {
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
 
-        ul {
-            list-style: disc;
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
+      ul {
+        list-style: disc;
+        margin-left: 1.5rem;
+        margin-bottom: 1rem;
+      }
 
-        ol {
-            list-style: decimal;
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
+      ol {
+        list-style: decimal;
+        margin-left: 1.5rem;
+        margin-bottom: 1rem;
+      }
 
-        li {
-            margin-bottom: 0.5rem;
-        }
+      li {
+        margin-bottom: 0.5rem;
+      }
 
-        a {
-            color: var(--accent-color);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
+      a {
+        color: var(--accent-color);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
 
-        a:hover {
-            color: var(--hover-color);
-            text-decoration: underline;
-        }
+      a:hover {
+        color: var(--hover-color);
+        text-decoration: underline;
+      }
 
-        code {
-            font-family: monospace;
-            background-color: #f5f5f5;
-            padding: 0.2rem 0.4rem;
-            border-radius: 3px;
-            font-size: 0.9em;
-        }
+      code {
+        font-family: monospace;
+        background-color: #f5f5f5;
+        padding: 0.2rem 0.4rem;
+        border-radius: 3px;
+        font-size: 0.9em;
+      }
 
-        pre {
-            background-color: #f5f5f5;
-            padding: 1rem;
-            border-radius: 5px;
-            overflow-x: auto;
-            margin-bottom: 1rem;
-        }
+      pre {
+        background-color: #f5f5f5;
+        padding: 1rem;
+        border-radius: 5px;
+        overflow-x: auto;
+        margin-bottom: 1rem;
+      }
 
-        blockquote {
-            border-left: 4px solid var(--border-color);
-            padding-left: 1rem;
-            margin-left: 0;
-            margin-bottom: 1rem;
-            color: #555;
-        }
+      blockquote {
+        border-left: 4px solid var(--border-color);
+        padding-left: 1rem;
+        margin-left: 0;
+        margin-bottom: 1rem;
+        color: #555;
+      }
 
-        img {
-            max-width: 100%;
-            height: auto;
-            margin: 1rem 0;
-        }
+      img {
+        max-width: 100%;
+        height: auto;
+        margin: 1rem 0;
+      }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 1rem;
-        }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 1rem;
+      }
 
-        th, td {
-            padding: 0.75rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-        }
+      th,
+      td {
+        padding: 0.75rem;
+        text-align: left;
+        border-bottom: 1px solid var(--border-color);
+      }
 
-        th {
-            background-color: var(--primary-color);
-            color: white;
-        }
+      th {
+        background-color: var(--primary-color);
+        color: white;
+      }
     </style>
-</head>
-<body>
-<h1 id="holdings-upload">Holdings Upload</h1>
-<p style="margin-left: 0in; font-size: 16px; font-family: 'Inter Tight', sans-serif; margin-bottom: 11pt; line-height: 200%; text-align: justify;">
-    <span dir="ltr" style="font-size: 16px; line-height: 200%;">
+  </head>
+  <body>
+    <h1 id="holdings-upload">Holdings Upload</h1>
+    <p
+      style="
+        margin-left: 0in;
+        font-size: 16px;
+        font-family: 'Inter Tight', sans-serif;
+        margin-bottom: 11pt;
+        line-height: 200%;
+        text-align: justify;
+      "
+    >
+      <span dir="ltr" style="font-size: 16px; line-height: 200%">
         Instead of adding your
-        <a href="https://support.exirio.com/en/support/solutions/articles/80000388166">Holdings</a> manually,
-        you have the option to upload selected Asset Classes using a CSV file.
-    </span>
-</p>
-<p style="margin-left: 0in; font-size: 16px; font-family: 'Inter Tight', sans-serif; margin-bottom: 11pt; line-height: 200%; text-align: justify;">
-    <span style="font-size: 16px; line-height: 200%;">
-        Start by clicking on "Upload CSV", and download a template to fill in. In the template, you will need to make sure some fields are populated correctly:
-    </span>
-</p>
-<ol>
-    <li style="font-size: 16px; font-family: 'Inter Tight', sans-serif; margin-bottom: 11pt; line-height: 200%; text-align: justify;">
-        <span style="font-size: 16px; line-height: 200%;">Class (see list below)</span>
-    </li>
-    <li style="font-size: 16px; font-family: 'Inter Tight', sans-serif; margin-bottom: 11pt; line-height: 200%; text-align: justify;">
-        <span style="font-size: 16px; line-height: 200%;">Type (see list below)</span>
-    </li>
-    <li style="font-size: 16px; font-family: 'Inter Tight', sans-serif; margin-bottom: 11pt; line-height: 200%; text-align: justify;">
-        <span style="font-size: 16px; line-height: 200%;">Currency (see <a href="http://support.exirio.com/en/support/solutions/articles/80000402717">currency symbols</a>).</span>
-    </li>
-</ol>
-<p style="font-size: 16px; font-family: 'Inter Tight', sans-serif; line-height: 200%; text-align: justify;">
-    Please make sure dates are inputted as <span style="font-family: 'Helvetica Neue', Arial, sans-serif;">dd/mm/yyyy</span>.
-</p>
-<table border="0" cellpadding="0" cellspacing="0" style="width: 100%; border-collapse: collapse;" width="100%">
-<tbody>
-<tr>
-<td style="width:49.0%;border:solid black 1.0pt;border-bottom: solid windowtext 1.0pt;padding:0in 2.0pt 0in 2.0pt;height:26.25pt;" width="49%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif; text-align: center;">
-<strong>ASSET CLASS</strong>
-</p>
-</td>
-<td style="width:51.0%;border-top:solid black 1.0pt;border-left: none;border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;padding:0in 2.0pt 0in 2.0pt;height:26.25pt;" width="51%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif; text-align: center;">
-<strong>ASSET TYPE</strong>
-</p>
-</td>
-</tr>
-<tr>
-<td rowspan="3" style="width:49.0%;border:solid windowtext 1.0pt;border-top:none;padding:0in 2.0pt 0in 2.0pt;height:.2in;" width="49%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-CASH
-</p>
-</td>
-<td style="width:51.0%;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 2.0pt 0in 2.0pt;height:.2in;" width="51%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-Bank Accounts
-</p>
-</td>
-</tr>
-<tr>
-<td style="width:51.0%;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 2.0pt 0in 2.0pt;height:.2in;" width="100%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-Other Accounts
-</p>
-</td>
-</tr>
-<tr>
-<td style="width:51.0%;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 2.0pt 0in 2.0pt;height:.2in;" width="100%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-Cash
-</p>
-</td>
-</tr>
-<tr>
-<td style="width:49.0%;border-top:none;border-left:solid black 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;padding:0in 2.0pt 0in 2.0pt;height:29.75pt;" width="49%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-COMMODITIES
-</p>
-</td>
-<td style="width:51.0%;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;padding:0in 2.0pt 0in 2.0pt;height:29.75pt;" width="51%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-Other
-</p>
-</td>
-</tr>
-<tr>
-<td style="width:49.0%;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;padding:0in 2.0pt 0in 2.0pt;height:32.35pt;" width="49%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-CRYPTO
-</p>
-</td>
-<td style="width:51.0%;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 2.0pt 0in 2.0pt;height:32.35pt;" width="51%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-Other
-</p>
-</td>
-</tr>
-<tr>
-<td rowspan="6" style="width:49.0%;border:solid black 1.0pt;border-top:none;padding:0in 2.0pt 0in 2.0pt;height:.2in;" width="49%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-FUNDS, BROKERS &amp; BANKS
-</p>
-</td>
-<td style="width:51.0%;border-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0in 2.0pt 0in 2.0pt;height:.2in;" width="51%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-Hedge Funds
-</p>
-</td>
-</tr>
-<tr>
-<td style="width:51.0%;border-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0in 2.0pt 0in 2.0pt;height:.2in;" width="100%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-Private Equity Funds
-</p>
-</td>
-</tr>
-<tr>
-<td style="width:51.0%;border-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0in 2.0pt 0in 2.0pt;height:.2in;" width="100%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-Venture Capital Funds
-</p>
-</td>
-</tr>
-<tr>
-<td style="width:51.0%;border-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0in 2.0pt 0in 2.0pt;height:.2in;" width="100%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-Savings Accounts
-</p>
-</td>
-</tr>
-<tr>
-<td style="width:51.0%;border-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0in 2.0pt 0in 2.0pt;height:.2in;" width="100%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-Structured Products
-</p>
-</td>
-</tr>
-<tr>
-<td style="width:51.0%;border-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0in 2.0pt 0in 2.0pt;height:.2in;" width="100%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-Other
-</p>
-</td>
-</tr>
-<tr>
-<td rowspan="5" style="width:49.0%;border:solid black 1.0pt;border-top:none;padding:0in 2.0pt 0in 2.0pt;height:.2in;" width="49%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-LUXURY ASSETS
-</p>
-</td>
-<td style="width:51.0%;border-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0in 2.0pt 0in 2.0pt;height:.2in;" width="51%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-Art
-</p>
-</td>
-</tr>
-<tr>
-<td style="width:51.0%;border-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0in 2.0pt 0in 2.0pt;height:.2in;" width="100%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-Cars &amp; Boats
-</p>
-</td>
-</tr>
-<tr>
-<td style="width:51.0%;border-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0in 2.0pt 0in 2.0pt;height:.2in;" width="100%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-Jewellery &amp; Watches
-</p>
-</td>
-</tr>
-<tr>
-<td style="width:51.0%;border-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0in 2.0pt 0in 2.0pt;height:.2in;" width="100%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-Wine
-</p>
-</td>
-</tr>
-<tr>
-<td style="width:51.0%;border-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0in 2.0pt 0in 2.0pt;height:.2in;" width="100%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-Other
-</p>
-</td>
-</tr>
-<tr>
-<td rowspan="3" style="width:49.0%;border:solid black 1.0pt;border-top:none;padding:0in 2.0pt 0in 2.0pt;height:.2in;" width="49%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-PRIVATE COMPANIES
-</p>
-</td>
-<td style="width:51.0%;border-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0in 2.0pt 0in 2.0pt;height:.2in;" width="51%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-Private Company Shares
-</p>
-</td>
-</tr>
-<tr>
-<td style="width:51.0%;border-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0in 2.0pt 0in 2.0pt;height:.2in;" width="100%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-Private Loans
-</p>
-</td>
-</tr>
-<tr>
-<td style="width:51.0%;border-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0in 2.0pt 0in 2.0pt;height:.2in;" width="100%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-Other
-</p>
-</td>
-</tr>
-<tr>
-<td style="border:solid black 1.0pt;border-top:none;padding:0in 0in 0in 0in;height:29.6pt;">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: normal; font-size: 15px; font-family: Calibri, sans-serif;">
-REAL ESTATE
-</p>
-</td>
-<td style="width:51.0%;border-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0in 2.0pt 0in 2.0pt;height:29.6pt;">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-Other
-</p>
-</td>
-</tr>
-<tr>
-<td style="border:solid black 1.0pt;border-top:none;padding:0in 0in 0in 0in;height:31.85pt;">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: normal; font-size: 15px; font-family: Calibri, sans-serif;">
-RETIREMENT PLANS
-</p>
-</td>
-<td style="width:51.0%;border-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0in 2.0pt 0in 2.0pt;height:31.85pt;">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-Other
-</p>
-</td>
-</tr>
-<tr>
-<td rowspan="2" style="width:49.0%;border:solid black 1.0pt;border-top:none;padding:0in 2.0pt 0in 2.0pt;height:.2in;" width="49%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-OTHER
-</p>
-</td>
-<td style="width:51.0%;border-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0in 2.0pt 0in 2.0pt;height:.2in;" width="51%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-Cars
-</p>
-</td>
-</tr>
-<tr>
-<td style="width:51.0%;border-top:none;border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0in 2.0pt 0in 2.0pt;height:.2in;" width="100%">
-<p style="margin-bottom: 0in; margin-left: 0in; line-height: 13.5pt; font-size: 15px; font-family: Calibri, sans-serif;">
-Other
-</p>
-</td>
-</tr>
-</tbody>
-</table>
-</body>
+        <a href="https://app.exirio.com/dashboard">Holdings</a> manually, you
+        have the option to upload selected Asset Classes using a CSV file.
+      </span>
+    </p>
+    <p
+      style="
+        margin-left: 0in;
+        font-size: 16px;
+        font-family: 'Inter Tight', sans-serif;
+        margin-bottom: 11pt;
+        line-height: 200%;
+        text-align: justify;
+      "
+    >
+      <span style="font-size: 16px; line-height: 200%">
+        Start by clicking on "Upload CSV", and download a template to fill in.
+        In the template, you will need to make sure some fields are populated
+        correctly:
+      </span>
+    </p>
+    <ol>
+      <li
+        style="
+          font-size: 16px;
+          font-family: 'Inter Tight', sans-serif;
+          margin-bottom: 11pt;
+          line-height: 200%;
+          text-align: justify;
+        "
+      >
+        <span style="font-size: 16px; line-height: 200%"
+          >Class (see list below)</span
+        >
+      </li>
+      <li
+        style="
+          font-size: 16px;
+          font-family: 'Inter Tight', sans-serif;
+          margin-bottom: 11pt;
+          line-height: 200%;
+          text-align: justify;
+        "
+      >
+        <span style="font-size: 16px; line-height: 200%"
+          >Type (see list below)</span
+        >
+      </li>
+      <li
+        style="
+          font-size: 16px;
+          font-family: 'Inter Tight', sans-serif;
+          margin-bottom: 11pt;
+          line-height: 200%;
+          text-align: justify;
+        "
+      >
+        <span style="font-size: 16px; line-height: 200%"
+          >Currency (see
+          <a
+            href="http://support.exirio.com/en/support/solutions/articles/80000402717"
+            >currency symbols</a
+          >).</span
+        >
+      </li>
+    </ol>
+    <p
+      style="
+        font-size: 16px;
+        font-family: 'Inter Tight', sans-serif;
+        line-height: 200%;
+        text-align: justify;
+      "
+    >
+      Please make sure dates are inputted as
+      <span style="font-family: 'Helvetica Neue', Arial, sans-serif"
+        >dd/mm/yyyy</span
+      >.
+    </p>
+    <table
+      border="0"
+      cellpadding="0"
+      cellspacing="0"
+      style="width: 100%; border-collapse: collapse"
+      width="100%"
+    >
+      <tbody>
+        <tr>
+          <td
+            style="
+              width: 49%;
+              border: solid black 1pt;
+              border-bottom: solid windowtext 1pt;
+              padding: 0in 2pt 0in 2pt;
+              height: 26.25pt;
+            "
+            width="49%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+                text-align: center;
+              "
+            >
+              <strong>ASSET CLASS</strong>
+            </p>
+          </td>
+          <td
+            style="
+              width: 51%;
+              border-top: solid black 1pt;
+              border-left: none;
+              border-bottom: solid windowtext 1pt;
+              border-right: solid black 1pt;
+              padding: 0in 2pt 0in 2pt;
+              height: 26.25pt;
+            "
+            width="51%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+                text-align: center;
+              "
+            >
+              <strong>ASSET TYPE</strong>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td
+            rowspan="3"
+            style="
+              width: 49%;
+              border: solid windowtext 1pt;
+              border-top: none;
+              padding: 0in 2pt 0in 2pt;
+              height: 0.2in;
+            "
+            width="49%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              CASH
+            </p>
+          </td>
+          <td
+            style="
+              width: 51%;
+              border-top: none;
+              border-left: none;
+              border-bottom: solid windowtext 1pt;
+              border-right: solid windowtext 1pt;
+              padding: 0in 2pt 0in 2pt;
+              height: 0.2in;
+            "
+            width="51%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              Bank Accounts
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td
+            style="
+              width: 51%;
+              border-top: none;
+              border-left: none;
+              border-bottom: solid windowtext 1pt;
+              border-right: solid windowtext 1pt;
+              padding: 0in 2pt 0in 2pt;
+              height: 0.2in;
+            "
+            width="100%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              Other Accounts
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td
+            style="
+              width: 51%;
+              border-top: none;
+              border-left: none;
+              border-bottom: solid windowtext 1pt;
+              border-right: solid windowtext 1pt;
+              padding: 0in 2pt 0in 2pt;
+              height: 0.2in;
+            "
+            width="100%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              Cash
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td
+            style="
+              width: 49%;
+              border-top: none;
+              border-left: solid black 1pt;
+              border-bottom: solid windowtext 1pt;
+              border-right: solid black 1pt;
+              padding: 0in 2pt 0in 2pt;
+              height: 29.75pt;
+            "
+            width="49%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              COMMODITIES
+            </p>
+          </td>
+          <td
+            style="
+              width: 51%;
+              border-top: none;
+              border-left: none;
+              border-bottom: solid windowtext 1pt;
+              border-right: solid black 1pt;
+              padding: 0in 2pt 0in 2pt;
+              height: 29.75pt;
+            "
+            width="51%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              Other
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td
+            style="
+              width: 49%;
+              border-top: none;
+              border-left: solid windowtext 1pt;
+              border-bottom: solid windowtext 1pt;
+              border-right: solid black 1pt;
+              padding: 0in 2pt 0in 2pt;
+              height: 32.35pt;
+            "
+            width="49%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              CRYPTO
+            </p>
+          </td>
+          <td
+            style="
+              width: 51%;
+              border-top: none;
+              border-left: none;
+              border-bottom: solid windowtext 1pt;
+              border-right: solid windowtext 1pt;
+              padding: 0in 2pt 0in 2pt;
+              height: 32.35pt;
+            "
+            width="51%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              Other
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td
+            rowspan="6"
+            style="
+              width: 49%;
+              border: solid black 1pt;
+              border-top: none;
+              padding: 0in 2pt 0in 2pt;
+              height: 0.2in;
+            "
+            width="49%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              FUNDS, BROKERS &amp; BANKS
+            </p>
+          </td>
+          <td
+            style="
+              width: 51%;
+              border-top: none;
+              border-left: none;
+              border-bottom: solid black 1pt;
+              border-right: solid black 1pt;
+              padding: 0in 2pt 0in 2pt;
+              height: 0.2in;
+            "
+            width="51%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              Hedge Funds
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td
+            style="
+              width: 51%;
+              border-top: none;
+              border-left: none;
+              border-bottom: solid black 1pt;
+              border-right: solid black 1pt;
+              padding: 0in 2pt 0in 2pt;
+              height: 0.2in;
+            "
+            width="100%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              Private Equity Funds
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td
+            style="
+              width: 51%;
+              border-top: none;
+              border-left: none;
+              border-bottom: solid black 1pt;
+              border-right: solid black 1pt;
+              padding: 0in 2pt 0in 2pt;
+              height: 0.2in;
+            "
+            width="100%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              Venture Capital Funds
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td
+            style="
+              width: 51%;
+              border-top: none;
+              border-left: none;
+              border-bottom: solid black 1pt;
+              border-right: solid black 1pt;
+              padding: 0in 2pt 0in 2pt;
+              height: 0.2in;
+            "
+            width="100%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              Savings Accounts
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td
+            style="
+              width: 51%;
+              border-top: none;
+              border-left: none;
+              border-bottom: solid black 1pt;
+              border-right: solid black 1pt;
+              padding: 0in 2pt 0in 2pt;
+              height: 0.2in;
+            "
+            width="100%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              Structured Products
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td
+            style="
+              width: 51%;
+              border-top: none;
+              border-left: none;
+              border-bottom: solid black 1pt;
+              border-right: solid black 1pt;
+              padding: 0in 2pt 0in 2pt;
+              height: 0.2in;
+            "
+            width="100%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              Other
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td
+            rowspan="5"
+            style="
+              width: 49%;
+              border: solid black 1pt;
+              border-top: none;
+              padding: 0in 2pt 0in 2pt;
+              height: 0.2in;
+            "
+            width="49%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              LUXURY ASSETS
+            </p>
+          </td>
+          <td
+            style="
+              width: 51%;
+              border-top: none;
+              border-left: none;
+              border-bottom: solid black 1pt;
+              border-right: solid black 1pt;
+              padding: 0in 2pt 0in 2pt;
+              height: 0.2in;
+            "
+            width="51%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              Art
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td
+            style="
+              width: 51%;
+              border-top: none;
+              border-left: none;
+              border-bottom: solid black 1pt;
+              border-right: solid black 1pt;
+              padding: 0in 2pt 0in 2pt;
+              height: 0.2in;
+            "
+            width="100%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              Cars &amp; Boats
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td
+            style="
+              width: 51%;
+              border-top: none;
+              border-left: none;
+              border-bottom: solid black 1pt;
+              border-right: solid black 1pt;
+              padding: 0in 2pt 0in 2pt;
+              height: 0.2in;
+            "
+            width="100%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              Jewellery &amp; Watches
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td
+            style="
+              width: 51%;
+              border-top: none;
+              border-left: none;
+              border-bottom: solid black 1pt;
+              border-right: solid black 1pt;
+              padding: 0in 2pt 0in 2pt;
+              height: 0.2in;
+            "
+            width="100%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              Wine
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td
+            style="
+              width: 51%;
+              border-top: none;
+              border-left: none;
+              border-bottom: solid black 1pt;
+              border-right: solid black 1pt;
+              padding: 0in 2pt 0in 2pt;
+              height: 0.2in;
+            "
+            width="100%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              Other
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td
+            rowspan="3"
+            style="
+              width: 49%;
+              border: solid black 1pt;
+              border-top: none;
+              padding: 0in 2pt 0in 2pt;
+              height: 0.2in;
+            "
+            width="49%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              PRIVATE COMPANIES
+            </p>
+          </td>
+          <td
+            style="
+              width: 51%;
+              border-top: none;
+              border-left: none;
+              border-bottom: solid black 1pt;
+              border-right: solid black 1pt;
+              padding: 0in 2pt 0in 2pt;
+              height: 0.2in;
+            "
+            width="51%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              Private Company Shares
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td
+            style="
+              width: 51%;
+              border-top: none;
+              border-left: none;
+              border-bottom: solid black 1pt;
+              border-right: solid black 1pt;
+              padding: 0in 2pt 0in 2pt;
+              height: 0.2in;
+            "
+            width="100%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              Private Loans
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td
+            style="
+              width: 51%;
+              border-top: none;
+              border-left: none;
+              border-bottom: solid black 1pt;
+              border-right: solid black 1pt;
+              padding: 0in 2pt 0in 2pt;
+              height: 0.2in;
+            "
+            width="100%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              Other
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td
+            style="
+              border: solid black 1pt;
+              border-top: none;
+              padding: 0in 0in 0in 0in;
+              height: 29.6pt;
+            "
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: normal;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              REAL ESTATE
+            </p>
+          </td>
+          <td
+            style="
+              width: 51%;
+              border-top: none;
+              border-left: none;
+              border-bottom: solid black 1pt;
+              border-right: solid black 1pt;
+              padding: 0in 2pt 0in 2pt;
+              height: 29.6pt;
+            "
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              Other
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td
+            style="
+              border: solid black 1pt;
+              border-top: none;
+              padding: 0in 0in 0in 0in;
+              height: 31.85pt;
+            "
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: normal;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              RETIREMENT PLANS
+            </p>
+          </td>
+          <td
+            style="
+              width: 51%;
+              border-top: none;
+              border-left: none;
+              border-bottom: solid black 1pt;
+              border-right: solid black 1pt;
+              padding: 0in 2pt 0in 2pt;
+              height: 31.85pt;
+            "
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              Other
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td
+            rowspan="2"
+            style="
+              width: 49%;
+              border: solid black 1pt;
+              border-top: none;
+              padding: 0in 2pt 0in 2pt;
+              height: 0.2in;
+            "
+            width="49%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              OTHER
+            </p>
+          </td>
+          <td
+            style="
+              width: 51%;
+              border-top: none;
+              border-left: none;
+              border-bottom: solid black 1pt;
+              border-right: solid black 1pt;
+              padding: 0in 2pt 0in 2pt;
+              height: 0.2in;
+            "
+            width="51%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              Cars
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td
+            style="
+              width: 51%;
+              border-top: none;
+              border-left: none;
+              border-bottom: solid black 1pt;
+              border-right: solid black 1pt;
+              padding: 0in 2pt 0in 2pt;
+              height: 0.2in;
+            "
+            width="100%"
+          >
+            <p
+              style="
+                margin-bottom: 0in;
+                margin-left: 0in;
+                line-height: 13.5pt;
+                font-size: 15px;
+                font-family: Calibri, sans-serif;
+              "
+            >
+              Other
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
 </html>
