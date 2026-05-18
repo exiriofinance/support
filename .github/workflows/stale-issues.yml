@@ -27,8 +27,8 @@ jobs:
           # STOP Auto-Closing (Set to -1)
           days-before-close: -1
           
-          # Exemptions (prevent closing pinned or security issues, skip already stale issues)
-          exempt-issue-labels: 'security,pinned,keep-open,stale'
+          # Exemptions (prevent stale processing for pinned/security/manual keep-open issues)
+          exempt-issue-labels: 'security,pinned,keep-open'
           
           # Operations allowed
           operations-per-run: 200 # Increased to process more issues per run (was 50)
